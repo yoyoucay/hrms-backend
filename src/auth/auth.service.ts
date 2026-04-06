@@ -1,10 +1,16 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { 
+  Injectable, 
+  UnauthorizedException, 
+  NotFoundException, 
+  ConflictException 
+} from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { PrismaService } from '../prisma/prisma.service';
 import * as bcrypt from 'bcrypt';
 import { LoginDto } from './dto/login.dto';
 import { AuthResponseDto } from './dto/auth-response.dto';
 import type { JwtPayload } from './types/jwt-payload.type';
+import { ChangePasswordDto } from './dto/change-password.dto';
 
 @Injectable()
 export class AuthService {
@@ -34,10 +40,15 @@ export class AuthService {
 
     const passwordRecord = account.Passwords;
     if (!passwordRecord) {
-      throw new UnauthorizedException('No password configured for this account');
+      throw new UnauthorizedException(
+        'No password configured for this account',
+      );
     }
 
-    const isMatch = await bcrypt.compare(dto.password, passwordRecord.sPassword);
+    const isMatch = await bcrypt.compare(
+      dto.password,
+      passwordRecord.sPassword,
+    );
     if (!isMatch) {
       throw new UnauthorizedException('Invalid credentials');
     }
@@ -92,5 +103,40 @@ export class AuthService {
       role: employee.sRole,
       hireDate: employee.dtHireDate,
     };
+  }
+
+  async changePassword(
+    accountId: number,
+    dto: ChangePasswordDto,
+  ): Promise<{ message: string }> {
+    const account = await this.prisma.accounts.findUnique({
+      where: { iAccountID: accountId },
+      include: { Passwords: true },
+    });
+
+    if (!account || !account.Passwords) {
+      throw new NotFoundException('Account or password record not found');
+    }
+
+    const isMatch = await bcrypt.compare(
+      dto.oldPassword,
+      account.Passwords.sPassword,
+    );
+    if (!isMatch) {
+      throw new ConflictException('Current password does not match');
+    }
+
+    const hashedNewPassword = await bcrypt.hash(dto.newPassword, 10);
+
+    await this.prisma.passwords.update({
+      where: { iAccountID: accountId },
+      data: {
+        sPassword: hashedNewPassword,
+        dtModifyAt: new Date(),
+        iModifyBy: accountId,
+      },
+    });
+
+    return { message: 'Password updated successfully' };
   }
 }
