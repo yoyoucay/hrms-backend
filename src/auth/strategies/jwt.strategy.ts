@@ -20,7 +20,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
 
   async validate(payload: JwtPayload): Promise<JwtPayload> {
     // Verify the account still exists and is active
-    const account = await this.prisma.account.findFirst({
+    const account = await this.prisma.accounts.findFirst({
       where: {
         iAccountID: payload.sub,
         iStatus: 1,

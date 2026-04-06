@@ -1,14 +1,10 @@
-import {
-  Injectable,
-  NotFoundException,
-  UnauthorizedException,
-} from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import * as bcrypt from 'bcrypt';
 import { PrismaService } from '../prisma/prisma.service';
+import * as bcrypt from 'bcrypt';
 import { LoginDto } from './dto/login.dto';
 import { AuthResponseDto } from './dto/auth-response.dto';
-import { JwtPayload } from './types/jwt-payload.type';
+import type { JwtPayload } from './types/jwt-payload.type';
 
 @Injectable()
 export class AuthService {
@@ -18,55 +14,47 @@ export class AuthService {
   ) {}
 
   async login(dto: LoginDto): Promise<AuthResponseDto> {
-    // 1. Find employee by empCode
-    const employee = await this.prisma.employee.findUnique({
+    const employee = await this.prisma.employees.findUnique({
       where: { sEmpID: dto.empCode },
       include: {
-        account: {
-          include: {
-            password: true,
-          },
+        Accounts: {
+          include: { Passwords: true },
         },
       },
     });
 
     if (!employee || employee.iStatus !== 1) {
-      throw new NotFoundException('Employee not found or inactive');
-    }
-
-    if (!employee.account || employee.account.iStatus !== 1) {
-      throw new UnauthorizedException('Account not found or inactive');
-    }
-
-    if (!employee.account.password) {
-      throw new UnauthorizedException('No password configured for this account');
-    }
-
-    // 2. Verify password
-    const isPasswordValid = await bcrypt.compare(
-      dto.password,
-      employee.account.password.sPassword,
-    );
-
-    if (!isPasswordValid) {
       throw new UnauthorizedException('Invalid credentials');
     }
 
-    // 3. Build JWT payload
+    const account = employee.Accounts;
+    if (!account || account.iStatus !== 1) {
+      throw new UnauthorizedException('Account is inactive or not found');
+    }
+
+    const passwordRecord = account.Passwords;
+    if (!passwordRecord) {
+      throw new UnauthorizedException('No password configured for this account');
+    }
+
+    const isMatch = await bcrypt.compare(dto.password, passwordRecord.sPassword);
+    if (!isMatch) {
+      throw new UnauthorizedException('Invalid credentials');
+    }
+
     const payload: JwtPayload = {
-      sub: employee.account.iAccountID,
+      sub: account.iAccountID,
       employeeId: employee.iEmployeeID,
       empCode: employee.sEmpID,
       role: employee.sRole ?? 'Employee',
     };
 
-    // 4. Sign token
-    const accessToken = await this.jwtService.signAsync(payload);
+    const accessToken = this.jwtService.sign(payload);
 
     return {
       accessToken,
       user: {
-        accountId: employee.account.iAccountID,
+        accountId: account.iAccountID,
         employeeId: employee.iEmployeeID,
         empCode: employee.sEmpID,
         fullName: employee.sFullName,
@@ -75,8 +63,8 @@ export class AuthService {
     };
   }
 
-  async getProfile(user: JwtPayload) {
-    const employee = await this.prisma.employee.findUnique({
+  async getProfile(user: JwtPayload): Promise<object> {
+    const employee = await this.prisma.employees.findUnique({
       where: { iEmployeeID: user.employeeId },
       select: {
         iEmployeeID: true,
@@ -86,13 +74,23 @@ export class AuthService {
         sDepartment: true,
         sRole: true,
         dtHireDate: true,
+        iStatus: true,
       },
     });
 
-    if (!employee) {
-      throw new NotFoundException('Employee profile not found');
+    if (!employee || employee.iStatus !== 1) {
+      throw new UnauthorizedException('Employee not found or inactive');
     }
 
-    return employee;
+    return {
+      accountId: user.sub,
+      employeeId: employee.iEmployeeID,
+      empCode: employee.sEmpID,
+      fullName: employee.sFullName,
+      email: employee.sEmail,
+      department: employee.sDepartment,
+      role: employee.sRole,
+      hireDate: employee.dtHireDate,
+    };
   }
 }

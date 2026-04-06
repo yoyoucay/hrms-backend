@@ -12,18 +12,18 @@ async function bootstrap() {
   // Global validation pipe
   app.useGlobalPipes(
     new ValidationPipe({
-      whitelist: true,       // Strip unknown properties
+      whitelist: true,
       forbidNonWhitelisted: true,
-      transform: true,       // Auto-transform payload types
+      transform: true,
     }),
   );
-
+  
   // Swagger setup
   const config = new DocumentBuilder()
     .setTitle('HRMS API')
     .setDescription('Human Resource Management System — REST API')
     .setVersion('1.0')
-    .addBearerAuth()         // Enables 🔒 lock icon in Swagger UI
+    .addBearerAuth() // Enables 🔒 lock icon in Swagger UI
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
