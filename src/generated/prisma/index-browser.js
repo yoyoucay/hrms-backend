@@ -120,7 +120,17 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.EmployeeScalarFieldEnum = {
+exports.Prisma.AccountsScalarFieldEnum = {
+  iAccountID: 'iAccountID',
+  iEmployeeID: 'iEmployeeID',
+  iStatus: 'iStatus',
+  iCreateBy: 'iCreateBy',
+  dtCreateAt: 'dtCreateAt',
+  iModifyBy: 'iModifyBy',
+  dtModifyAt: 'dtModifyAt'
+};
+
+exports.Prisma.EmployeesScalarFieldEnum = {
   iEmployeeID: 'iEmployeeID',
   sEmpID: 'sEmpID',
   sFullName: 'sFullName',
@@ -137,17 +147,7 @@ exports.Prisma.EmployeeScalarFieldEnum = {
   dtModifyAt: 'dtModifyAt'
 };
 
-exports.Prisma.AccountScalarFieldEnum = {
-  iAccountID: 'iAccountID',
-  iEmployeeID: 'iEmployeeID',
-  iStatus: 'iStatus',
-  iCreateBy: 'iCreateBy',
-  dtCreateAt: 'dtCreateAt',
-  iModifyBy: 'iModifyBy',
-  dtModifyAt: 'dtModifyAt'
-};
-
-exports.Prisma.PasswordScalarFieldEnum = {
+exports.Prisma.PasswordsScalarFieldEnum = {
   iPasswordID: 'iPasswordID',
   iAccountID: 'iAccountID',
   sPassword: 'sPassword',
@@ -163,21 +163,21 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
-exports.Prisma.QueryMode = {
-  default: 'default',
-  insensitive: 'insensitive'
-};
-
 exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
 
+exports.Prisma.QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+};
+
 
 exports.Prisma.ModelName = {
-  Employee: 'Employee',
-  Account: 'Account',
-  Password: 'Password'
+  Accounts: 'Accounts',
+  Employees: 'Employees',
+  Passwords: 'Passwords'
 };
 
 /**

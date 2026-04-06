@@ -14,20 +14,20 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model Employee
+ * Model Accounts
  * 
  */
-export type Employee = $Result.DefaultSelection<Prisma.$EmployeePayload>
+export type Accounts = $Result.DefaultSelection<Prisma.$AccountsPayload>
 /**
- * Model Account
+ * Model Employees
  * 
  */
-export type Account = $Result.DefaultSelection<Prisma.$AccountPayload>
+export type Employees = $Result.DefaultSelection<Prisma.$EmployeesPayload>
 /**
- * Model Password
+ * Model Passwords
  * 
  */
-export type Password = $Result.DefaultSelection<Prisma.$PasswordPayload>
+export type Passwords = $Result.DefaultSelection<Prisma.$PasswordsPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -38,8 +38,8 @@ export type Password = $Result.DefaultSelection<Prisma.$PasswordPayload>
  * const prisma = new PrismaClient({
  *   adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
  * })
- * // Fetch zero or more Employees
- * const employees = await prisma.employee.findMany()
+ * // Fetch zero or more Accounts
+ * const accounts = await prisma.accounts.findMany()
  * ```
  *
  *
@@ -61,8 +61,8 @@ export class PrismaClient<
    * const prisma = new PrismaClient({
    *   adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
    * })
-   * // Fetch zero or more Employees
-   * const employees = await prisma.employee.findMany()
+   * // Fetch zero or more Accounts
+   * const accounts = await prisma.accounts.findMany()
    * ```
    *
    *
@@ -151,34 +151,34 @@ export class PrismaClient<
   }>>
 
       /**
-   * `prisma.employee`: Exposes CRUD operations for the **Employee** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Employees
-    * const employees = await prisma.employee.findMany()
-    * ```
-    */
-  get employee(): Prisma.EmployeeDelegate<ExtArgs, ClientOptions>;
-
-  /**
-   * `prisma.account`: Exposes CRUD operations for the **Account** model.
+   * `prisma.accounts`: Exposes CRUD operations for the **Accounts** model.
     * Example usage:
     * ```ts
     * // Fetch zero or more Accounts
-    * const accounts = await prisma.account.findMany()
+    * const accounts = await prisma.accounts.findMany()
     * ```
     */
-  get account(): Prisma.AccountDelegate<ExtArgs, ClientOptions>;
+  get accounts(): Prisma.AccountsDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.password`: Exposes CRUD operations for the **Password** model.
+   * `prisma.employees`: Exposes CRUD operations for the **Employees** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Employees
+    * const employees = await prisma.employees.findMany()
+    * ```
+    */
+  get employees(): Prisma.EmployeesDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.passwords`: Exposes CRUD operations for the **Passwords** model.
     * Example usage:
     * ```ts
     * // Fetch zero or more Passwords
-    * const passwords = await prisma.password.findMany()
+    * const passwords = await prisma.passwords.findMany()
     * ```
     */
-  get password(): Prisma.PasswordDelegate<ExtArgs, ClientOptions>;
+  get passwords(): Prisma.PasswordsDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -613,9 +613,9 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    Employee: 'Employee',
-    Account: 'Account',
-    Password: 'Password'
+    Accounts: 'Accounts',
+    Employees: 'Employees',
+    Passwords: 'Passwords'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -631,229 +631,229 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "employee" | "account" | "password"
+      modelProps: "accounts" | "employees" | "passwords"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
-      Employee: {
-        payload: Prisma.$EmployeePayload<ExtArgs>
-        fields: Prisma.EmployeeFieldRefs
+      Accounts: {
+        payload: Prisma.$AccountsPayload<ExtArgs>
+        fields: Prisma.AccountsFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.EmployeeFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmployeePayload> | null
+            args: Prisma.AccountsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountsPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.EmployeeFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
+            args: Prisma.AccountsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountsPayload>
           }
           findFirst: {
-            args: Prisma.EmployeeFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmployeePayload> | null
+            args: Prisma.AccountsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountsPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.EmployeeFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
+            args: Prisma.AccountsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountsPayload>
           }
           findMany: {
-            args: Prisma.EmployeeFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>[]
+            args: Prisma.AccountsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountsPayload>[]
           }
           create: {
-            args: Prisma.EmployeeCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
+            args: Prisma.AccountsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountsPayload>
           }
           createMany: {
-            args: Prisma.EmployeeCreateManyArgs<ExtArgs>
+            args: Prisma.AccountsCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.EmployeeCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>[]
+            args: Prisma.AccountsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountsPayload>[]
           }
           delete: {
-            args: Prisma.EmployeeDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
+            args: Prisma.AccountsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountsPayload>
           }
           update: {
-            args: Prisma.EmployeeUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
+            args: Prisma.AccountsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountsPayload>
           }
           deleteMany: {
-            args: Prisma.EmployeeDeleteManyArgs<ExtArgs>
+            args: Prisma.AccountsDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.EmployeeUpdateManyArgs<ExtArgs>
+            args: Prisma.AccountsUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.EmployeeUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>[]
+            args: Prisma.AccountsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountsPayload>[]
           }
           upsert: {
-            args: Prisma.EmployeeUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmployeePayload>
+            args: Prisma.AccountsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AccountsPayload>
           }
           aggregate: {
-            args: Prisma.EmployeeAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateEmployee>
+            args: Prisma.AccountsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAccounts>
           }
           groupBy: {
-            args: Prisma.EmployeeGroupByArgs<ExtArgs>
-            result: $Utils.Optional<EmployeeGroupByOutputType>[]
+            args: Prisma.AccountsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AccountsGroupByOutputType>[]
           }
           count: {
-            args: Prisma.EmployeeCountArgs<ExtArgs>
-            result: $Utils.Optional<EmployeeCountAggregateOutputType> | number
+            args: Prisma.AccountsCountArgs<ExtArgs>
+            result: $Utils.Optional<AccountsCountAggregateOutputType> | number
           }
         }
       }
-      Account: {
-        payload: Prisma.$AccountPayload<ExtArgs>
-        fields: Prisma.AccountFieldRefs
+      Employees: {
+        payload: Prisma.$EmployeesPayload<ExtArgs>
+        fields: Prisma.EmployeesFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.AccountFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AccountPayload> | null
+            args: Prisma.EmployeesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeesPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.AccountFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
+            args: Prisma.EmployeesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeesPayload>
           }
           findFirst: {
-            args: Prisma.AccountFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AccountPayload> | null
+            args: Prisma.EmployeesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeesPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.AccountFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
+            args: Prisma.EmployeesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeesPayload>
           }
           findMany: {
-            args: Prisma.AccountFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AccountPayload>[]
+            args: Prisma.EmployeesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeesPayload>[]
           }
           create: {
-            args: Prisma.AccountCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
+            args: Prisma.EmployeesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeesPayload>
           }
           createMany: {
-            args: Prisma.AccountCreateManyArgs<ExtArgs>
+            args: Prisma.EmployeesCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.AccountCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AccountPayload>[]
+            args: Prisma.EmployeesCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeesPayload>[]
           }
           delete: {
-            args: Prisma.AccountDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
+            args: Prisma.EmployeesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeesPayload>
           }
           update: {
-            args: Prisma.AccountUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
+            args: Prisma.EmployeesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeesPayload>
           }
           deleteMany: {
-            args: Prisma.AccountDeleteManyArgs<ExtArgs>
+            args: Prisma.EmployeesDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.AccountUpdateManyArgs<ExtArgs>
+            args: Prisma.EmployeesUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.AccountUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AccountPayload>[]
+            args: Prisma.EmployeesUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeesPayload>[]
           }
           upsert: {
-            args: Prisma.AccountUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$AccountPayload>
+            args: Prisma.EmployeesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$EmployeesPayload>
           }
           aggregate: {
-            args: Prisma.AccountAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateAccount>
+            args: Prisma.EmployeesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateEmployees>
           }
           groupBy: {
-            args: Prisma.AccountGroupByArgs<ExtArgs>
-            result: $Utils.Optional<AccountGroupByOutputType>[]
+            args: Prisma.EmployeesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<EmployeesGroupByOutputType>[]
           }
           count: {
-            args: Prisma.AccountCountArgs<ExtArgs>
-            result: $Utils.Optional<AccountCountAggregateOutputType> | number
+            args: Prisma.EmployeesCountArgs<ExtArgs>
+            result: $Utils.Optional<EmployeesCountAggregateOutputType> | number
           }
         }
       }
-      Password: {
-        payload: Prisma.$PasswordPayload<ExtArgs>
-        fields: Prisma.PasswordFieldRefs
+      Passwords: {
+        payload: Prisma.$PasswordsPayload<ExtArgs>
+        fields: Prisma.PasswordsFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.PasswordFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PasswordPayload> | null
+            args: Prisma.PasswordsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PasswordsPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.PasswordFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PasswordPayload>
+            args: Prisma.PasswordsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PasswordsPayload>
           }
           findFirst: {
-            args: Prisma.PasswordFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PasswordPayload> | null
+            args: Prisma.PasswordsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PasswordsPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.PasswordFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PasswordPayload>
+            args: Prisma.PasswordsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PasswordsPayload>
           }
           findMany: {
-            args: Prisma.PasswordFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PasswordPayload>[]
+            args: Prisma.PasswordsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PasswordsPayload>[]
           }
           create: {
-            args: Prisma.PasswordCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PasswordPayload>
+            args: Prisma.PasswordsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PasswordsPayload>
           }
           createMany: {
-            args: Prisma.PasswordCreateManyArgs<ExtArgs>
+            args: Prisma.PasswordsCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.PasswordCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PasswordPayload>[]
+            args: Prisma.PasswordsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PasswordsPayload>[]
           }
           delete: {
-            args: Prisma.PasswordDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PasswordPayload>
+            args: Prisma.PasswordsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PasswordsPayload>
           }
           update: {
-            args: Prisma.PasswordUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PasswordPayload>
+            args: Prisma.PasswordsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PasswordsPayload>
           }
           deleteMany: {
-            args: Prisma.PasswordDeleteManyArgs<ExtArgs>
+            args: Prisma.PasswordsDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.PasswordUpdateManyArgs<ExtArgs>
+            args: Prisma.PasswordsUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.PasswordUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PasswordPayload>[]
+            args: Prisma.PasswordsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PasswordsPayload>[]
           }
           upsert: {
-            args: Prisma.PasswordUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PasswordPayload>
+            args: Prisma.PasswordsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PasswordsPayload>
           }
           aggregate: {
-            args: Prisma.PasswordAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregatePassword>
+            args: Prisma.PasswordsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePasswords>
           }
           groupBy: {
-            args: Prisma.PasswordGroupByArgs<ExtArgs>
-            result: $Utils.Optional<PasswordGroupByOutputType>[]
+            args: Prisma.PasswordsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PasswordsGroupByOutputType>[]
           }
           count: {
-            args: Prisma.PasswordCountArgs<ExtArgs>
-            result: $Utils.Optional<PasswordCountAggregateOutputType> | number
+            args: Prisma.PasswordsCountArgs<ExtArgs>
+            result: $Utils.Optional<PasswordsCountAggregateOutputType> | number
           }
         }
       }
@@ -965,9 +965,9 @@ export namespace Prisma {
     comments?: runtime.SqlCommenterPlugin[]
   }
   export type GlobalOmitConfig = {
-    employee?: EmployeeOmit
-    account?: AccountOmit
-    password?: PasswordOmit
+    accounts?: AccountsOmit
+    employees?: EmployeesOmit
+    passwords?: PasswordsOmit
   }
 
   /* Types for Logging */
@@ -1049,18 +1049,1180 @@ export namespace Prisma {
    */
 
   /**
-   * Model Employee
+   * Model Accounts
    */
 
-  export type AggregateEmployee = {
-    _count: EmployeeCountAggregateOutputType | null
-    _avg: EmployeeAvgAggregateOutputType | null
-    _sum: EmployeeSumAggregateOutputType | null
-    _min: EmployeeMinAggregateOutputType | null
-    _max: EmployeeMaxAggregateOutputType | null
+  export type AggregateAccounts = {
+    _count: AccountsCountAggregateOutputType | null
+    _avg: AccountsAvgAggregateOutputType | null
+    _sum: AccountsSumAggregateOutputType | null
+    _min: AccountsMinAggregateOutputType | null
+    _max: AccountsMaxAggregateOutputType | null
   }
 
-  export type EmployeeAvgAggregateOutputType = {
+  export type AccountsAvgAggregateOutputType = {
+    iAccountID: number | null
+    iEmployeeID: number | null
+    iStatus: number | null
+    iCreateBy: number | null
+    iModifyBy: number | null
+  }
+
+  export type AccountsSumAggregateOutputType = {
+    iAccountID: number | null
+    iEmployeeID: number | null
+    iStatus: number | null
+    iCreateBy: number | null
+    iModifyBy: number | null
+  }
+
+  export type AccountsMinAggregateOutputType = {
+    iAccountID: number | null
+    iEmployeeID: number | null
+    iStatus: number | null
+    iCreateBy: number | null
+    dtCreateAt: Date | null
+    iModifyBy: number | null
+    dtModifyAt: Date | null
+  }
+
+  export type AccountsMaxAggregateOutputType = {
+    iAccountID: number | null
+    iEmployeeID: number | null
+    iStatus: number | null
+    iCreateBy: number | null
+    dtCreateAt: Date | null
+    iModifyBy: number | null
+    dtModifyAt: Date | null
+  }
+
+  export type AccountsCountAggregateOutputType = {
+    iAccountID: number
+    iEmployeeID: number
+    iStatus: number
+    iCreateBy: number
+    dtCreateAt: number
+    iModifyBy: number
+    dtModifyAt: number
+    _all: number
+  }
+
+
+  export type AccountsAvgAggregateInputType = {
+    iAccountID?: true
+    iEmployeeID?: true
+    iStatus?: true
+    iCreateBy?: true
+    iModifyBy?: true
+  }
+
+  export type AccountsSumAggregateInputType = {
+    iAccountID?: true
+    iEmployeeID?: true
+    iStatus?: true
+    iCreateBy?: true
+    iModifyBy?: true
+  }
+
+  export type AccountsMinAggregateInputType = {
+    iAccountID?: true
+    iEmployeeID?: true
+    iStatus?: true
+    iCreateBy?: true
+    dtCreateAt?: true
+    iModifyBy?: true
+    dtModifyAt?: true
+  }
+
+  export type AccountsMaxAggregateInputType = {
+    iAccountID?: true
+    iEmployeeID?: true
+    iStatus?: true
+    iCreateBy?: true
+    dtCreateAt?: true
+    iModifyBy?: true
+    dtModifyAt?: true
+  }
+
+  export type AccountsCountAggregateInputType = {
+    iAccountID?: true
+    iEmployeeID?: true
+    iStatus?: true
+    iCreateBy?: true
+    dtCreateAt?: true
+    iModifyBy?: true
+    dtModifyAt?: true
+    _all?: true
+  }
+
+  export type AccountsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Accounts to aggregate.
+     */
+    where?: AccountsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Accounts to fetch.
+     */
+    orderBy?: AccountsOrderByWithRelationInput | AccountsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AccountsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Accounts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Accounts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Accounts
+    **/
+    _count?: true | AccountsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AccountsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AccountsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AccountsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AccountsMaxAggregateInputType
+  }
+
+  export type GetAccountsAggregateType<T extends AccountsAggregateArgs> = {
+        [P in keyof T & keyof AggregateAccounts]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAccounts[P]>
+      : GetScalarType<T[P], AggregateAccounts[P]>
+  }
+
+
+
+
+  export type AccountsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AccountsWhereInput
+    orderBy?: AccountsOrderByWithAggregationInput | AccountsOrderByWithAggregationInput[]
+    by: AccountsScalarFieldEnum[] | AccountsScalarFieldEnum
+    having?: AccountsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AccountsCountAggregateInputType | true
+    _avg?: AccountsAvgAggregateInputType
+    _sum?: AccountsSumAggregateInputType
+    _min?: AccountsMinAggregateInputType
+    _max?: AccountsMaxAggregateInputType
+  }
+
+  export type AccountsGroupByOutputType = {
+    iAccountID: number
+    iEmployeeID: number
+    iStatus: number | null
+    iCreateBy: number | null
+    dtCreateAt: Date | null
+    iModifyBy: number | null
+    dtModifyAt: Date | null
+    _count: AccountsCountAggregateOutputType | null
+    _avg: AccountsAvgAggregateOutputType | null
+    _sum: AccountsSumAggregateOutputType | null
+    _min: AccountsMinAggregateOutputType | null
+    _max: AccountsMaxAggregateOutputType | null
+  }
+
+  type GetAccountsGroupByPayload<T extends AccountsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AccountsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AccountsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AccountsGroupByOutputType[P]>
+            : GetScalarType<T[P], AccountsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AccountsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    iAccountID?: boolean
+    iEmployeeID?: boolean
+    iStatus?: boolean
+    iCreateBy?: boolean
+    dtCreateAt?: boolean
+    iModifyBy?: boolean
+    dtModifyAt?: boolean
+    Employees?: boolean | EmployeesDefaultArgs<ExtArgs>
+    Passwords?: boolean | Accounts$PasswordsArgs<ExtArgs>
+  }, ExtArgs["result"]["accounts"]>
+
+  export type AccountsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    iAccountID?: boolean
+    iEmployeeID?: boolean
+    iStatus?: boolean
+    iCreateBy?: boolean
+    dtCreateAt?: boolean
+    iModifyBy?: boolean
+    dtModifyAt?: boolean
+    Employees?: boolean | EmployeesDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["accounts"]>
+
+  export type AccountsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    iAccountID?: boolean
+    iEmployeeID?: boolean
+    iStatus?: boolean
+    iCreateBy?: boolean
+    dtCreateAt?: boolean
+    iModifyBy?: boolean
+    dtModifyAt?: boolean
+    Employees?: boolean | EmployeesDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["accounts"]>
+
+  export type AccountsSelectScalar = {
+    iAccountID?: boolean
+    iEmployeeID?: boolean
+    iStatus?: boolean
+    iCreateBy?: boolean
+    dtCreateAt?: boolean
+    iModifyBy?: boolean
+    dtModifyAt?: boolean
+  }
+
+  export type AccountsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"iAccountID" | "iEmployeeID" | "iStatus" | "iCreateBy" | "dtCreateAt" | "iModifyBy" | "dtModifyAt", ExtArgs["result"]["accounts"]>
+  export type AccountsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Employees?: boolean | EmployeesDefaultArgs<ExtArgs>
+    Passwords?: boolean | Accounts$PasswordsArgs<ExtArgs>
+  }
+  export type AccountsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Employees?: boolean | EmployeesDefaultArgs<ExtArgs>
+  }
+  export type AccountsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Employees?: boolean | EmployeesDefaultArgs<ExtArgs>
+  }
+
+  export type $AccountsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Accounts"
+    objects: {
+      Employees: Prisma.$EmployeesPayload<ExtArgs>
+      Passwords: Prisma.$PasswordsPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      iAccountID: number
+      iEmployeeID: number
+      iStatus: number | null
+      iCreateBy: number | null
+      dtCreateAt: Date | null
+      iModifyBy: number | null
+      dtModifyAt: Date | null
+    }, ExtArgs["result"]["accounts"]>
+    composites: {}
+  }
+
+  type AccountsGetPayload<S extends boolean | null | undefined | AccountsDefaultArgs> = $Result.GetResult<Prisma.$AccountsPayload, S>
+
+  type AccountsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AccountsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AccountsCountAggregateInputType | true
+    }
+
+  export interface AccountsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Accounts'], meta: { name: 'Accounts' } }
+    /**
+     * Find zero or one Accounts that matches the filter.
+     * @param {AccountsFindUniqueArgs} args - Arguments to find a Accounts
+     * @example
+     * // Get one Accounts
+     * const accounts = await prisma.accounts.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AccountsFindUniqueArgs>(args: SelectSubset<T, AccountsFindUniqueArgs<ExtArgs>>): Prisma__AccountsClient<$Result.GetResult<Prisma.$AccountsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Accounts that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AccountsFindUniqueOrThrowArgs} args - Arguments to find a Accounts
+     * @example
+     * // Get one Accounts
+     * const accounts = await prisma.accounts.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AccountsFindUniqueOrThrowArgs>(args: SelectSubset<T, AccountsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AccountsClient<$Result.GetResult<Prisma.$AccountsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Accounts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AccountsFindFirstArgs} args - Arguments to find a Accounts
+     * @example
+     * // Get one Accounts
+     * const accounts = await prisma.accounts.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AccountsFindFirstArgs>(args?: SelectSubset<T, AccountsFindFirstArgs<ExtArgs>>): Prisma__AccountsClient<$Result.GetResult<Prisma.$AccountsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Accounts that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AccountsFindFirstOrThrowArgs} args - Arguments to find a Accounts
+     * @example
+     * // Get one Accounts
+     * const accounts = await prisma.accounts.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AccountsFindFirstOrThrowArgs>(args?: SelectSubset<T, AccountsFindFirstOrThrowArgs<ExtArgs>>): Prisma__AccountsClient<$Result.GetResult<Prisma.$AccountsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Accounts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AccountsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Accounts
+     * const accounts = await prisma.accounts.findMany()
+     * 
+     * // Get first 10 Accounts
+     * const accounts = await prisma.accounts.findMany({ take: 10 })
+     * 
+     * // Only select the `iAccountID`
+     * const accountsWithIAccountIDOnly = await prisma.accounts.findMany({ select: { iAccountID: true } })
+     * 
+     */
+    findMany<T extends AccountsFindManyArgs>(args?: SelectSubset<T, AccountsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Accounts.
+     * @param {AccountsCreateArgs} args - Arguments to create a Accounts.
+     * @example
+     * // Create one Accounts
+     * const Accounts = await prisma.accounts.create({
+     *   data: {
+     *     // ... data to create a Accounts
+     *   }
+     * })
+     * 
+     */
+    create<T extends AccountsCreateArgs>(args: SelectSubset<T, AccountsCreateArgs<ExtArgs>>): Prisma__AccountsClient<$Result.GetResult<Prisma.$AccountsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Accounts.
+     * @param {AccountsCreateManyArgs} args - Arguments to create many Accounts.
+     * @example
+     * // Create many Accounts
+     * const accounts = await prisma.accounts.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AccountsCreateManyArgs>(args?: SelectSubset<T, AccountsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Accounts and returns the data saved in the database.
+     * @param {AccountsCreateManyAndReturnArgs} args - Arguments to create many Accounts.
+     * @example
+     * // Create many Accounts
+     * const accounts = await prisma.accounts.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Accounts and only return the `iAccountID`
+     * const accountsWithIAccountIDOnly = await prisma.accounts.createManyAndReturn({
+     *   select: { iAccountID: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends AccountsCreateManyAndReturnArgs>(args?: SelectSubset<T, AccountsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Accounts.
+     * @param {AccountsDeleteArgs} args - Arguments to delete one Accounts.
+     * @example
+     * // Delete one Accounts
+     * const Accounts = await prisma.accounts.delete({
+     *   where: {
+     *     // ... filter to delete one Accounts
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AccountsDeleteArgs>(args: SelectSubset<T, AccountsDeleteArgs<ExtArgs>>): Prisma__AccountsClient<$Result.GetResult<Prisma.$AccountsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Accounts.
+     * @param {AccountsUpdateArgs} args - Arguments to update one Accounts.
+     * @example
+     * // Update one Accounts
+     * const accounts = await prisma.accounts.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AccountsUpdateArgs>(args: SelectSubset<T, AccountsUpdateArgs<ExtArgs>>): Prisma__AccountsClient<$Result.GetResult<Prisma.$AccountsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Accounts.
+     * @param {AccountsDeleteManyArgs} args - Arguments to filter Accounts to delete.
+     * @example
+     * // Delete a few Accounts
+     * const { count } = await prisma.accounts.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AccountsDeleteManyArgs>(args?: SelectSubset<T, AccountsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Accounts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AccountsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Accounts
+     * const accounts = await prisma.accounts.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AccountsUpdateManyArgs>(args: SelectSubset<T, AccountsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Accounts and returns the data updated in the database.
+     * @param {AccountsUpdateManyAndReturnArgs} args - Arguments to update many Accounts.
+     * @example
+     * // Update many Accounts
+     * const accounts = await prisma.accounts.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Accounts and only return the `iAccountID`
+     * const accountsWithIAccountIDOnly = await prisma.accounts.updateManyAndReturn({
+     *   select: { iAccountID: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends AccountsUpdateManyAndReturnArgs>(args: SelectSubset<T, AccountsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Accounts.
+     * @param {AccountsUpsertArgs} args - Arguments to update or create a Accounts.
+     * @example
+     * // Update or create a Accounts
+     * const accounts = await prisma.accounts.upsert({
+     *   create: {
+     *     // ... data to create a Accounts
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Accounts we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AccountsUpsertArgs>(args: SelectSubset<T, AccountsUpsertArgs<ExtArgs>>): Prisma__AccountsClient<$Result.GetResult<Prisma.$AccountsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Accounts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AccountsCountArgs} args - Arguments to filter Accounts to count.
+     * @example
+     * // Count the number of Accounts
+     * const count = await prisma.accounts.count({
+     *   where: {
+     *     // ... the filter for the Accounts we want to count
+     *   }
+     * })
+    **/
+    count<T extends AccountsCountArgs>(
+      args?: Subset<T, AccountsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AccountsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Accounts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AccountsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AccountsAggregateArgs>(args: Subset<T, AccountsAggregateArgs>): Prisma.PrismaPromise<GetAccountsAggregateType<T>>
+
+    /**
+     * Group by Accounts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AccountsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AccountsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AccountsGroupByArgs['orderBy'] }
+        : { orderBy?: AccountsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AccountsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAccountsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Accounts model
+   */
+  readonly fields: AccountsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Accounts.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AccountsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    Employees<T extends EmployeesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EmployeesDefaultArgs<ExtArgs>>): Prisma__EmployeesClient<$Result.GetResult<Prisma.$EmployeesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    Passwords<T extends Accounts$PasswordsArgs<ExtArgs> = {}>(args?: Subset<T, Accounts$PasswordsArgs<ExtArgs>>): Prisma__PasswordsClient<$Result.GetResult<Prisma.$PasswordsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Accounts model
+   */
+  interface AccountsFieldRefs {
+    readonly iAccountID: FieldRef<"Accounts", 'Int'>
+    readonly iEmployeeID: FieldRef<"Accounts", 'Int'>
+    readonly iStatus: FieldRef<"Accounts", 'Int'>
+    readonly iCreateBy: FieldRef<"Accounts", 'Int'>
+    readonly dtCreateAt: FieldRef<"Accounts", 'DateTime'>
+    readonly iModifyBy: FieldRef<"Accounts", 'Int'>
+    readonly dtModifyAt: FieldRef<"Accounts", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Accounts findUnique
+   */
+  export type AccountsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Accounts
+     */
+    select?: AccountsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Accounts
+     */
+    omit?: AccountsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountsInclude<ExtArgs> | null
+    /**
+     * Filter, which Accounts to fetch.
+     */
+    where: AccountsWhereUniqueInput
+  }
+
+  /**
+   * Accounts findUniqueOrThrow
+   */
+  export type AccountsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Accounts
+     */
+    select?: AccountsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Accounts
+     */
+    omit?: AccountsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountsInclude<ExtArgs> | null
+    /**
+     * Filter, which Accounts to fetch.
+     */
+    where: AccountsWhereUniqueInput
+  }
+
+  /**
+   * Accounts findFirst
+   */
+  export type AccountsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Accounts
+     */
+    select?: AccountsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Accounts
+     */
+    omit?: AccountsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountsInclude<ExtArgs> | null
+    /**
+     * Filter, which Accounts to fetch.
+     */
+    where?: AccountsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Accounts to fetch.
+     */
+    orderBy?: AccountsOrderByWithRelationInput | AccountsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Accounts.
+     */
+    cursor?: AccountsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Accounts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Accounts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Accounts.
+     */
+    distinct?: AccountsScalarFieldEnum | AccountsScalarFieldEnum[]
+  }
+
+  /**
+   * Accounts findFirstOrThrow
+   */
+  export type AccountsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Accounts
+     */
+    select?: AccountsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Accounts
+     */
+    omit?: AccountsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountsInclude<ExtArgs> | null
+    /**
+     * Filter, which Accounts to fetch.
+     */
+    where?: AccountsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Accounts to fetch.
+     */
+    orderBy?: AccountsOrderByWithRelationInput | AccountsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Accounts.
+     */
+    cursor?: AccountsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Accounts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Accounts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Accounts.
+     */
+    distinct?: AccountsScalarFieldEnum | AccountsScalarFieldEnum[]
+  }
+
+  /**
+   * Accounts findMany
+   */
+  export type AccountsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Accounts
+     */
+    select?: AccountsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Accounts
+     */
+    omit?: AccountsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountsInclude<ExtArgs> | null
+    /**
+     * Filter, which Accounts to fetch.
+     */
+    where?: AccountsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Accounts to fetch.
+     */
+    orderBy?: AccountsOrderByWithRelationInput | AccountsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Accounts.
+     */
+    cursor?: AccountsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Accounts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Accounts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Accounts.
+     */
+    distinct?: AccountsScalarFieldEnum | AccountsScalarFieldEnum[]
+  }
+
+  /**
+   * Accounts create
+   */
+  export type AccountsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Accounts
+     */
+    select?: AccountsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Accounts
+     */
+    omit?: AccountsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Accounts.
+     */
+    data: XOR<AccountsCreateInput, AccountsUncheckedCreateInput>
+  }
+
+  /**
+   * Accounts createMany
+   */
+  export type AccountsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Accounts.
+     */
+    data: AccountsCreateManyInput | AccountsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Accounts createManyAndReturn
+   */
+  export type AccountsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Accounts
+     */
+    select?: AccountsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Accounts
+     */
+    omit?: AccountsOmit<ExtArgs> | null
+    /**
+     * The data used to create many Accounts.
+     */
+    data: AccountsCreateManyInput | AccountsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Accounts update
+   */
+  export type AccountsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Accounts
+     */
+    select?: AccountsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Accounts
+     */
+    omit?: AccountsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Accounts.
+     */
+    data: XOR<AccountsUpdateInput, AccountsUncheckedUpdateInput>
+    /**
+     * Choose, which Accounts to update.
+     */
+    where: AccountsWhereUniqueInput
+  }
+
+  /**
+   * Accounts updateMany
+   */
+  export type AccountsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Accounts.
+     */
+    data: XOR<AccountsUpdateManyMutationInput, AccountsUncheckedUpdateManyInput>
+    /**
+     * Filter which Accounts to update
+     */
+    where?: AccountsWhereInput
+    /**
+     * Limit how many Accounts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Accounts updateManyAndReturn
+   */
+  export type AccountsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Accounts
+     */
+    select?: AccountsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Accounts
+     */
+    omit?: AccountsOmit<ExtArgs> | null
+    /**
+     * The data used to update Accounts.
+     */
+    data: XOR<AccountsUpdateManyMutationInput, AccountsUncheckedUpdateManyInput>
+    /**
+     * Filter which Accounts to update
+     */
+    where?: AccountsWhereInput
+    /**
+     * Limit how many Accounts to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Accounts upsert
+   */
+  export type AccountsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Accounts
+     */
+    select?: AccountsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Accounts
+     */
+    omit?: AccountsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Accounts to update in case it exists.
+     */
+    where: AccountsWhereUniqueInput
+    /**
+     * In case the Accounts found by the `where` argument doesn't exist, create a new Accounts with this data.
+     */
+    create: XOR<AccountsCreateInput, AccountsUncheckedCreateInput>
+    /**
+     * In case the Accounts was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AccountsUpdateInput, AccountsUncheckedUpdateInput>
+  }
+
+  /**
+   * Accounts delete
+   */
+  export type AccountsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Accounts
+     */
+    select?: AccountsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Accounts
+     */
+    omit?: AccountsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountsInclude<ExtArgs> | null
+    /**
+     * Filter which Accounts to delete.
+     */
+    where: AccountsWhereUniqueInput
+  }
+
+  /**
+   * Accounts deleteMany
+   */
+  export type AccountsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Accounts to delete
+     */
+    where?: AccountsWhereInput
+    /**
+     * Limit how many Accounts to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Accounts.Passwords
+   */
+  export type Accounts$PasswordsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Passwords
+     */
+    select?: PasswordsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Passwords
+     */
+    omit?: PasswordsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PasswordsInclude<ExtArgs> | null
+    where?: PasswordsWhereInput
+  }
+
+  /**
+   * Accounts without action
+   */
+  export type AccountsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Accounts
+     */
+    select?: AccountsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Accounts
+     */
+    omit?: AccountsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: AccountsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Employees
+   */
+
+  export type AggregateEmployees = {
+    _count: EmployeesCountAggregateOutputType | null
+    _avg: EmployeesAvgAggregateOutputType | null
+    _sum: EmployeesSumAggregateOutputType | null
+    _min: EmployeesMinAggregateOutputType | null
+    _max: EmployeesMaxAggregateOutputType | null
+  }
+
+  export type EmployeesAvgAggregateOutputType = {
     iEmployeeID: number | null
     iSafetyYet: number | null
     iStatus: number | null
@@ -1068,7 +2230,7 @@ export namespace Prisma {
     iModifyBy: number | null
   }
 
-  export type EmployeeSumAggregateOutputType = {
+  export type EmployeesSumAggregateOutputType = {
     iEmployeeID: number | null
     iSafetyYet: number | null
     iStatus: number | null
@@ -1076,7 +2238,7 @@ export namespace Prisma {
     iModifyBy: number | null
   }
 
-  export type EmployeeMinAggregateOutputType = {
+  export type EmployeesMinAggregateOutputType = {
     iEmployeeID: number | null
     sEmpID: string | null
     sFullName: string | null
@@ -1093,7 +2255,7 @@ export namespace Prisma {
     dtModifyAt: Date | null
   }
 
-  export type EmployeeMaxAggregateOutputType = {
+  export type EmployeesMaxAggregateOutputType = {
     iEmployeeID: number | null
     sEmpID: string | null
     sFullName: string | null
@@ -1110,7 +2272,7 @@ export namespace Prisma {
     dtModifyAt: Date | null
   }
 
-  export type EmployeeCountAggregateOutputType = {
+  export type EmployeesCountAggregateOutputType = {
     iEmployeeID: number
     sEmpID: number
     sFullName: number
@@ -1129,7 +2291,7 @@ export namespace Prisma {
   }
 
 
-  export type EmployeeAvgAggregateInputType = {
+  export type EmployeesAvgAggregateInputType = {
     iEmployeeID?: true
     iSafetyYet?: true
     iStatus?: true
@@ -1137,7 +2299,7 @@ export namespace Prisma {
     iModifyBy?: true
   }
 
-  export type EmployeeSumAggregateInputType = {
+  export type EmployeesSumAggregateInputType = {
     iEmployeeID?: true
     iSafetyYet?: true
     iStatus?: true
@@ -1145,24 +2307,7 @@ export namespace Prisma {
     iModifyBy?: true
   }
 
-  export type EmployeeMinAggregateInputType = {
-    iEmployeeID?: true
-    sEmpID?: true
-    sFullName?: true
-    sEmail?: true
-    sDepartment?: true
-    sRole?: true
-    dtHireDate?: true
-    iSafetyYet?: true
-    dtLastSafetyTraining?: true
-    iStatus?: true
-    iCreateBy?: true
-    dtCreateAt?: true
-    iModifyBy?: true
-    dtModifyAt?: true
-  }
-
-  export type EmployeeMaxAggregateInputType = {
+  export type EmployeesMinAggregateInputType = {
     iEmployeeID?: true
     sEmpID?: true
     sFullName?: true
@@ -1179,7 +2324,24 @@ export namespace Prisma {
     dtModifyAt?: true
   }
 
-  export type EmployeeCountAggregateInputType = {
+  export type EmployeesMaxAggregateInputType = {
+    iEmployeeID?: true
+    sEmpID?: true
+    sFullName?: true
+    sEmail?: true
+    sDepartment?: true
+    sRole?: true
+    dtHireDate?: true
+    iSafetyYet?: true
+    dtLastSafetyTraining?: true
+    iStatus?: true
+    iCreateBy?: true
+    dtCreateAt?: true
+    iModifyBy?: true
+    dtModifyAt?: true
+  }
+
+  export type EmployeesCountAggregateInputType = {
     iEmployeeID?: true
     sEmpID?: true
     sFullName?: true
@@ -1197,23 +2359,23 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type EmployeeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Employee to aggregate.
+     * Filter which Employees to aggregate.
      */
-    where?: EmployeeWhereInput
+    where?: EmployeesWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
      * Determine the order of Employees to fetch.
      */
-    orderBy?: EmployeeOrderByWithRelationInput | EmployeeOrderByWithRelationInput[]
+    orderBy?: EmployeesOrderByWithRelationInput | EmployeesOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: EmployeeWhereUniqueInput
+    cursor?: EmployeesWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
@@ -1231,59 +2393,59 @@ export namespace Prisma {
      * 
      * Count returned Employees
     **/
-    _count?: true | EmployeeCountAggregateInputType
+    _count?: true | EmployeesCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: EmployeeAvgAggregateInputType
+    _avg?: EmployeesAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: EmployeeSumAggregateInputType
+    _sum?: EmployeesSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: EmployeeMinAggregateInputType
+    _min?: EmployeesMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: EmployeeMaxAggregateInputType
+    _max?: EmployeesMaxAggregateInputType
   }
 
-  export type GetEmployeeAggregateType<T extends EmployeeAggregateArgs> = {
-        [P in keyof T & keyof AggregateEmployee]: P extends '_count' | 'count'
+  export type GetEmployeesAggregateType<T extends EmployeesAggregateArgs> = {
+        [P in keyof T & keyof AggregateEmployees]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateEmployee[P]>
-      : GetScalarType<T[P], AggregateEmployee[P]>
+        : GetScalarType<T[P], AggregateEmployees[P]>
+      : GetScalarType<T[P], AggregateEmployees[P]>
   }
 
 
 
 
-  export type EmployeeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: EmployeeWhereInput
-    orderBy?: EmployeeOrderByWithAggregationInput | EmployeeOrderByWithAggregationInput[]
-    by: EmployeeScalarFieldEnum[] | EmployeeScalarFieldEnum
-    having?: EmployeeScalarWhereWithAggregatesInput
+  export type EmployeesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EmployeesWhereInput
+    orderBy?: EmployeesOrderByWithAggregationInput | EmployeesOrderByWithAggregationInput[]
+    by: EmployeesScalarFieldEnum[] | EmployeesScalarFieldEnum
+    having?: EmployeesScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: EmployeeCountAggregateInputType | true
-    _avg?: EmployeeAvgAggregateInputType
-    _sum?: EmployeeSumAggregateInputType
-    _min?: EmployeeMinAggregateInputType
-    _max?: EmployeeMaxAggregateInputType
+    _count?: EmployeesCountAggregateInputType | true
+    _avg?: EmployeesAvgAggregateInputType
+    _sum?: EmployeesSumAggregateInputType
+    _min?: EmployeesMinAggregateInputType
+    _max?: EmployeesMaxAggregateInputType
   }
 
-  export type EmployeeGroupByOutputType = {
+  export type EmployeesGroupByOutputType = {
     iEmployeeID: number
     sEmpID: string
     sFullName: string
@@ -1293,33 +2455,33 @@ export namespace Prisma {
     dtHireDate: Date | null
     iSafetyYet: number | null
     dtLastSafetyTraining: Date | null
-    iStatus: number
+    iStatus: number | null
     iCreateBy: number | null
-    dtCreateAt: Date
+    dtCreateAt: Date | null
     iModifyBy: number | null
     dtModifyAt: Date | null
-    _count: EmployeeCountAggregateOutputType | null
-    _avg: EmployeeAvgAggregateOutputType | null
-    _sum: EmployeeSumAggregateOutputType | null
-    _min: EmployeeMinAggregateOutputType | null
-    _max: EmployeeMaxAggregateOutputType | null
+    _count: EmployeesCountAggregateOutputType | null
+    _avg: EmployeesAvgAggregateOutputType | null
+    _sum: EmployeesSumAggregateOutputType | null
+    _min: EmployeesMinAggregateOutputType | null
+    _max: EmployeesMaxAggregateOutputType | null
   }
 
-  type GetEmployeeGroupByPayload<T extends EmployeeGroupByArgs> = Prisma.PrismaPromise<
+  type GetEmployeesGroupByPayload<T extends EmployeesGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<EmployeeGroupByOutputType, T['by']> &
+      PickEnumerable<EmployeesGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof EmployeeGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof EmployeesGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], EmployeeGroupByOutputType[P]>
-            : GetScalarType<T[P], EmployeeGroupByOutputType[P]>
+              : GetScalarType<T[P], EmployeesGroupByOutputType[P]>
+            : GetScalarType<T[P], EmployeesGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type EmployeeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type EmployeesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     iEmployeeID?: boolean
     sEmpID?: boolean
     sFullName?: boolean
@@ -1334,10 +2496,10 @@ export namespace Prisma {
     dtCreateAt?: boolean
     iModifyBy?: boolean
     dtModifyAt?: boolean
-    account?: boolean | Employee$accountArgs<ExtArgs>
-  }, ExtArgs["result"]["employee"]>
+    Accounts?: boolean | Employees$AccountsArgs<ExtArgs>
+  }, ExtArgs["result"]["employees"]>
 
-  export type EmployeeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type EmployeesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     iEmployeeID?: boolean
     sEmpID?: boolean
     sFullName?: boolean
@@ -1352,9 +2514,9 @@ export namespace Prisma {
     dtCreateAt?: boolean
     iModifyBy?: boolean
     dtModifyAt?: boolean
-  }, ExtArgs["result"]["employee"]>
+  }, ExtArgs["result"]["employees"]>
 
-  export type EmployeeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type EmployeesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     iEmployeeID?: boolean
     sEmpID?: boolean
     sFullName?: boolean
@@ -1369,9 +2531,9 @@ export namespace Prisma {
     dtCreateAt?: boolean
     iModifyBy?: boolean
     dtModifyAt?: boolean
-  }, ExtArgs["result"]["employee"]>
+  }, ExtArgs["result"]["employees"]>
 
-  export type EmployeeSelectScalar = {
+  export type EmployeesSelectScalar = {
     iEmployeeID?: boolean
     sEmpID?: boolean
     sFullName?: boolean
@@ -1388,17 +2550,17 @@ export namespace Prisma {
     dtModifyAt?: boolean
   }
 
-  export type EmployeeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"iEmployeeID" | "sEmpID" | "sFullName" | "sEmail" | "sDepartment" | "sRole" | "dtHireDate" | "iSafetyYet" | "dtLastSafetyTraining" | "iStatus" | "iCreateBy" | "dtCreateAt" | "iModifyBy" | "dtModifyAt", ExtArgs["result"]["employee"]>
-  export type EmployeeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    account?: boolean | Employee$accountArgs<ExtArgs>
+  export type EmployeesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"iEmployeeID" | "sEmpID" | "sFullName" | "sEmail" | "sDepartment" | "sRole" | "dtHireDate" | "iSafetyYet" | "dtLastSafetyTraining" | "iStatus" | "iCreateBy" | "dtCreateAt" | "iModifyBy" | "dtModifyAt", ExtArgs["result"]["employees"]>
+  export type EmployeesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Accounts?: boolean | Employees$AccountsArgs<ExtArgs>
   }
-  export type EmployeeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
-  export type EmployeeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type EmployeesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type EmployeesIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
-  export type $EmployeePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Employee"
+  export type $EmployeesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Employees"
     objects: {
-      account: Prisma.$AccountPayload<ExtArgs> | null
+      Accounts: Prisma.$AccountsPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       iEmployeeID: number
@@ -1410,141 +2572,141 @@ export namespace Prisma {
       dtHireDate: Date | null
       iSafetyYet: number | null
       dtLastSafetyTraining: Date | null
-      iStatus: number
+      iStatus: number | null
       iCreateBy: number | null
-      dtCreateAt: Date
+      dtCreateAt: Date | null
       iModifyBy: number | null
       dtModifyAt: Date | null
-    }, ExtArgs["result"]["employee"]>
+    }, ExtArgs["result"]["employees"]>
     composites: {}
   }
 
-  type EmployeeGetPayload<S extends boolean | null | undefined | EmployeeDefaultArgs> = $Result.GetResult<Prisma.$EmployeePayload, S>
+  type EmployeesGetPayload<S extends boolean | null | undefined | EmployeesDefaultArgs> = $Result.GetResult<Prisma.$EmployeesPayload, S>
 
-  type EmployeeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<EmployeeFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: EmployeeCountAggregateInputType | true
+  type EmployeesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<EmployeesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: EmployeesCountAggregateInputType | true
     }
 
-  export interface EmployeeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Employee'], meta: { name: 'Employee' } }
+  export interface EmployeesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Employees'], meta: { name: 'Employees' } }
     /**
-     * Find zero or one Employee that matches the filter.
-     * @param {EmployeeFindUniqueArgs} args - Arguments to find a Employee
+     * Find zero or one Employees that matches the filter.
+     * @param {EmployeesFindUniqueArgs} args - Arguments to find a Employees
      * @example
-     * // Get one Employee
-     * const employee = await prisma.employee.findUnique({
+     * // Get one Employees
+     * const employees = await prisma.employees.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends EmployeeFindUniqueArgs>(args: SelectSubset<T, EmployeeFindUniqueArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends EmployeesFindUniqueArgs>(args: SelectSubset<T, EmployeesFindUniqueArgs<ExtArgs>>): Prisma__EmployeesClient<$Result.GetResult<Prisma.$EmployeesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Employee that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Employees that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {EmployeeFindUniqueOrThrowArgs} args - Arguments to find a Employee
+     * @param {EmployeesFindUniqueOrThrowArgs} args - Arguments to find a Employees
      * @example
-     * // Get one Employee
-     * const employee = await prisma.employee.findUniqueOrThrow({
+     * // Get one Employees
+     * const employees = await prisma.employees.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends EmployeeFindUniqueOrThrowArgs>(args: SelectSubset<T, EmployeeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends EmployeesFindUniqueOrThrowArgs>(args: SelectSubset<T, EmployeesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__EmployeesClient<$Result.GetResult<Prisma.$EmployeesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Employee that matches the filter.
+     * Find the first Employees that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EmployeeFindFirstArgs} args - Arguments to find a Employee
+     * @param {EmployeesFindFirstArgs} args - Arguments to find a Employees
      * @example
-     * // Get one Employee
-     * const employee = await prisma.employee.findFirst({
+     * // Get one Employees
+     * const employees = await prisma.employees.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends EmployeeFindFirstArgs>(args?: SelectSubset<T, EmployeeFindFirstArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends EmployeesFindFirstArgs>(args?: SelectSubset<T, EmployeesFindFirstArgs<ExtArgs>>): Prisma__EmployeesClient<$Result.GetResult<Prisma.$EmployeesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Employee that matches the filter or
+     * Find the first Employees that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EmployeeFindFirstOrThrowArgs} args - Arguments to find a Employee
+     * @param {EmployeesFindFirstOrThrowArgs} args - Arguments to find a Employees
      * @example
-     * // Get one Employee
-     * const employee = await prisma.employee.findFirstOrThrow({
+     * // Get one Employees
+     * const employees = await prisma.employees.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends EmployeeFindFirstOrThrowArgs>(args?: SelectSubset<T, EmployeeFindFirstOrThrowArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends EmployeesFindFirstOrThrowArgs>(args?: SelectSubset<T, EmployeesFindFirstOrThrowArgs<ExtArgs>>): Prisma__EmployeesClient<$Result.GetResult<Prisma.$EmployeesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
      * Find zero or more Employees that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EmployeeFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {EmployeesFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all Employees
-     * const employees = await prisma.employee.findMany()
+     * const employees = await prisma.employees.findMany()
      * 
      * // Get first 10 Employees
-     * const employees = await prisma.employee.findMany({ take: 10 })
+     * const employees = await prisma.employees.findMany({ take: 10 })
      * 
      * // Only select the `iEmployeeID`
-     * const employeeWithIEmployeeIDOnly = await prisma.employee.findMany({ select: { iEmployeeID: true } })
+     * const employeesWithIEmployeeIDOnly = await prisma.employees.findMany({ select: { iEmployeeID: true } })
      * 
      */
-    findMany<T extends EmployeeFindManyArgs>(args?: SelectSubset<T, EmployeeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends EmployeesFindManyArgs>(args?: SelectSubset<T, EmployeesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Employee.
-     * @param {EmployeeCreateArgs} args - Arguments to create a Employee.
+     * Create a Employees.
+     * @param {EmployeesCreateArgs} args - Arguments to create a Employees.
      * @example
-     * // Create one Employee
-     * const Employee = await prisma.employee.create({
+     * // Create one Employees
+     * const Employees = await prisma.employees.create({
      *   data: {
-     *     // ... data to create a Employee
+     *     // ... data to create a Employees
      *   }
      * })
      * 
      */
-    create<T extends EmployeeCreateArgs>(args: SelectSubset<T, EmployeeCreateArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends EmployeesCreateArgs>(args: SelectSubset<T, EmployeesCreateArgs<ExtArgs>>): Prisma__EmployeesClient<$Result.GetResult<Prisma.$EmployeesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
      * Create many Employees.
-     * @param {EmployeeCreateManyArgs} args - Arguments to create many Employees.
+     * @param {EmployeesCreateManyArgs} args - Arguments to create many Employees.
      * @example
      * // Create many Employees
-     * const employee = await prisma.employee.createMany({
+     * const employees = await prisma.employees.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends EmployeeCreateManyArgs>(args?: SelectSubset<T, EmployeeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends EmployeesCreateManyArgs>(args?: SelectSubset<T, EmployeesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Create many Employees and returns the data saved in the database.
-     * @param {EmployeeCreateManyAndReturnArgs} args - Arguments to create many Employees.
+     * @param {EmployeesCreateManyAndReturnArgs} args - Arguments to create many Employees.
      * @example
      * // Create many Employees
-     * const employee = await prisma.employee.createManyAndReturn({
+     * const employees = await prisma.employees.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
      * // Create many Employees and only return the `iEmployeeID`
-     * const employeeWithIEmployeeIDOnly = await prisma.employee.createManyAndReturn({
+     * const employeesWithIEmployeeIDOnly = await prisma.employees.createManyAndReturn({
      *   select: { iEmployeeID: true },
      *   data: [
      *     // ... provide data here
@@ -1554,28 +2716,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends EmployeeCreateManyAndReturnArgs>(args?: SelectSubset<T, EmployeeCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends EmployeesCreateManyAndReturnArgs>(args?: SelectSubset<T, EmployeesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Employee.
-     * @param {EmployeeDeleteArgs} args - Arguments to delete one Employee.
+     * Delete a Employees.
+     * @param {EmployeesDeleteArgs} args - Arguments to delete one Employees.
      * @example
-     * // Delete one Employee
-     * const Employee = await prisma.employee.delete({
+     * // Delete one Employees
+     * const Employees = await prisma.employees.delete({
      *   where: {
-     *     // ... filter to delete one Employee
+     *     // ... filter to delete one Employees
      *   }
      * })
      * 
      */
-    delete<T extends EmployeeDeleteArgs>(args: SelectSubset<T, EmployeeDeleteArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends EmployeesDeleteArgs>(args: SelectSubset<T, EmployeesDeleteArgs<ExtArgs>>): Prisma__EmployeesClient<$Result.GetResult<Prisma.$EmployeesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Employee.
-     * @param {EmployeeUpdateArgs} args - Arguments to update one Employee.
+     * Update one Employees.
+     * @param {EmployeesUpdateArgs} args - Arguments to update one Employees.
      * @example
-     * // Update one Employee
-     * const employee = await prisma.employee.update({
+     * // Update one Employees
+     * const employees = await prisma.employees.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1585,30 +2747,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends EmployeeUpdateArgs>(args: SelectSubset<T, EmployeeUpdateArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends EmployeesUpdateArgs>(args: SelectSubset<T, EmployeesUpdateArgs<ExtArgs>>): Prisma__EmployeesClient<$Result.GetResult<Prisma.$EmployeesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
      * Delete zero or more Employees.
-     * @param {EmployeeDeleteManyArgs} args - Arguments to filter Employees to delete.
+     * @param {EmployeesDeleteManyArgs} args - Arguments to filter Employees to delete.
      * @example
      * // Delete a few Employees
-     * const { count } = await prisma.employee.deleteMany({
+     * const { count } = await prisma.employees.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends EmployeeDeleteManyArgs>(args?: SelectSubset<T, EmployeeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends EmployeesDeleteManyArgs>(args?: SelectSubset<T, EmployeesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Update zero or more Employees.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EmployeeUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {EmployeesUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
      * // Update many Employees
-     * const employee = await prisma.employee.updateMany({
+     * const employees = await prisma.employees.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1618,14 +2780,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends EmployeeUpdateManyArgs>(args: SelectSubset<T, EmployeeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends EmployeesUpdateManyArgs>(args: SelectSubset<T, EmployeesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Update zero or more Employees and returns the data updated in the database.
-     * @param {EmployeeUpdateManyAndReturnArgs} args - Arguments to update many Employees.
+     * @param {EmployeesUpdateManyAndReturnArgs} args - Arguments to update many Employees.
      * @example
      * // Update many Employees
-     * const employee = await prisma.employee.updateManyAndReturn({
+     * const employees = await prisma.employees.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1635,7 +2797,7 @@ export namespace Prisma {
      * })
      * 
      * // Update zero or more Employees and only return the `iEmployeeID`
-     * const employeeWithIEmployeeIDOnly = await prisma.employee.updateManyAndReturn({
+     * const employeesWithIEmployeeIDOnly = await prisma.employees.updateManyAndReturn({
      *   select: { iEmployeeID: true },
      *   where: {
      *     // ... provide filter here
@@ -1648,56 +2810,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends EmployeeUpdateManyAndReturnArgs>(args: SelectSubset<T, EmployeeUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends EmployeesUpdateManyAndReturnArgs>(args: SelectSubset<T, EmployeesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmployeesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Employee.
-     * @param {EmployeeUpsertArgs} args - Arguments to update or create a Employee.
+     * Create or update one Employees.
+     * @param {EmployeesUpsertArgs} args - Arguments to update or create a Employees.
      * @example
-     * // Update or create a Employee
-     * const employee = await prisma.employee.upsert({
+     * // Update or create a Employees
+     * const employees = await prisma.employees.upsert({
      *   create: {
-     *     // ... data to create a Employee
+     *     // ... data to create a Employees
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Employee we want to update
+     *     // ... the filter for the Employees we want to update
      *   }
      * })
      */
-    upsert<T extends EmployeeUpsertArgs>(args: SelectSubset<T, EmployeeUpsertArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends EmployeesUpsertArgs>(args: SelectSubset<T, EmployeesUpsertArgs<ExtArgs>>): Prisma__EmployeesClient<$Result.GetResult<Prisma.$EmployeesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
      * Count the number of Employees.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EmployeeCountArgs} args - Arguments to filter Employees to count.
+     * @param {EmployeesCountArgs} args - Arguments to filter Employees to count.
      * @example
      * // Count the number of Employees
-     * const count = await prisma.employee.count({
+     * const count = await prisma.employees.count({
      *   where: {
      *     // ... the filter for the Employees we want to count
      *   }
      * })
     **/
-    count<T extends EmployeeCountArgs>(
-      args?: Subset<T, EmployeeCountArgs>,
+    count<T extends EmployeesCountArgs>(
+      args?: Subset<T, EmployeesCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], EmployeeCountAggregateOutputType>
+          : GetScalarType<T['select'], EmployeesCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Employee.
+     * Allows you to perform aggregations operations on a Employees.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EmployeeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {EmployeesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -1717,13 +2879,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends EmployeeAggregateArgs>(args: Subset<T, EmployeeAggregateArgs>): Prisma.PrismaPromise<GetEmployeeAggregateType<T>>
+    aggregate<T extends EmployeesAggregateArgs>(args: Subset<T, EmployeesAggregateArgs>): Prisma.PrismaPromise<GetEmployeesAggregateType<T>>
 
     /**
-     * Group by Employee.
+     * Group by Employees.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EmployeeGroupByArgs} args - Group by arguments.
+     * @param {EmployeesGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -1738,14 +2900,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends EmployeeGroupByArgs,
+      T extends EmployeesGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: EmployeeGroupByArgs['orderBy'] }
-        : { orderBy?: EmployeeGroupByArgs['orderBy'] },
+        ? { orderBy: EmployeesGroupByArgs['orderBy'] }
+        : { orderBy?: EmployeesGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -1794,22 +2956,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, EmployeeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEmployeeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, EmployeesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEmployeesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Employee model
+   * Fields of the Employees model
    */
-  readonly fields: EmployeeFieldRefs;
+  readonly fields: EmployeesFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Employee.
+   * The delegate class that acts as a "Promise-like" for Employees.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__EmployeeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__EmployeesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    account<T extends Employee$accountArgs<ExtArgs> = {}>(args?: Subset<T, Employee$accountArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    Accounts<T extends Employees$AccountsArgs<ExtArgs> = {}>(args?: Subset<T, Employees$AccountsArgs<ExtArgs>>): Prisma__AccountsClient<$Result.GetResult<Prisma.$AccountsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1836,207 +2998,207 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Employee model
+   * Fields of the Employees model
    */
-  interface EmployeeFieldRefs {
-    readonly iEmployeeID: FieldRef<"Employee", 'Int'>
-    readonly sEmpID: FieldRef<"Employee", 'String'>
-    readonly sFullName: FieldRef<"Employee", 'String'>
-    readonly sEmail: FieldRef<"Employee", 'String'>
-    readonly sDepartment: FieldRef<"Employee", 'String'>
-    readonly sRole: FieldRef<"Employee", 'String'>
-    readonly dtHireDate: FieldRef<"Employee", 'DateTime'>
-    readonly iSafetyYet: FieldRef<"Employee", 'Int'>
-    readonly dtLastSafetyTraining: FieldRef<"Employee", 'DateTime'>
-    readonly iStatus: FieldRef<"Employee", 'Int'>
-    readonly iCreateBy: FieldRef<"Employee", 'Int'>
-    readonly dtCreateAt: FieldRef<"Employee", 'DateTime'>
-    readonly iModifyBy: FieldRef<"Employee", 'Int'>
-    readonly dtModifyAt: FieldRef<"Employee", 'DateTime'>
+  interface EmployeesFieldRefs {
+    readonly iEmployeeID: FieldRef<"Employees", 'Int'>
+    readonly sEmpID: FieldRef<"Employees", 'String'>
+    readonly sFullName: FieldRef<"Employees", 'String'>
+    readonly sEmail: FieldRef<"Employees", 'String'>
+    readonly sDepartment: FieldRef<"Employees", 'String'>
+    readonly sRole: FieldRef<"Employees", 'String'>
+    readonly dtHireDate: FieldRef<"Employees", 'DateTime'>
+    readonly iSafetyYet: FieldRef<"Employees", 'Int'>
+    readonly dtLastSafetyTraining: FieldRef<"Employees", 'DateTime'>
+    readonly iStatus: FieldRef<"Employees", 'Int'>
+    readonly iCreateBy: FieldRef<"Employees", 'Int'>
+    readonly dtCreateAt: FieldRef<"Employees", 'DateTime'>
+    readonly iModifyBy: FieldRef<"Employees", 'Int'>
+    readonly dtModifyAt: FieldRef<"Employees", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * Employee findUnique
+   * Employees findUnique
    */
-  export type EmployeeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Employee
+     * Select specific fields to fetch from the Employees
      */
-    select?: EmployeeSelect<ExtArgs> | null
+    select?: EmployeesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Employee
+     * Omit specific fields from the Employees
      */
-    omit?: EmployeeOmit<ExtArgs> | null
+    omit?: EmployeesOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: EmployeeInclude<ExtArgs> | null
-    /**
-     * Filter, which Employee to fetch.
-     */
-    where: EmployeeWhereUniqueInput
-  }
-
-  /**
-   * Employee findUniqueOrThrow
-   */
-  export type EmployeeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Employee
-     */
-    select?: EmployeeSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Employee
-     */
-    omit?: EmployeeOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: EmployeeInclude<ExtArgs> | null
-    /**
-     * Filter, which Employee to fetch.
-     */
-    where: EmployeeWhereUniqueInput
-  }
-
-  /**
-   * Employee findFirst
-   */
-  export type EmployeeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Employee
-     */
-    select?: EmployeeSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Employee
-     */
-    omit?: EmployeeOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: EmployeeInclude<ExtArgs> | null
-    /**
-     * Filter, which Employee to fetch.
-     */
-    where?: EmployeeWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Employees to fetch.
-     */
-    orderBy?: EmployeeOrderByWithRelationInput | EmployeeOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Employees.
-     */
-    cursor?: EmployeeWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Employees from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Employees.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Employees.
-     */
-    distinct?: EmployeeScalarFieldEnum | EmployeeScalarFieldEnum[]
-  }
-
-  /**
-   * Employee findFirstOrThrow
-   */
-  export type EmployeeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Employee
-     */
-    select?: EmployeeSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Employee
-     */
-    omit?: EmployeeOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: EmployeeInclude<ExtArgs> | null
-    /**
-     * Filter, which Employee to fetch.
-     */
-    where?: EmployeeWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Employees to fetch.
-     */
-    orderBy?: EmployeeOrderByWithRelationInput | EmployeeOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Employees.
-     */
-    cursor?: EmployeeWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Employees from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Employees.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Employees.
-     */
-    distinct?: EmployeeScalarFieldEnum | EmployeeScalarFieldEnum[]
-  }
-
-  /**
-   * Employee findMany
-   */
-  export type EmployeeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Employee
-     */
-    select?: EmployeeSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Employee
-     */
-    omit?: EmployeeOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: EmployeeInclude<ExtArgs> | null
+    include?: EmployeesInclude<ExtArgs> | null
     /**
      * Filter, which Employees to fetch.
      */
-    where?: EmployeeWhereInput
+    where: EmployeesWhereUniqueInput
+  }
+
+  /**
+   * Employees findUniqueOrThrow
+   */
+  export type EmployeesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employees
+     */
+    select?: EmployeesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employees
+     */
+    omit?: EmployeesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeesInclude<ExtArgs> | null
+    /**
+     * Filter, which Employees to fetch.
+     */
+    where: EmployeesWhereUniqueInput
+  }
+
+  /**
+   * Employees findFirst
+   */
+  export type EmployeesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employees
+     */
+    select?: EmployeesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employees
+     */
+    omit?: EmployeesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeesInclude<ExtArgs> | null
+    /**
+     * Filter, which Employees to fetch.
+     */
+    where?: EmployeesWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
      * Determine the order of Employees to fetch.
      */
-    orderBy?: EmployeeOrderByWithRelationInput | EmployeeOrderByWithRelationInput[]
+    orderBy?: EmployeesOrderByWithRelationInput | EmployeesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Employees.
+     */
+    cursor?: EmployeesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Employees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Employees.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Employees.
+     */
+    distinct?: EmployeesScalarFieldEnum | EmployeesScalarFieldEnum[]
+  }
+
+  /**
+   * Employees findFirstOrThrow
+   */
+  export type EmployeesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employees
+     */
+    select?: EmployeesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employees
+     */
+    omit?: EmployeesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeesInclude<ExtArgs> | null
+    /**
+     * Filter, which Employees to fetch.
+     */
+    where?: EmployeesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Employees to fetch.
+     */
+    orderBy?: EmployeesOrderByWithRelationInput | EmployeesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Employees.
+     */
+    cursor?: EmployeesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Employees from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Employees.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Employees.
+     */
+    distinct?: EmployeesScalarFieldEnum | EmployeesScalarFieldEnum[]
+  }
+
+  /**
+   * Employees findMany
+   */
+  export type EmployeesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Employees
+     */
+    select?: EmployeesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Employees
+     */
+    omit?: EmployeesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EmployeesInclude<ExtArgs> | null
+    /**
+     * Filter, which Employees to fetch.
+     */
+    where?: EmployeesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Employees to fetch.
+     */
+    orderBy?: EmployeesOrderByWithRelationInput | EmployeesOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the position for listing Employees.
      */
-    cursor?: EmployeeWhereUniqueInput
+    cursor?: EmployeesWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
@@ -2054,99 +3216,99 @@ export namespace Prisma {
      * 
      * Filter by unique combinations of Employees.
      */
-    distinct?: EmployeeScalarFieldEnum | EmployeeScalarFieldEnum[]
+    distinct?: EmployeesScalarFieldEnum | EmployeesScalarFieldEnum[]
   }
 
   /**
-   * Employee create
+   * Employees create
    */
-  export type EmployeeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Employee
+     * Select specific fields to fetch from the Employees
      */
-    select?: EmployeeSelect<ExtArgs> | null
+    select?: EmployeesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Employee
+     * Omit specific fields from the Employees
      */
-    omit?: EmployeeOmit<ExtArgs> | null
+    omit?: EmployeesOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: EmployeeInclude<ExtArgs> | null
+    include?: EmployeesInclude<ExtArgs> | null
     /**
-     * The data needed to create a Employee.
+     * The data needed to create a Employees.
      */
-    data: XOR<EmployeeCreateInput, EmployeeUncheckedCreateInput>
+    data: XOR<EmployeesCreateInput, EmployeesUncheckedCreateInput>
   }
 
   /**
-   * Employee createMany
+   * Employees createMany
    */
-  export type EmployeeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to create many Employees.
      */
-    data: EmployeeCreateManyInput | EmployeeCreateManyInput[]
+    data: EmployeesCreateManyInput | EmployeesCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Employee createManyAndReturn
+   * Employees createManyAndReturn
    */
-  export type EmployeeCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeesCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Employee
+     * Select specific fields to fetch from the Employees
      */
-    select?: EmployeeSelectCreateManyAndReturn<ExtArgs> | null
+    select?: EmployeesSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Employee
+     * Omit specific fields from the Employees
      */
-    omit?: EmployeeOmit<ExtArgs> | null
+    omit?: EmployeesOmit<ExtArgs> | null
     /**
      * The data used to create many Employees.
      */
-    data: EmployeeCreateManyInput | EmployeeCreateManyInput[]
+    data: EmployeesCreateManyInput | EmployeesCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Employee update
+   * Employees update
    */
-  export type EmployeeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Employee
+     * Select specific fields to fetch from the Employees
      */
-    select?: EmployeeSelect<ExtArgs> | null
+    select?: EmployeesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Employee
+     * Omit specific fields from the Employees
      */
-    omit?: EmployeeOmit<ExtArgs> | null
+    omit?: EmployeesOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: EmployeeInclude<ExtArgs> | null
+    include?: EmployeesInclude<ExtArgs> | null
     /**
-     * The data needed to update a Employee.
+     * The data needed to update a Employees.
      */
-    data: XOR<EmployeeUpdateInput, EmployeeUncheckedUpdateInput>
+    data: XOR<EmployeesUpdateInput, EmployeesUncheckedUpdateInput>
     /**
-     * Choose, which Employee to update.
+     * Choose, which Employees to update.
      */
-    where: EmployeeWhereUniqueInput
+    where: EmployeesWhereUniqueInput
   }
 
   /**
-   * Employee updateMany
+   * Employees updateMany
    */
-  export type EmployeeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to update Employees.
      */
-    data: XOR<EmployeeUpdateManyMutationInput, EmployeeUncheckedUpdateManyInput>
+    data: XOR<EmployeesUpdateManyMutationInput, EmployeesUncheckedUpdateManyInput>
     /**
      * Filter which Employees to update
      */
-    where?: EmployeeWhereInput
+    where?: EmployeesWhereInput
     /**
      * Limit how many Employees to update.
      */
@@ -2154,25 +3316,25 @@ export namespace Prisma {
   }
 
   /**
-   * Employee updateManyAndReturn
+   * Employees updateManyAndReturn
    */
-  export type EmployeeUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeesUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Employee
+     * Select specific fields to fetch from the Employees
      */
-    select?: EmployeeSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: EmployeesSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Employee
+     * Omit specific fields from the Employees
      */
-    omit?: EmployeeOmit<ExtArgs> | null
+    omit?: EmployeesOmit<ExtArgs> | null
     /**
      * The data used to update Employees.
      */
-    data: XOR<EmployeeUpdateManyMutationInput, EmployeeUncheckedUpdateManyInput>
+    data: XOR<EmployeesUpdateManyMutationInput, EmployeesUncheckedUpdateManyInput>
     /**
      * Filter which Employees to update
      */
-    where?: EmployeeWhereInput
+    where?: EmployeesWhereInput
     /**
      * Limit how many Employees to update.
      */
@@ -2180,65 +3342,65 @@ export namespace Prisma {
   }
 
   /**
-   * Employee upsert
+   * Employees upsert
    */
-  export type EmployeeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Employee
+     * Select specific fields to fetch from the Employees
      */
-    select?: EmployeeSelect<ExtArgs> | null
+    select?: EmployeesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Employee
+     * Omit specific fields from the Employees
      */
-    omit?: EmployeeOmit<ExtArgs> | null
+    omit?: EmployeesOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: EmployeeInclude<ExtArgs> | null
+    include?: EmployeesInclude<ExtArgs> | null
     /**
-     * The filter to search for the Employee to update in case it exists.
+     * The filter to search for the Employees to update in case it exists.
      */
-    where: EmployeeWhereUniqueInput
+    where: EmployeesWhereUniqueInput
     /**
-     * In case the Employee found by the `where` argument doesn't exist, create a new Employee with this data.
+     * In case the Employees found by the `where` argument doesn't exist, create a new Employees with this data.
      */
-    create: XOR<EmployeeCreateInput, EmployeeUncheckedCreateInput>
+    create: XOR<EmployeesCreateInput, EmployeesUncheckedCreateInput>
     /**
-     * In case the Employee was found with the provided `where` argument, update it with this data.
+     * In case the Employees was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<EmployeeUpdateInput, EmployeeUncheckedUpdateInput>
+    update: XOR<EmployeesUpdateInput, EmployeesUncheckedUpdateInput>
   }
 
   /**
-   * Employee delete
+   * Employees delete
    */
-  export type EmployeeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Employee
+     * Select specific fields to fetch from the Employees
      */
-    select?: EmployeeSelect<ExtArgs> | null
+    select?: EmployeesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Employee
+     * Omit specific fields from the Employees
      */
-    omit?: EmployeeOmit<ExtArgs> | null
+    omit?: EmployeesOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: EmployeeInclude<ExtArgs> | null
+    include?: EmployeesInclude<ExtArgs> | null
     /**
-     * Filter which Employee to delete.
+     * Filter which Employees to delete.
      */
-    where: EmployeeWhereUniqueInput
+    where: EmployeesWhereUniqueInput
   }
 
   /**
-   * Employee deleteMany
+   * Employees deleteMany
    */
-  export type EmployeeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Filter which Employees to delete
      */
-    where?: EmployeeWhereInput
+    where?: EmployeesWhereInput
     /**
      * Limit how many Employees to delete.
      */
@@ -2246,1218 +3408,56 @@ export namespace Prisma {
   }
 
   /**
-   * Employee.account
+   * Employees.Accounts
    */
-  export type Employee$accountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Employees$AccountsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Account
+     * Select specific fields to fetch from the Accounts
      */
-    select?: AccountSelect<ExtArgs> | null
+    select?: AccountsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Account
+     * Omit specific fields from the Accounts
      */
-    omit?: AccountOmit<ExtArgs> | null
+    omit?: AccountsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: AccountInclude<ExtArgs> | null
-    where?: AccountWhereInput
+    include?: AccountsInclude<ExtArgs> | null
+    where?: AccountsWhereInput
   }
 
   /**
-   * Employee without action
+   * Employees without action
    */
-  export type EmployeeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type EmployeesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Employee
+     * Select specific fields to fetch from the Employees
      */
-    select?: EmployeeSelect<ExtArgs> | null
+    select?: EmployeesSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Employee
+     * Omit specific fields from the Employees
      */
-    omit?: EmployeeOmit<ExtArgs> | null
+    omit?: EmployeesOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: EmployeeInclude<ExtArgs> | null
+    include?: EmployeesInclude<ExtArgs> | null
   }
 
 
   /**
-   * Model Account
+   * Model Passwords
    */
 
-  export type AggregateAccount = {
-    _count: AccountCountAggregateOutputType | null
-    _avg: AccountAvgAggregateOutputType | null
-    _sum: AccountSumAggregateOutputType | null
-    _min: AccountMinAggregateOutputType | null
-    _max: AccountMaxAggregateOutputType | null
+  export type AggregatePasswords = {
+    _count: PasswordsCountAggregateOutputType | null
+    _avg: PasswordsAvgAggregateOutputType | null
+    _sum: PasswordsSumAggregateOutputType | null
+    _min: PasswordsMinAggregateOutputType | null
+    _max: PasswordsMaxAggregateOutputType | null
   }
 
-  export type AccountAvgAggregateOutputType = {
-    iAccountID: number | null
-    iEmployeeID: number | null
-    iStatus: number | null
-    iCreateBy: number | null
-    iModifyBy: number | null
-  }
-
-  export type AccountSumAggregateOutputType = {
-    iAccountID: number | null
-    iEmployeeID: number | null
-    iStatus: number | null
-    iCreateBy: number | null
-    iModifyBy: number | null
-  }
-
-  export type AccountMinAggregateOutputType = {
-    iAccountID: number | null
-    iEmployeeID: number | null
-    iStatus: number | null
-    iCreateBy: number | null
-    dtCreateAt: Date | null
-    iModifyBy: number | null
-    dtModifyAt: Date | null
-  }
-
-  export type AccountMaxAggregateOutputType = {
-    iAccountID: number | null
-    iEmployeeID: number | null
-    iStatus: number | null
-    iCreateBy: number | null
-    dtCreateAt: Date | null
-    iModifyBy: number | null
-    dtModifyAt: Date | null
-  }
-
-  export type AccountCountAggregateOutputType = {
-    iAccountID: number
-    iEmployeeID: number
-    iStatus: number
-    iCreateBy: number
-    dtCreateAt: number
-    iModifyBy: number
-    dtModifyAt: number
-    _all: number
-  }
-
-
-  export type AccountAvgAggregateInputType = {
-    iAccountID?: true
-    iEmployeeID?: true
-    iStatus?: true
-    iCreateBy?: true
-    iModifyBy?: true
-  }
-
-  export type AccountSumAggregateInputType = {
-    iAccountID?: true
-    iEmployeeID?: true
-    iStatus?: true
-    iCreateBy?: true
-    iModifyBy?: true
-  }
-
-  export type AccountMinAggregateInputType = {
-    iAccountID?: true
-    iEmployeeID?: true
-    iStatus?: true
-    iCreateBy?: true
-    dtCreateAt?: true
-    iModifyBy?: true
-    dtModifyAt?: true
-  }
-
-  export type AccountMaxAggregateInputType = {
-    iAccountID?: true
-    iEmployeeID?: true
-    iStatus?: true
-    iCreateBy?: true
-    dtCreateAt?: true
-    iModifyBy?: true
-    dtModifyAt?: true
-  }
-
-  export type AccountCountAggregateInputType = {
-    iAccountID?: true
-    iEmployeeID?: true
-    iStatus?: true
-    iCreateBy?: true
-    dtCreateAt?: true
-    iModifyBy?: true
-    dtModifyAt?: true
-    _all?: true
-  }
-
-  export type AccountAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Account to aggregate.
-     */
-    where?: AccountWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Accounts to fetch.
-     */
-    orderBy?: AccountOrderByWithRelationInput | AccountOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: AccountWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Accounts from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Accounts.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Accounts
-    **/
-    _count?: true | AccountCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: AccountAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: AccountSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: AccountMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: AccountMaxAggregateInputType
-  }
-
-  export type GetAccountAggregateType<T extends AccountAggregateArgs> = {
-        [P in keyof T & keyof AggregateAccount]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateAccount[P]>
-      : GetScalarType<T[P], AggregateAccount[P]>
-  }
-
-
-
-
-  export type AccountGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: AccountWhereInput
-    orderBy?: AccountOrderByWithAggregationInput | AccountOrderByWithAggregationInput[]
-    by: AccountScalarFieldEnum[] | AccountScalarFieldEnum
-    having?: AccountScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: AccountCountAggregateInputType | true
-    _avg?: AccountAvgAggregateInputType
-    _sum?: AccountSumAggregateInputType
-    _min?: AccountMinAggregateInputType
-    _max?: AccountMaxAggregateInputType
-  }
-
-  export type AccountGroupByOutputType = {
-    iAccountID: number
-    iEmployeeID: number
-    iStatus: number
-    iCreateBy: number | null
-    dtCreateAt: Date
-    iModifyBy: number | null
-    dtModifyAt: Date | null
-    _count: AccountCountAggregateOutputType | null
-    _avg: AccountAvgAggregateOutputType | null
-    _sum: AccountSumAggregateOutputType | null
-    _min: AccountMinAggregateOutputType | null
-    _max: AccountMaxAggregateOutputType | null
-  }
-
-  type GetAccountGroupByPayload<T extends AccountGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<AccountGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof AccountGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], AccountGroupByOutputType[P]>
-            : GetScalarType<T[P], AccountGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type AccountSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    iAccountID?: boolean
-    iEmployeeID?: boolean
-    iStatus?: boolean
-    iCreateBy?: boolean
-    dtCreateAt?: boolean
-    iModifyBy?: boolean
-    dtModifyAt?: boolean
-    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
-    password?: boolean | Account$passwordArgs<ExtArgs>
-  }, ExtArgs["result"]["account"]>
-
-  export type AccountSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    iAccountID?: boolean
-    iEmployeeID?: boolean
-    iStatus?: boolean
-    iCreateBy?: boolean
-    dtCreateAt?: boolean
-    iModifyBy?: boolean
-    dtModifyAt?: boolean
-    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["account"]>
-
-  export type AccountSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    iAccountID?: boolean
-    iEmployeeID?: boolean
-    iStatus?: boolean
-    iCreateBy?: boolean
-    dtCreateAt?: boolean
-    iModifyBy?: boolean
-    dtModifyAt?: boolean
-    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["account"]>
-
-  export type AccountSelectScalar = {
-    iAccountID?: boolean
-    iEmployeeID?: boolean
-    iStatus?: boolean
-    iCreateBy?: boolean
-    dtCreateAt?: boolean
-    iModifyBy?: boolean
-    dtModifyAt?: boolean
-  }
-
-  export type AccountOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"iAccountID" | "iEmployeeID" | "iStatus" | "iCreateBy" | "dtCreateAt" | "iModifyBy" | "dtModifyAt", ExtArgs["result"]["account"]>
-  export type AccountInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
-    password?: boolean | Account$passwordArgs<ExtArgs>
-  }
-  export type AccountIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
-  }
-  export type AccountIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    employee?: boolean | EmployeeDefaultArgs<ExtArgs>
-  }
-
-  export type $AccountPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Account"
-    objects: {
-      employee: Prisma.$EmployeePayload<ExtArgs>
-      password: Prisma.$PasswordPayload<ExtArgs> | null
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      iAccountID: number
-      iEmployeeID: number
-      iStatus: number
-      iCreateBy: number | null
-      dtCreateAt: Date
-      iModifyBy: number | null
-      dtModifyAt: Date | null
-    }, ExtArgs["result"]["account"]>
-    composites: {}
-  }
-
-  type AccountGetPayload<S extends boolean | null | undefined | AccountDefaultArgs> = $Result.GetResult<Prisma.$AccountPayload, S>
-
-  type AccountCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<AccountFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: AccountCountAggregateInputType | true
-    }
-
-  export interface AccountDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Account'], meta: { name: 'Account' } }
-    /**
-     * Find zero or one Account that matches the filter.
-     * @param {AccountFindUniqueArgs} args - Arguments to find a Account
-     * @example
-     * // Get one Account
-     * const account = await prisma.account.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends AccountFindUniqueArgs>(args: SelectSubset<T, AccountFindUniqueArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one Account that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {AccountFindUniqueOrThrowArgs} args - Arguments to find a Account
-     * @example
-     * // Get one Account
-     * const account = await prisma.account.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends AccountFindUniqueOrThrowArgs>(args: SelectSubset<T, AccountFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Account that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AccountFindFirstArgs} args - Arguments to find a Account
-     * @example
-     * // Get one Account
-     * const account = await prisma.account.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends AccountFindFirstArgs>(args?: SelectSubset<T, AccountFindFirstArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Account that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AccountFindFirstOrThrowArgs} args - Arguments to find a Account
-     * @example
-     * // Get one Account
-     * const account = await prisma.account.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends AccountFindFirstOrThrowArgs>(args?: SelectSubset<T, AccountFindFirstOrThrowArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Accounts that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AccountFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Accounts
-     * const accounts = await prisma.account.findMany()
-     * 
-     * // Get first 10 Accounts
-     * const accounts = await prisma.account.findMany({ take: 10 })
-     * 
-     * // Only select the `iAccountID`
-     * const accountWithIAccountIDOnly = await prisma.account.findMany({ select: { iAccountID: true } })
-     * 
-     */
-    findMany<T extends AccountFindManyArgs>(args?: SelectSubset<T, AccountFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a Account.
-     * @param {AccountCreateArgs} args - Arguments to create a Account.
-     * @example
-     * // Create one Account
-     * const Account = await prisma.account.create({
-     *   data: {
-     *     // ... data to create a Account
-     *   }
-     * })
-     * 
-     */
-    create<T extends AccountCreateArgs>(args: SelectSubset<T, AccountCreateArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many Accounts.
-     * @param {AccountCreateManyArgs} args - Arguments to create many Accounts.
-     * @example
-     * // Create many Accounts
-     * const account = await prisma.account.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends AccountCreateManyArgs>(args?: SelectSubset<T, AccountCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Accounts and returns the data saved in the database.
-     * @param {AccountCreateManyAndReturnArgs} args - Arguments to create many Accounts.
-     * @example
-     * // Create many Accounts
-     * const account = await prisma.account.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Accounts and only return the `iAccountID`
-     * const accountWithIAccountIDOnly = await prisma.account.createManyAndReturn({
-     *   select: { iAccountID: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends AccountCreateManyAndReturnArgs>(args?: SelectSubset<T, AccountCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a Account.
-     * @param {AccountDeleteArgs} args - Arguments to delete one Account.
-     * @example
-     * // Delete one Account
-     * const Account = await prisma.account.delete({
-     *   where: {
-     *     // ... filter to delete one Account
-     *   }
-     * })
-     * 
-     */
-    delete<T extends AccountDeleteArgs>(args: SelectSubset<T, AccountDeleteArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one Account.
-     * @param {AccountUpdateArgs} args - Arguments to update one Account.
-     * @example
-     * // Update one Account
-     * const account = await prisma.account.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends AccountUpdateArgs>(args: SelectSubset<T, AccountUpdateArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more Accounts.
-     * @param {AccountDeleteManyArgs} args - Arguments to filter Accounts to delete.
-     * @example
-     * // Delete a few Accounts
-     * const { count } = await prisma.account.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends AccountDeleteManyArgs>(args?: SelectSubset<T, AccountDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Accounts.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AccountUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Accounts
-     * const account = await prisma.account.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends AccountUpdateManyArgs>(args: SelectSubset<T, AccountUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Accounts and returns the data updated in the database.
-     * @param {AccountUpdateManyAndReturnArgs} args - Arguments to update many Accounts.
-     * @example
-     * // Update many Accounts
-     * const account = await prisma.account.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more Accounts and only return the `iAccountID`
-     * const accountWithIAccountIDOnly = await prisma.account.updateManyAndReturn({
-     *   select: { iAccountID: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends AccountUpdateManyAndReturnArgs>(args: SelectSubset<T, AccountUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one Account.
-     * @param {AccountUpsertArgs} args - Arguments to update or create a Account.
-     * @example
-     * // Update or create a Account
-     * const account = await prisma.account.upsert({
-     *   create: {
-     *     // ... data to create a Account
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Account we want to update
-     *   }
-     * })
-     */
-    upsert<T extends AccountUpsertArgs>(args: SelectSubset<T, AccountUpsertArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of Accounts.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AccountCountArgs} args - Arguments to filter Accounts to count.
-     * @example
-     * // Count the number of Accounts
-     * const count = await prisma.account.count({
-     *   where: {
-     *     // ... the filter for the Accounts we want to count
-     *   }
-     * })
-    **/
-    count<T extends AccountCountArgs>(
-      args?: Subset<T, AccountCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], AccountCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Account.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AccountAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends AccountAggregateArgs>(args: Subset<T, AccountAggregateArgs>): Prisma.PrismaPromise<GetAccountAggregateType<T>>
-
-    /**
-     * Group by Account.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {AccountGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends AccountGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: AccountGroupByArgs['orderBy'] }
-        : { orderBy?: AccountGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, AccountGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAccountGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Account model
-   */
-  readonly fields: AccountFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for Account.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__AccountClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    employee<T extends EmployeeDefaultArgs<ExtArgs> = {}>(args?: Subset<T, EmployeeDefaultArgs<ExtArgs>>): Prisma__EmployeeClient<$Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    password<T extends Account$passwordArgs<ExtArgs> = {}>(args?: Subset<T, Account$passwordArgs<ExtArgs>>): Prisma__PasswordClient<$Result.GetResult<Prisma.$PasswordPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the Account model
-   */
-  interface AccountFieldRefs {
-    readonly iAccountID: FieldRef<"Account", 'Int'>
-    readonly iEmployeeID: FieldRef<"Account", 'Int'>
-    readonly iStatus: FieldRef<"Account", 'Int'>
-    readonly iCreateBy: FieldRef<"Account", 'Int'>
-    readonly dtCreateAt: FieldRef<"Account", 'DateTime'>
-    readonly iModifyBy: FieldRef<"Account", 'Int'>
-    readonly dtModifyAt: FieldRef<"Account", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * Account findUnique
-   */
-  export type AccountFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Account
-     */
-    select?: AccountSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Account
-     */
-    omit?: AccountOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AccountInclude<ExtArgs> | null
-    /**
-     * Filter, which Account to fetch.
-     */
-    where: AccountWhereUniqueInput
-  }
-
-  /**
-   * Account findUniqueOrThrow
-   */
-  export type AccountFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Account
-     */
-    select?: AccountSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Account
-     */
-    omit?: AccountOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AccountInclude<ExtArgs> | null
-    /**
-     * Filter, which Account to fetch.
-     */
-    where: AccountWhereUniqueInput
-  }
-
-  /**
-   * Account findFirst
-   */
-  export type AccountFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Account
-     */
-    select?: AccountSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Account
-     */
-    omit?: AccountOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AccountInclude<ExtArgs> | null
-    /**
-     * Filter, which Account to fetch.
-     */
-    where?: AccountWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Accounts to fetch.
-     */
-    orderBy?: AccountOrderByWithRelationInput | AccountOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Accounts.
-     */
-    cursor?: AccountWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Accounts from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Accounts.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Accounts.
-     */
-    distinct?: AccountScalarFieldEnum | AccountScalarFieldEnum[]
-  }
-
-  /**
-   * Account findFirstOrThrow
-   */
-  export type AccountFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Account
-     */
-    select?: AccountSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Account
-     */
-    omit?: AccountOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AccountInclude<ExtArgs> | null
-    /**
-     * Filter, which Account to fetch.
-     */
-    where?: AccountWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Accounts to fetch.
-     */
-    orderBy?: AccountOrderByWithRelationInput | AccountOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Accounts.
-     */
-    cursor?: AccountWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Accounts from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Accounts.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Accounts.
-     */
-    distinct?: AccountScalarFieldEnum | AccountScalarFieldEnum[]
-  }
-
-  /**
-   * Account findMany
-   */
-  export type AccountFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Account
-     */
-    select?: AccountSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Account
-     */
-    omit?: AccountOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AccountInclude<ExtArgs> | null
-    /**
-     * Filter, which Accounts to fetch.
-     */
-    where?: AccountWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Accounts to fetch.
-     */
-    orderBy?: AccountOrderByWithRelationInput | AccountOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Accounts.
-     */
-    cursor?: AccountWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Accounts from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Accounts.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Accounts.
-     */
-    distinct?: AccountScalarFieldEnum | AccountScalarFieldEnum[]
-  }
-
-  /**
-   * Account create
-   */
-  export type AccountCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Account
-     */
-    select?: AccountSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Account
-     */
-    omit?: AccountOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AccountInclude<ExtArgs> | null
-    /**
-     * The data needed to create a Account.
-     */
-    data: XOR<AccountCreateInput, AccountUncheckedCreateInput>
-  }
-
-  /**
-   * Account createMany
-   */
-  export type AccountCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Accounts.
-     */
-    data: AccountCreateManyInput | AccountCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Account createManyAndReturn
-   */
-  export type AccountCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Account
-     */
-    select?: AccountSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Account
-     */
-    omit?: AccountOmit<ExtArgs> | null
-    /**
-     * The data used to create many Accounts.
-     */
-    data: AccountCreateManyInput | AccountCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AccountIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * Account update
-   */
-  export type AccountUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Account
-     */
-    select?: AccountSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Account
-     */
-    omit?: AccountOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AccountInclude<ExtArgs> | null
-    /**
-     * The data needed to update a Account.
-     */
-    data: XOR<AccountUpdateInput, AccountUncheckedUpdateInput>
-    /**
-     * Choose, which Account to update.
-     */
-    where: AccountWhereUniqueInput
-  }
-
-  /**
-   * Account updateMany
-   */
-  export type AccountUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Accounts.
-     */
-    data: XOR<AccountUpdateManyMutationInput, AccountUncheckedUpdateManyInput>
-    /**
-     * Filter which Accounts to update
-     */
-    where?: AccountWhereInput
-    /**
-     * Limit how many Accounts to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Account updateManyAndReturn
-   */
-  export type AccountUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Account
-     */
-    select?: AccountSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Account
-     */
-    omit?: AccountOmit<ExtArgs> | null
-    /**
-     * The data used to update Accounts.
-     */
-    data: XOR<AccountUpdateManyMutationInput, AccountUncheckedUpdateManyInput>
-    /**
-     * Filter which Accounts to update
-     */
-    where?: AccountWhereInput
-    /**
-     * Limit how many Accounts to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AccountIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * Account upsert
-   */
-  export type AccountUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Account
-     */
-    select?: AccountSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Account
-     */
-    omit?: AccountOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AccountInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Account to update in case it exists.
-     */
-    where: AccountWhereUniqueInput
-    /**
-     * In case the Account found by the `where` argument doesn't exist, create a new Account with this data.
-     */
-    create: XOR<AccountCreateInput, AccountUncheckedCreateInput>
-    /**
-     * In case the Account was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<AccountUpdateInput, AccountUncheckedUpdateInput>
-  }
-
-  /**
-   * Account delete
-   */
-  export type AccountDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Account
-     */
-    select?: AccountSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Account
-     */
-    omit?: AccountOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AccountInclude<ExtArgs> | null
-    /**
-     * Filter which Account to delete.
-     */
-    where: AccountWhereUniqueInput
-  }
-
-  /**
-   * Account deleteMany
-   */
-  export type AccountDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Accounts to delete
-     */
-    where?: AccountWhereInput
-    /**
-     * Limit how many Accounts to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * Account.password
-   */
-  export type Account$passwordArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Password
-     */
-    select?: PasswordSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Password
-     */
-    omit?: PasswordOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PasswordInclude<ExtArgs> | null
-    where?: PasswordWhereInput
-  }
-
-  /**
-   * Account without action
-   */
-  export type AccountDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Account
-     */
-    select?: AccountSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Account
-     */
-    omit?: AccountOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: AccountInclude<ExtArgs> | null
-  }
-
-
-  /**
-   * Model Password
-   */
-
-  export type AggregatePassword = {
-    _count: PasswordCountAggregateOutputType | null
-    _avg: PasswordAvgAggregateOutputType | null
-    _sum: PasswordSumAggregateOutputType | null
-    _min: PasswordMinAggregateOutputType | null
-    _max: PasswordMaxAggregateOutputType | null
-  }
-
-  export type PasswordAvgAggregateOutputType = {
+  export type PasswordsAvgAggregateOutputType = {
     iPasswordID: number | null
     iAccountID: number | null
     iStatus: number | null
@@ -3465,7 +3465,7 @@ export namespace Prisma {
     iModifyBy: number | null
   }
 
-  export type PasswordSumAggregateOutputType = {
+  export type PasswordsSumAggregateOutputType = {
     iPasswordID: number | null
     iAccountID: number | null
     iStatus: number | null
@@ -3473,7 +3473,7 @@ export namespace Prisma {
     iModifyBy: number | null
   }
 
-  export type PasswordMinAggregateOutputType = {
+  export type PasswordsMinAggregateOutputType = {
     iPasswordID: number | null
     iAccountID: number | null
     sPassword: string | null
@@ -3484,7 +3484,7 @@ export namespace Prisma {
     dtModifyAt: Date | null
   }
 
-  export type PasswordMaxAggregateOutputType = {
+  export type PasswordsMaxAggregateOutputType = {
     iPasswordID: number | null
     iAccountID: number | null
     sPassword: string | null
@@ -3495,7 +3495,7 @@ export namespace Prisma {
     dtModifyAt: Date | null
   }
 
-  export type PasswordCountAggregateOutputType = {
+  export type PasswordsCountAggregateOutputType = {
     iPasswordID: number
     iAccountID: number
     sPassword: number
@@ -3508,7 +3508,7 @@ export namespace Prisma {
   }
 
 
-  export type PasswordAvgAggregateInputType = {
+  export type PasswordsAvgAggregateInputType = {
     iPasswordID?: true
     iAccountID?: true
     iStatus?: true
@@ -3516,7 +3516,7 @@ export namespace Prisma {
     iModifyBy?: true
   }
 
-  export type PasswordSumAggregateInputType = {
+  export type PasswordsSumAggregateInputType = {
     iPasswordID?: true
     iAccountID?: true
     iStatus?: true
@@ -3524,18 +3524,7 @@ export namespace Prisma {
     iModifyBy?: true
   }
 
-  export type PasswordMinAggregateInputType = {
-    iPasswordID?: true
-    iAccountID?: true
-    sPassword?: true
-    iStatus?: true
-    iCreateBy?: true
-    dtCreateAt?: true
-    iModifyBy?: true
-    dtModifyAt?: true
-  }
-
-  export type PasswordMaxAggregateInputType = {
+  export type PasswordsMinAggregateInputType = {
     iPasswordID?: true
     iAccountID?: true
     sPassword?: true
@@ -3546,7 +3535,18 @@ export namespace Prisma {
     dtModifyAt?: true
   }
 
-  export type PasswordCountAggregateInputType = {
+  export type PasswordsMaxAggregateInputType = {
+    iPasswordID?: true
+    iAccountID?: true
+    sPassword?: true
+    iStatus?: true
+    iCreateBy?: true
+    dtCreateAt?: true
+    iModifyBy?: true
+    dtModifyAt?: true
+  }
+
+  export type PasswordsCountAggregateInputType = {
     iPasswordID?: true
     iAccountID?: true
     sPassword?: true
@@ -3558,23 +3558,23 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type PasswordAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PasswordsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Password to aggregate.
+     * Filter which Passwords to aggregate.
      */
-    where?: PasswordWhereInput
+    where?: PasswordsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
      * Determine the order of Passwords to fetch.
      */
-    orderBy?: PasswordOrderByWithRelationInput | PasswordOrderByWithRelationInput[]
+    orderBy?: PasswordsOrderByWithRelationInput | PasswordsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: PasswordWhereUniqueInput
+    cursor?: PasswordsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
@@ -3592,89 +3592,89 @@ export namespace Prisma {
      * 
      * Count returned Passwords
     **/
-    _count?: true | PasswordCountAggregateInputType
+    _count?: true | PasswordsCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: PasswordAvgAggregateInputType
+    _avg?: PasswordsAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: PasswordSumAggregateInputType
+    _sum?: PasswordsSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: PasswordMinAggregateInputType
+    _min?: PasswordsMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: PasswordMaxAggregateInputType
+    _max?: PasswordsMaxAggregateInputType
   }
 
-  export type GetPasswordAggregateType<T extends PasswordAggregateArgs> = {
-        [P in keyof T & keyof AggregatePassword]: P extends '_count' | 'count'
+  export type GetPasswordsAggregateType<T extends PasswordsAggregateArgs> = {
+        [P in keyof T & keyof AggregatePasswords]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregatePassword[P]>
-      : GetScalarType<T[P], AggregatePassword[P]>
+        : GetScalarType<T[P], AggregatePasswords[P]>
+      : GetScalarType<T[P], AggregatePasswords[P]>
   }
 
 
 
 
-  export type PasswordGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PasswordWhereInput
-    orderBy?: PasswordOrderByWithAggregationInput | PasswordOrderByWithAggregationInput[]
-    by: PasswordScalarFieldEnum[] | PasswordScalarFieldEnum
-    having?: PasswordScalarWhereWithAggregatesInput
+  export type PasswordsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PasswordsWhereInput
+    orderBy?: PasswordsOrderByWithAggregationInput | PasswordsOrderByWithAggregationInput[]
+    by: PasswordsScalarFieldEnum[] | PasswordsScalarFieldEnum
+    having?: PasswordsScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: PasswordCountAggregateInputType | true
-    _avg?: PasswordAvgAggregateInputType
-    _sum?: PasswordSumAggregateInputType
-    _min?: PasswordMinAggregateInputType
-    _max?: PasswordMaxAggregateInputType
+    _count?: PasswordsCountAggregateInputType | true
+    _avg?: PasswordsAvgAggregateInputType
+    _sum?: PasswordsSumAggregateInputType
+    _min?: PasswordsMinAggregateInputType
+    _max?: PasswordsMaxAggregateInputType
   }
 
-  export type PasswordGroupByOutputType = {
+  export type PasswordsGroupByOutputType = {
     iPasswordID: number
     iAccountID: number
     sPassword: string
-    iStatus: number
+    iStatus: number | null
     iCreateBy: number | null
-    dtCreateAt: Date
+    dtCreateAt: Date | null
     iModifyBy: number | null
     dtModifyAt: Date | null
-    _count: PasswordCountAggregateOutputType | null
-    _avg: PasswordAvgAggregateOutputType | null
-    _sum: PasswordSumAggregateOutputType | null
-    _min: PasswordMinAggregateOutputType | null
-    _max: PasswordMaxAggregateOutputType | null
+    _count: PasswordsCountAggregateOutputType | null
+    _avg: PasswordsAvgAggregateOutputType | null
+    _sum: PasswordsSumAggregateOutputType | null
+    _min: PasswordsMinAggregateOutputType | null
+    _max: PasswordsMaxAggregateOutputType | null
   }
 
-  type GetPasswordGroupByPayload<T extends PasswordGroupByArgs> = Prisma.PrismaPromise<
+  type GetPasswordsGroupByPayload<T extends PasswordsGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<PasswordGroupByOutputType, T['by']> &
+      PickEnumerable<PasswordsGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof PasswordGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof PasswordsGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], PasswordGroupByOutputType[P]>
-            : GetScalarType<T[P], PasswordGroupByOutputType[P]>
+              : GetScalarType<T[P], PasswordsGroupByOutputType[P]>
+            : GetScalarType<T[P], PasswordsGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type PasswordSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type PasswordsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     iPasswordID?: boolean
     iAccountID?: boolean
     sPassword?: boolean
@@ -3683,10 +3683,10 @@ export namespace Prisma {
     dtCreateAt?: boolean
     iModifyBy?: boolean
     dtModifyAt?: boolean
-    account?: boolean | AccountDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["password"]>
+    Accounts?: boolean | AccountsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["passwords"]>
 
-  export type PasswordSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type PasswordsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     iPasswordID?: boolean
     iAccountID?: boolean
     sPassword?: boolean
@@ -3695,10 +3695,10 @@ export namespace Prisma {
     dtCreateAt?: boolean
     iModifyBy?: boolean
     dtModifyAt?: boolean
-    account?: boolean | AccountDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["password"]>
+    Accounts?: boolean | AccountsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["passwords"]>
 
-  export type PasswordSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type PasswordsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     iPasswordID?: boolean
     iAccountID?: boolean
     sPassword?: boolean
@@ -3707,10 +3707,10 @@ export namespace Prisma {
     dtCreateAt?: boolean
     iModifyBy?: boolean
     dtModifyAt?: boolean
-    account?: boolean | AccountDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["password"]>
+    Accounts?: boolean | AccountsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["passwords"]>
 
-  export type PasswordSelectScalar = {
+  export type PasswordsSelectScalar = {
     iPasswordID?: boolean
     iAccountID?: boolean
     sPassword?: boolean
@@ -3721,161 +3721,161 @@ export namespace Prisma {
     dtModifyAt?: boolean
   }
 
-  export type PasswordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"iPasswordID" | "iAccountID" | "sPassword" | "iStatus" | "iCreateBy" | "dtCreateAt" | "iModifyBy" | "dtModifyAt", ExtArgs["result"]["password"]>
-  export type PasswordInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    account?: boolean | AccountDefaultArgs<ExtArgs>
+  export type PasswordsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"iPasswordID" | "iAccountID" | "sPassword" | "iStatus" | "iCreateBy" | "dtCreateAt" | "iModifyBy" | "dtModifyAt", ExtArgs["result"]["passwords"]>
+  export type PasswordsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Accounts?: boolean | AccountsDefaultArgs<ExtArgs>
   }
-  export type PasswordIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    account?: boolean | AccountDefaultArgs<ExtArgs>
+  export type PasswordsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Accounts?: boolean | AccountsDefaultArgs<ExtArgs>
   }
-  export type PasswordIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    account?: boolean | AccountDefaultArgs<ExtArgs>
+  export type PasswordsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Accounts?: boolean | AccountsDefaultArgs<ExtArgs>
   }
 
-  export type $PasswordPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Password"
+  export type $PasswordsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Passwords"
     objects: {
-      account: Prisma.$AccountPayload<ExtArgs>
+      Accounts: Prisma.$AccountsPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       iPasswordID: number
       iAccountID: number
       sPassword: string
-      iStatus: number
+      iStatus: number | null
       iCreateBy: number | null
-      dtCreateAt: Date
+      dtCreateAt: Date | null
       iModifyBy: number | null
       dtModifyAt: Date | null
-    }, ExtArgs["result"]["password"]>
+    }, ExtArgs["result"]["passwords"]>
     composites: {}
   }
 
-  type PasswordGetPayload<S extends boolean | null | undefined | PasswordDefaultArgs> = $Result.GetResult<Prisma.$PasswordPayload, S>
+  type PasswordsGetPayload<S extends boolean | null | undefined | PasswordsDefaultArgs> = $Result.GetResult<Prisma.$PasswordsPayload, S>
 
-  type PasswordCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<PasswordFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: PasswordCountAggregateInputType | true
+  type PasswordsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PasswordsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PasswordsCountAggregateInputType | true
     }
 
-  export interface PasswordDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Password'], meta: { name: 'Password' } }
+  export interface PasswordsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Passwords'], meta: { name: 'Passwords' } }
     /**
-     * Find zero or one Password that matches the filter.
-     * @param {PasswordFindUniqueArgs} args - Arguments to find a Password
+     * Find zero or one Passwords that matches the filter.
+     * @param {PasswordsFindUniqueArgs} args - Arguments to find a Passwords
      * @example
-     * // Get one Password
-     * const password = await prisma.password.findUnique({
+     * // Get one Passwords
+     * const passwords = await prisma.passwords.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends PasswordFindUniqueArgs>(args: SelectSubset<T, PasswordFindUniqueArgs<ExtArgs>>): Prisma__PasswordClient<$Result.GetResult<Prisma.$PasswordPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends PasswordsFindUniqueArgs>(args: SelectSubset<T, PasswordsFindUniqueArgs<ExtArgs>>): Prisma__PasswordsClient<$Result.GetResult<Prisma.$PasswordsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Password that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Passwords that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {PasswordFindUniqueOrThrowArgs} args - Arguments to find a Password
+     * @param {PasswordsFindUniqueOrThrowArgs} args - Arguments to find a Passwords
      * @example
-     * // Get one Password
-     * const password = await prisma.password.findUniqueOrThrow({
+     * // Get one Passwords
+     * const passwords = await prisma.passwords.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends PasswordFindUniqueOrThrowArgs>(args: SelectSubset<T, PasswordFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PasswordClient<$Result.GetResult<Prisma.$PasswordPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends PasswordsFindUniqueOrThrowArgs>(args: SelectSubset<T, PasswordsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PasswordsClient<$Result.GetResult<Prisma.$PasswordsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Password that matches the filter.
+     * Find the first Passwords that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PasswordFindFirstArgs} args - Arguments to find a Password
+     * @param {PasswordsFindFirstArgs} args - Arguments to find a Passwords
      * @example
-     * // Get one Password
-     * const password = await prisma.password.findFirst({
+     * // Get one Passwords
+     * const passwords = await prisma.passwords.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends PasswordFindFirstArgs>(args?: SelectSubset<T, PasswordFindFirstArgs<ExtArgs>>): Prisma__PasswordClient<$Result.GetResult<Prisma.$PasswordPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends PasswordsFindFirstArgs>(args?: SelectSubset<T, PasswordsFindFirstArgs<ExtArgs>>): Prisma__PasswordsClient<$Result.GetResult<Prisma.$PasswordsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Password that matches the filter or
+     * Find the first Passwords that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PasswordFindFirstOrThrowArgs} args - Arguments to find a Password
+     * @param {PasswordsFindFirstOrThrowArgs} args - Arguments to find a Passwords
      * @example
-     * // Get one Password
-     * const password = await prisma.password.findFirstOrThrow({
+     * // Get one Passwords
+     * const passwords = await prisma.passwords.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends PasswordFindFirstOrThrowArgs>(args?: SelectSubset<T, PasswordFindFirstOrThrowArgs<ExtArgs>>): Prisma__PasswordClient<$Result.GetResult<Prisma.$PasswordPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends PasswordsFindFirstOrThrowArgs>(args?: SelectSubset<T, PasswordsFindFirstOrThrowArgs<ExtArgs>>): Prisma__PasswordsClient<$Result.GetResult<Prisma.$PasswordsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
      * Find zero or more Passwords that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PasswordFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {PasswordsFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all Passwords
-     * const passwords = await prisma.password.findMany()
+     * const passwords = await prisma.passwords.findMany()
      * 
      * // Get first 10 Passwords
-     * const passwords = await prisma.password.findMany({ take: 10 })
+     * const passwords = await prisma.passwords.findMany({ take: 10 })
      * 
      * // Only select the `iPasswordID`
-     * const passwordWithIPasswordIDOnly = await prisma.password.findMany({ select: { iPasswordID: true } })
+     * const passwordsWithIPasswordIDOnly = await prisma.passwords.findMany({ select: { iPasswordID: true } })
      * 
      */
-    findMany<T extends PasswordFindManyArgs>(args?: SelectSubset<T, PasswordFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PasswordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends PasswordsFindManyArgs>(args?: SelectSubset<T, PasswordsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PasswordsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Password.
-     * @param {PasswordCreateArgs} args - Arguments to create a Password.
+     * Create a Passwords.
+     * @param {PasswordsCreateArgs} args - Arguments to create a Passwords.
      * @example
-     * // Create one Password
-     * const Password = await prisma.password.create({
+     * // Create one Passwords
+     * const Passwords = await prisma.passwords.create({
      *   data: {
-     *     // ... data to create a Password
+     *     // ... data to create a Passwords
      *   }
      * })
      * 
      */
-    create<T extends PasswordCreateArgs>(args: SelectSubset<T, PasswordCreateArgs<ExtArgs>>): Prisma__PasswordClient<$Result.GetResult<Prisma.$PasswordPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends PasswordsCreateArgs>(args: SelectSubset<T, PasswordsCreateArgs<ExtArgs>>): Prisma__PasswordsClient<$Result.GetResult<Prisma.$PasswordsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
      * Create many Passwords.
-     * @param {PasswordCreateManyArgs} args - Arguments to create many Passwords.
+     * @param {PasswordsCreateManyArgs} args - Arguments to create many Passwords.
      * @example
      * // Create many Passwords
-     * const password = await prisma.password.createMany({
+     * const passwords = await prisma.passwords.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends PasswordCreateManyArgs>(args?: SelectSubset<T, PasswordCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends PasswordsCreateManyArgs>(args?: SelectSubset<T, PasswordsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Create many Passwords and returns the data saved in the database.
-     * @param {PasswordCreateManyAndReturnArgs} args - Arguments to create many Passwords.
+     * @param {PasswordsCreateManyAndReturnArgs} args - Arguments to create many Passwords.
      * @example
      * // Create many Passwords
-     * const password = await prisma.password.createManyAndReturn({
+     * const passwords = await prisma.passwords.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
      * // Create many Passwords and only return the `iPasswordID`
-     * const passwordWithIPasswordIDOnly = await prisma.password.createManyAndReturn({
+     * const passwordsWithIPasswordIDOnly = await prisma.passwords.createManyAndReturn({
      *   select: { iPasswordID: true },
      *   data: [
      *     // ... provide data here
@@ -3885,28 +3885,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends PasswordCreateManyAndReturnArgs>(args?: SelectSubset<T, PasswordCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PasswordPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends PasswordsCreateManyAndReturnArgs>(args?: SelectSubset<T, PasswordsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PasswordsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Password.
-     * @param {PasswordDeleteArgs} args - Arguments to delete one Password.
+     * Delete a Passwords.
+     * @param {PasswordsDeleteArgs} args - Arguments to delete one Passwords.
      * @example
-     * // Delete one Password
-     * const Password = await prisma.password.delete({
+     * // Delete one Passwords
+     * const Passwords = await prisma.passwords.delete({
      *   where: {
-     *     // ... filter to delete one Password
+     *     // ... filter to delete one Passwords
      *   }
      * })
      * 
      */
-    delete<T extends PasswordDeleteArgs>(args: SelectSubset<T, PasswordDeleteArgs<ExtArgs>>): Prisma__PasswordClient<$Result.GetResult<Prisma.$PasswordPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends PasswordsDeleteArgs>(args: SelectSubset<T, PasswordsDeleteArgs<ExtArgs>>): Prisma__PasswordsClient<$Result.GetResult<Prisma.$PasswordsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Password.
-     * @param {PasswordUpdateArgs} args - Arguments to update one Password.
+     * Update one Passwords.
+     * @param {PasswordsUpdateArgs} args - Arguments to update one Passwords.
      * @example
-     * // Update one Password
-     * const password = await prisma.password.update({
+     * // Update one Passwords
+     * const passwords = await prisma.passwords.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3916,30 +3916,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends PasswordUpdateArgs>(args: SelectSubset<T, PasswordUpdateArgs<ExtArgs>>): Prisma__PasswordClient<$Result.GetResult<Prisma.$PasswordPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends PasswordsUpdateArgs>(args: SelectSubset<T, PasswordsUpdateArgs<ExtArgs>>): Prisma__PasswordsClient<$Result.GetResult<Prisma.$PasswordsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
      * Delete zero or more Passwords.
-     * @param {PasswordDeleteManyArgs} args - Arguments to filter Passwords to delete.
+     * @param {PasswordsDeleteManyArgs} args - Arguments to filter Passwords to delete.
      * @example
      * // Delete a few Passwords
-     * const { count } = await prisma.password.deleteMany({
+     * const { count } = await prisma.passwords.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends PasswordDeleteManyArgs>(args?: SelectSubset<T, PasswordDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends PasswordsDeleteManyArgs>(args?: SelectSubset<T, PasswordsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Update zero or more Passwords.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PasswordUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {PasswordsUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
      * // Update many Passwords
-     * const password = await prisma.password.updateMany({
+     * const passwords = await prisma.passwords.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3949,14 +3949,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends PasswordUpdateManyArgs>(args: SelectSubset<T, PasswordUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends PasswordsUpdateManyArgs>(args: SelectSubset<T, PasswordsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Update zero or more Passwords and returns the data updated in the database.
-     * @param {PasswordUpdateManyAndReturnArgs} args - Arguments to update many Passwords.
+     * @param {PasswordsUpdateManyAndReturnArgs} args - Arguments to update many Passwords.
      * @example
      * // Update many Passwords
-     * const password = await prisma.password.updateManyAndReturn({
+     * const passwords = await prisma.passwords.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3966,7 +3966,7 @@ export namespace Prisma {
      * })
      * 
      * // Update zero or more Passwords and only return the `iPasswordID`
-     * const passwordWithIPasswordIDOnly = await prisma.password.updateManyAndReturn({
+     * const passwordsWithIPasswordIDOnly = await prisma.passwords.updateManyAndReturn({
      *   select: { iPasswordID: true },
      *   where: {
      *     // ... provide filter here
@@ -3979,56 +3979,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends PasswordUpdateManyAndReturnArgs>(args: SelectSubset<T, PasswordUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PasswordPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends PasswordsUpdateManyAndReturnArgs>(args: SelectSubset<T, PasswordsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PasswordsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Password.
-     * @param {PasswordUpsertArgs} args - Arguments to update or create a Password.
+     * Create or update one Passwords.
+     * @param {PasswordsUpsertArgs} args - Arguments to update or create a Passwords.
      * @example
-     * // Update or create a Password
-     * const password = await prisma.password.upsert({
+     * // Update or create a Passwords
+     * const passwords = await prisma.passwords.upsert({
      *   create: {
-     *     // ... data to create a Password
+     *     // ... data to create a Passwords
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Password we want to update
+     *     // ... the filter for the Passwords we want to update
      *   }
      * })
      */
-    upsert<T extends PasswordUpsertArgs>(args: SelectSubset<T, PasswordUpsertArgs<ExtArgs>>): Prisma__PasswordClient<$Result.GetResult<Prisma.$PasswordPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends PasswordsUpsertArgs>(args: SelectSubset<T, PasswordsUpsertArgs<ExtArgs>>): Prisma__PasswordsClient<$Result.GetResult<Prisma.$PasswordsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
      * Count the number of Passwords.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PasswordCountArgs} args - Arguments to filter Passwords to count.
+     * @param {PasswordsCountArgs} args - Arguments to filter Passwords to count.
      * @example
      * // Count the number of Passwords
-     * const count = await prisma.password.count({
+     * const count = await prisma.passwords.count({
      *   where: {
      *     // ... the filter for the Passwords we want to count
      *   }
      * })
     **/
-    count<T extends PasswordCountArgs>(
-      args?: Subset<T, PasswordCountArgs>,
+    count<T extends PasswordsCountArgs>(
+      args?: Subset<T, PasswordsCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], PasswordCountAggregateOutputType>
+          : GetScalarType<T['select'], PasswordsCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Password.
+     * Allows you to perform aggregations operations on a Passwords.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PasswordAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {PasswordsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -4048,13 +4048,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends PasswordAggregateArgs>(args: Subset<T, PasswordAggregateArgs>): Prisma.PrismaPromise<GetPasswordAggregateType<T>>
+    aggregate<T extends PasswordsAggregateArgs>(args: Subset<T, PasswordsAggregateArgs>): Prisma.PrismaPromise<GetPasswordsAggregateType<T>>
 
     /**
-     * Group by Password.
+     * Group by Passwords.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PasswordGroupByArgs} args - Group by arguments.
+     * @param {PasswordsGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -4069,14 +4069,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends PasswordGroupByArgs,
+      T extends PasswordsGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: PasswordGroupByArgs['orderBy'] }
-        : { orderBy?: PasswordGroupByArgs['orderBy'] },
+        ? { orderBy: PasswordsGroupByArgs['orderBy'] }
+        : { orderBy?: PasswordsGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -4125,22 +4125,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, PasswordGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPasswordGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, PasswordsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPasswordsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Password model
+   * Fields of the Passwords model
    */
-  readonly fields: PasswordFieldRefs;
+  readonly fields: PasswordsFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Password.
+   * The delegate class that acts as a "Promise-like" for Passwords.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__PasswordClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__PasswordsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    account<T extends AccountDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AccountDefaultArgs<ExtArgs>>): Prisma__AccountClient<$Result.GetResult<Prisma.$AccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    Accounts<T extends AccountsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AccountsDefaultArgs<ExtArgs>>): Prisma__AccountsClient<$Result.GetResult<Prisma.$AccountsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4167,201 +4167,201 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Password model
+   * Fields of the Passwords model
    */
-  interface PasswordFieldRefs {
-    readonly iPasswordID: FieldRef<"Password", 'Int'>
-    readonly iAccountID: FieldRef<"Password", 'Int'>
-    readonly sPassword: FieldRef<"Password", 'String'>
-    readonly iStatus: FieldRef<"Password", 'Int'>
-    readonly iCreateBy: FieldRef<"Password", 'Int'>
-    readonly dtCreateAt: FieldRef<"Password", 'DateTime'>
-    readonly iModifyBy: FieldRef<"Password", 'Int'>
-    readonly dtModifyAt: FieldRef<"Password", 'DateTime'>
+  interface PasswordsFieldRefs {
+    readonly iPasswordID: FieldRef<"Passwords", 'Int'>
+    readonly iAccountID: FieldRef<"Passwords", 'Int'>
+    readonly sPassword: FieldRef<"Passwords", 'String'>
+    readonly iStatus: FieldRef<"Passwords", 'Int'>
+    readonly iCreateBy: FieldRef<"Passwords", 'Int'>
+    readonly dtCreateAt: FieldRef<"Passwords", 'DateTime'>
+    readonly iModifyBy: FieldRef<"Passwords", 'Int'>
+    readonly dtModifyAt: FieldRef<"Passwords", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * Password findUnique
+   * Passwords findUnique
    */
-  export type PasswordFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PasswordsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Password
+     * Select specific fields to fetch from the Passwords
      */
-    select?: PasswordSelect<ExtArgs> | null
+    select?: PasswordsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Password
+     * Omit specific fields from the Passwords
      */
-    omit?: PasswordOmit<ExtArgs> | null
+    omit?: PasswordsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PasswordInclude<ExtArgs> | null
-    /**
-     * Filter, which Password to fetch.
-     */
-    where: PasswordWhereUniqueInput
-  }
-
-  /**
-   * Password findUniqueOrThrow
-   */
-  export type PasswordFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Password
-     */
-    select?: PasswordSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Password
-     */
-    omit?: PasswordOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PasswordInclude<ExtArgs> | null
-    /**
-     * Filter, which Password to fetch.
-     */
-    where: PasswordWhereUniqueInput
-  }
-
-  /**
-   * Password findFirst
-   */
-  export type PasswordFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Password
-     */
-    select?: PasswordSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Password
-     */
-    omit?: PasswordOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PasswordInclude<ExtArgs> | null
-    /**
-     * Filter, which Password to fetch.
-     */
-    where?: PasswordWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Passwords to fetch.
-     */
-    orderBy?: PasswordOrderByWithRelationInput | PasswordOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Passwords.
-     */
-    cursor?: PasswordWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Passwords from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Passwords.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Passwords.
-     */
-    distinct?: PasswordScalarFieldEnum | PasswordScalarFieldEnum[]
-  }
-
-  /**
-   * Password findFirstOrThrow
-   */
-  export type PasswordFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Password
-     */
-    select?: PasswordSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Password
-     */
-    omit?: PasswordOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PasswordInclude<ExtArgs> | null
-    /**
-     * Filter, which Password to fetch.
-     */
-    where?: PasswordWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Passwords to fetch.
-     */
-    orderBy?: PasswordOrderByWithRelationInput | PasswordOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Passwords.
-     */
-    cursor?: PasswordWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Passwords from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Passwords.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Passwords.
-     */
-    distinct?: PasswordScalarFieldEnum | PasswordScalarFieldEnum[]
-  }
-
-  /**
-   * Password findMany
-   */
-  export type PasswordFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Password
-     */
-    select?: PasswordSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Password
-     */
-    omit?: PasswordOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PasswordInclude<ExtArgs> | null
+    include?: PasswordsInclude<ExtArgs> | null
     /**
      * Filter, which Passwords to fetch.
      */
-    where?: PasswordWhereInput
+    where: PasswordsWhereUniqueInput
+  }
+
+  /**
+   * Passwords findUniqueOrThrow
+   */
+  export type PasswordsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Passwords
+     */
+    select?: PasswordsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Passwords
+     */
+    omit?: PasswordsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PasswordsInclude<ExtArgs> | null
+    /**
+     * Filter, which Passwords to fetch.
+     */
+    where: PasswordsWhereUniqueInput
+  }
+
+  /**
+   * Passwords findFirst
+   */
+  export type PasswordsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Passwords
+     */
+    select?: PasswordsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Passwords
+     */
+    omit?: PasswordsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PasswordsInclude<ExtArgs> | null
+    /**
+     * Filter, which Passwords to fetch.
+     */
+    where?: PasswordsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
      * Determine the order of Passwords to fetch.
      */
-    orderBy?: PasswordOrderByWithRelationInput | PasswordOrderByWithRelationInput[]
+    orderBy?: PasswordsOrderByWithRelationInput | PasswordsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Passwords.
+     */
+    cursor?: PasswordsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Passwords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Passwords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Passwords.
+     */
+    distinct?: PasswordsScalarFieldEnum | PasswordsScalarFieldEnum[]
+  }
+
+  /**
+   * Passwords findFirstOrThrow
+   */
+  export type PasswordsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Passwords
+     */
+    select?: PasswordsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Passwords
+     */
+    omit?: PasswordsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PasswordsInclude<ExtArgs> | null
+    /**
+     * Filter, which Passwords to fetch.
+     */
+    where?: PasswordsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Passwords to fetch.
+     */
+    orderBy?: PasswordsOrderByWithRelationInput | PasswordsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Passwords.
+     */
+    cursor?: PasswordsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Passwords from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Passwords.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Passwords.
+     */
+    distinct?: PasswordsScalarFieldEnum | PasswordsScalarFieldEnum[]
+  }
+
+  /**
+   * Passwords findMany
+   */
+  export type PasswordsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Passwords
+     */
+    select?: PasswordsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Passwords
+     */
+    omit?: PasswordsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PasswordsInclude<ExtArgs> | null
+    /**
+     * Filter, which Passwords to fetch.
+     */
+    where?: PasswordsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Passwords to fetch.
+     */
+    orderBy?: PasswordsOrderByWithRelationInput | PasswordsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the position for listing Passwords.
      */
-    cursor?: PasswordWhereUniqueInput
+    cursor?: PasswordsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
@@ -4379,103 +4379,103 @@ export namespace Prisma {
      * 
      * Filter by unique combinations of Passwords.
      */
-    distinct?: PasswordScalarFieldEnum | PasswordScalarFieldEnum[]
+    distinct?: PasswordsScalarFieldEnum | PasswordsScalarFieldEnum[]
   }
 
   /**
-   * Password create
+   * Passwords create
    */
-  export type PasswordCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PasswordsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Password
+     * Select specific fields to fetch from the Passwords
      */
-    select?: PasswordSelect<ExtArgs> | null
+    select?: PasswordsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Password
+     * Omit specific fields from the Passwords
      */
-    omit?: PasswordOmit<ExtArgs> | null
+    omit?: PasswordsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PasswordInclude<ExtArgs> | null
+    include?: PasswordsInclude<ExtArgs> | null
     /**
-     * The data needed to create a Password.
+     * The data needed to create a Passwords.
      */
-    data: XOR<PasswordCreateInput, PasswordUncheckedCreateInput>
+    data: XOR<PasswordsCreateInput, PasswordsUncheckedCreateInput>
   }
 
   /**
-   * Password createMany
+   * Passwords createMany
    */
-  export type PasswordCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PasswordsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to create many Passwords.
      */
-    data: PasswordCreateManyInput | PasswordCreateManyInput[]
+    data: PasswordsCreateManyInput | PasswordsCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Password createManyAndReturn
+   * Passwords createManyAndReturn
    */
-  export type PasswordCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PasswordsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Password
+     * Select specific fields to fetch from the Passwords
      */
-    select?: PasswordSelectCreateManyAndReturn<ExtArgs> | null
+    select?: PasswordsSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Password
+     * Omit specific fields from the Passwords
      */
-    omit?: PasswordOmit<ExtArgs> | null
+    omit?: PasswordsOmit<ExtArgs> | null
     /**
      * The data used to create many Passwords.
      */
-    data: PasswordCreateManyInput | PasswordCreateManyInput[]
+    data: PasswordsCreateManyInput | PasswordsCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PasswordIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: PasswordsIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Password update
+   * Passwords update
    */
-  export type PasswordUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PasswordsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Password
+     * Select specific fields to fetch from the Passwords
      */
-    select?: PasswordSelect<ExtArgs> | null
+    select?: PasswordsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Password
+     * Omit specific fields from the Passwords
      */
-    omit?: PasswordOmit<ExtArgs> | null
+    omit?: PasswordsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PasswordInclude<ExtArgs> | null
+    include?: PasswordsInclude<ExtArgs> | null
     /**
-     * The data needed to update a Password.
+     * The data needed to update a Passwords.
      */
-    data: XOR<PasswordUpdateInput, PasswordUncheckedUpdateInput>
+    data: XOR<PasswordsUpdateInput, PasswordsUncheckedUpdateInput>
     /**
-     * Choose, which Password to update.
+     * Choose, which Passwords to update.
      */
-    where: PasswordWhereUniqueInput
+    where: PasswordsWhereUniqueInput
   }
 
   /**
-   * Password updateMany
+   * Passwords updateMany
    */
-  export type PasswordUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PasswordsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * The data used to update Passwords.
      */
-    data: XOR<PasswordUpdateManyMutationInput, PasswordUncheckedUpdateManyInput>
+    data: XOR<PasswordsUpdateManyMutationInput, PasswordsUncheckedUpdateManyInput>
     /**
      * Filter which Passwords to update
      */
-    where?: PasswordWhereInput
+    where?: PasswordsWhereInput
     /**
      * Limit how many Passwords to update.
      */
@@ -4483,25 +4483,25 @@ export namespace Prisma {
   }
 
   /**
-   * Password updateManyAndReturn
+   * Passwords updateManyAndReturn
    */
-  export type PasswordUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PasswordsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Password
+     * Select specific fields to fetch from the Passwords
      */
-    select?: PasswordSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: PasswordsSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Password
+     * Omit specific fields from the Passwords
      */
-    omit?: PasswordOmit<ExtArgs> | null
+    omit?: PasswordsOmit<ExtArgs> | null
     /**
      * The data used to update Passwords.
      */
-    data: XOR<PasswordUpdateManyMutationInput, PasswordUncheckedUpdateManyInput>
+    data: XOR<PasswordsUpdateManyMutationInput, PasswordsUncheckedUpdateManyInput>
     /**
      * Filter which Passwords to update
      */
-    where?: PasswordWhereInput
+    where?: PasswordsWhereInput
     /**
      * Limit how many Passwords to update.
      */
@@ -4509,69 +4509,69 @@ export namespace Prisma {
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PasswordIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: PasswordsIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Password upsert
+   * Passwords upsert
    */
-  export type PasswordUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PasswordsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Password
+     * Select specific fields to fetch from the Passwords
      */
-    select?: PasswordSelect<ExtArgs> | null
+    select?: PasswordsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Password
+     * Omit specific fields from the Passwords
      */
-    omit?: PasswordOmit<ExtArgs> | null
+    omit?: PasswordsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PasswordInclude<ExtArgs> | null
+    include?: PasswordsInclude<ExtArgs> | null
     /**
-     * The filter to search for the Password to update in case it exists.
+     * The filter to search for the Passwords to update in case it exists.
      */
-    where: PasswordWhereUniqueInput
+    where: PasswordsWhereUniqueInput
     /**
-     * In case the Password found by the `where` argument doesn't exist, create a new Password with this data.
+     * In case the Passwords found by the `where` argument doesn't exist, create a new Passwords with this data.
      */
-    create: XOR<PasswordCreateInput, PasswordUncheckedCreateInput>
+    create: XOR<PasswordsCreateInput, PasswordsUncheckedCreateInput>
     /**
-     * In case the Password was found with the provided `where` argument, update it with this data.
+     * In case the Passwords was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<PasswordUpdateInput, PasswordUncheckedUpdateInput>
+    update: XOR<PasswordsUpdateInput, PasswordsUncheckedUpdateInput>
   }
 
   /**
-   * Password delete
+   * Passwords delete
    */
-  export type PasswordDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PasswordsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Password
+     * Select specific fields to fetch from the Passwords
      */
-    select?: PasswordSelect<ExtArgs> | null
+    select?: PasswordsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Password
+     * Omit specific fields from the Passwords
      */
-    omit?: PasswordOmit<ExtArgs> | null
+    omit?: PasswordsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PasswordInclude<ExtArgs> | null
+    include?: PasswordsInclude<ExtArgs> | null
     /**
-     * Filter which Password to delete.
+     * Filter which Passwords to delete.
      */
-    where: PasswordWhereUniqueInput
+    where: PasswordsWhereUniqueInput
   }
 
   /**
-   * Password deleteMany
+   * Passwords deleteMany
    */
-  export type PasswordDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PasswordsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
      * Filter which Passwords to delete
      */
-    where?: PasswordWhereInput
+    where?: PasswordsWhereInput
     /**
      * Limit how many Passwords to delete.
      */
@@ -4579,21 +4579,21 @@ export namespace Prisma {
   }
 
   /**
-   * Password without action
+   * Passwords without action
    */
-  export type PasswordDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type PasswordsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Password
+     * Select specific fields to fetch from the Passwords
      */
-    select?: PasswordSelect<ExtArgs> | null
+    select?: PasswordsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Password
+     * Omit specific fields from the Passwords
      */
-    omit?: PasswordOmit<ExtArgs> | null
+    omit?: PasswordsOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: PasswordInclude<ExtArgs> | null
+    include?: PasswordsInclude<ExtArgs> | null
   }
 
 
@@ -4611,7 +4611,20 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-  export const EmployeeScalarFieldEnum: {
+  export const AccountsScalarFieldEnum: {
+    iAccountID: 'iAccountID',
+    iEmployeeID: 'iEmployeeID',
+    iStatus: 'iStatus',
+    iCreateBy: 'iCreateBy',
+    dtCreateAt: 'dtCreateAt',
+    iModifyBy: 'iModifyBy',
+    dtModifyAt: 'dtModifyAt'
+  };
+
+  export type AccountsScalarFieldEnum = (typeof AccountsScalarFieldEnum)[keyof typeof AccountsScalarFieldEnum]
+
+
+  export const EmployeesScalarFieldEnum: {
     iEmployeeID: 'iEmployeeID',
     sEmpID: 'sEmpID',
     sFullName: 'sFullName',
@@ -4628,23 +4641,10 @@ export namespace Prisma {
     dtModifyAt: 'dtModifyAt'
   };
 
-  export type EmployeeScalarFieldEnum = (typeof EmployeeScalarFieldEnum)[keyof typeof EmployeeScalarFieldEnum]
+  export type EmployeesScalarFieldEnum = (typeof EmployeesScalarFieldEnum)[keyof typeof EmployeesScalarFieldEnum]
 
 
-  export const AccountScalarFieldEnum: {
-    iAccountID: 'iAccountID',
-    iEmployeeID: 'iEmployeeID',
-    iStatus: 'iStatus',
-    iCreateBy: 'iCreateBy',
-    dtCreateAt: 'dtCreateAt',
-    iModifyBy: 'iModifyBy',
-    dtModifyAt: 'dtModifyAt'
-  };
-
-  export type AccountScalarFieldEnum = (typeof AccountScalarFieldEnum)[keyof typeof AccountScalarFieldEnum]
-
-
-  export const PasswordScalarFieldEnum: {
+  export const PasswordsScalarFieldEnum: {
     iPasswordID: 'iPasswordID',
     iAccountID: 'iAccountID',
     sPassword: 'sPassword',
@@ -4655,7 +4655,7 @@ export namespace Prisma {
     dtModifyAt: 'dtModifyAt'
   };
 
-  export type PasswordScalarFieldEnum = (typeof PasswordScalarFieldEnum)[keyof typeof PasswordScalarFieldEnum]
+  export type PasswordsScalarFieldEnum = (typeof PasswordsScalarFieldEnum)[keyof typeof PasswordsScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -4666,20 +4666,20 @@ export namespace Prisma {
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
-  export const QueryMode: {
-    default: 'default',
-    insensitive: 'insensitive'
-  };
-
-  export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
-
-
   export const NullsOrder: {
     first: 'first',
     last: 'last'
   };
 
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+  export const QueryMode: {
+    default: 'default',
+    insensitive: 'insensitive'
+  };
+
+  export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
   /**
@@ -4702,20 +4702,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'String'
-   */
-  export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
-    
-
-
-  /**
-   * Reference to a field of type 'String[]'
-   */
-  export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
-    
-
-
-  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -4726,6 +4712,20 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'String'
+   */
+  export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
+    
+
+
+  /**
+   * Reference to a field of type 'String[]'
+   */
+  export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
     
 
 
@@ -4746,28 +4746,98 @@ export namespace Prisma {
    */
 
 
-  export type EmployeeWhereInput = {
-    AND?: EmployeeWhereInput | EmployeeWhereInput[]
-    OR?: EmployeeWhereInput[]
-    NOT?: EmployeeWhereInput | EmployeeWhereInput[]
-    iEmployeeID?: IntFilter<"Employee"> | number
-    sEmpID?: StringFilter<"Employee"> | string
-    sFullName?: StringFilter<"Employee"> | string
-    sEmail?: StringNullableFilter<"Employee"> | string | null
-    sDepartment?: StringNullableFilter<"Employee"> | string | null
-    sRole?: StringNullableFilter<"Employee"> | string | null
-    dtHireDate?: DateTimeNullableFilter<"Employee"> | Date | string | null
-    iSafetyYet?: IntNullableFilter<"Employee"> | number | null
-    dtLastSafetyTraining?: DateTimeNullableFilter<"Employee"> | Date | string | null
-    iStatus?: IntFilter<"Employee"> | number
-    iCreateBy?: IntNullableFilter<"Employee"> | number | null
-    dtCreateAt?: DateTimeFilter<"Employee"> | Date | string
-    iModifyBy?: IntNullableFilter<"Employee"> | number | null
-    dtModifyAt?: DateTimeNullableFilter<"Employee"> | Date | string | null
-    account?: XOR<AccountNullableScalarRelationFilter, AccountWhereInput> | null
+  export type AccountsWhereInput = {
+    AND?: AccountsWhereInput | AccountsWhereInput[]
+    OR?: AccountsWhereInput[]
+    NOT?: AccountsWhereInput | AccountsWhereInput[]
+    iAccountID?: IntFilter<"Accounts"> | number
+    iEmployeeID?: IntFilter<"Accounts"> | number
+    iStatus?: IntNullableFilter<"Accounts"> | number | null
+    iCreateBy?: IntNullableFilter<"Accounts"> | number | null
+    dtCreateAt?: DateTimeNullableFilter<"Accounts"> | Date | string | null
+    iModifyBy?: IntNullableFilter<"Accounts"> | number | null
+    dtModifyAt?: DateTimeNullableFilter<"Accounts"> | Date | string | null
+    Employees?: XOR<EmployeesScalarRelationFilter, EmployeesWhereInput>
+    Passwords?: XOR<PasswordsNullableScalarRelationFilter, PasswordsWhereInput> | null
   }
 
-  export type EmployeeOrderByWithRelationInput = {
+  export type AccountsOrderByWithRelationInput = {
+    iAccountID?: SortOrder
+    iEmployeeID?: SortOrder
+    iStatus?: SortOrderInput | SortOrder
+    iCreateBy?: SortOrderInput | SortOrder
+    dtCreateAt?: SortOrderInput | SortOrder
+    iModifyBy?: SortOrderInput | SortOrder
+    dtModifyAt?: SortOrderInput | SortOrder
+    Employees?: EmployeesOrderByWithRelationInput
+    Passwords?: PasswordsOrderByWithRelationInput
+  }
+
+  export type AccountsWhereUniqueInput = Prisma.AtLeast<{
+    iAccountID?: number
+    iEmployeeID?: number
+    AND?: AccountsWhereInput | AccountsWhereInput[]
+    OR?: AccountsWhereInput[]
+    NOT?: AccountsWhereInput | AccountsWhereInput[]
+    iStatus?: IntNullableFilter<"Accounts"> | number | null
+    iCreateBy?: IntNullableFilter<"Accounts"> | number | null
+    dtCreateAt?: DateTimeNullableFilter<"Accounts"> | Date | string | null
+    iModifyBy?: IntNullableFilter<"Accounts"> | number | null
+    dtModifyAt?: DateTimeNullableFilter<"Accounts"> | Date | string | null
+    Employees?: XOR<EmployeesScalarRelationFilter, EmployeesWhereInput>
+    Passwords?: XOR<PasswordsNullableScalarRelationFilter, PasswordsWhereInput> | null
+  }, "iAccountID" | "iEmployeeID">
+
+  export type AccountsOrderByWithAggregationInput = {
+    iAccountID?: SortOrder
+    iEmployeeID?: SortOrder
+    iStatus?: SortOrderInput | SortOrder
+    iCreateBy?: SortOrderInput | SortOrder
+    dtCreateAt?: SortOrderInput | SortOrder
+    iModifyBy?: SortOrderInput | SortOrder
+    dtModifyAt?: SortOrderInput | SortOrder
+    _count?: AccountsCountOrderByAggregateInput
+    _avg?: AccountsAvgOrderByAggregateInput
+    _max?: AccountsMaxOrderByAggregateInput
+    _min?: AccountsMinOrderByAggregateInput
+    _sum?: AccountsSumOrderByAggregateInput
+  }
+
+  export type AccountsScalarWhereWithAggregatesInput = {
+    AND?: AccountsScalarWhereWithAggregatesInput | AccountsScalarWhereWithAggregatesInput[]
+    OR?: AccountsScalarWhereWithAggregatesInput[]
+    NOT?: AccountsScalarWhereWithAggregatesInput | AccountsScalarWhereWithAggregatesInput[]
+    iAccountID?: IntWithAggregatesFilter<"Accounts"> | number
+    iEmployeeID?: IntWithAggregatesFilter<"Accounts"> | number
+    iStatus?: IntNullableWithAggregatesFilter<"Accounts"> | number | null
+    iCreateBy?: IntNullableWithAggregatesFilter<"Accounts"> | number | null
+    dtCreateAt?: DateTimeNullableWithAggregatesFilter<"Accounts"> | Date | string | null
+    iModifyBy?: IntNullableWithAggregatesFilter<"Accounts"> | number | null
+    dtModifyAt?: DateTimeNullableWithAggregatesFilter<"Accounts"> | Date | string | null
+  }
+
+  export type EmployeesWhereInput = {
+    AND?: EmployeesWhereInput | EmployeesWhereInput[]
+    OR?: EmployeesWhereInput[]
+    NOT?: EmployeesWhereInput | EmployeesWhereInput[]
+    iEmployeeID?: IntFilter<"Employees"> | number
+    sEmpID?: StringFilter<"Employees"> | string
+    sFullName?: StringFilter<"Employees"> | string
+    sEmail?: StringNullableFilter<"Employees"> | string | null
+    sDepartment?: StringNullableFilter<"Employees"> | string | null
+    sRole?: StringNullableFilter<"Employees"> | string | null
+    dtHireDate?: DateTimeNullableFilter<"Employees"> | Date | string | null
+    iSafetyYet?: IntNullableFilter<"Employees"> | number | null
+    dtLastSafetyTraining?: DateTimeNullableFilter<"Employees"> | Date | string | null
+    iStatus?: IntNullableFilter<"Employees"> | number | null
+    iCreateBy?: IntNullableFilter<"Employees"> | number | null
+    dtCreateAt?: DateTimeNullableFilter<"Employees"> | Date | string | null
+    iModifyBy?: IntNullableFilter<"Employees"> | number | null
+    dtModifyAt?: DateTimeNullableFilter<"Employees"> | Date | string | null
+    Accounts?: XOR<AccountsNullableScalarRelationFilter, AccountsWhereInput> | null
+  }
+
+  export type EmployeesOrderByWithRelationInput = {
     iEmployeeID?: SortOrder
     sEmpID?: SortOrder
     sFullName?: SortOrder
@@ -4777,36 +4847,36 @@ export namespace Prisma {
     dtHireDate?: SortOrderInput | SortOrder
     iSafetyYet?: SortOrderInput | SortOrder
     dtLastSafetyTraining?: SortOrderInput | SortOrder
-    iStatus?: SortOrder
+    iStatus?: SortOrderInput | SortOrder
     iCreateBy?: SortOrderInput | SortOrder
-    dtCreateAt?: SortOrder
+    dtCreateAt?: SortOrderInput | SortOrder
     iModifyBy?: SortOrderInput | SortOrder
     dtModifyAt?: SortOrderInput | SortOrder
-    account?: AccountOrderByWithRelationInput
+    Accounts?: AccountsOrderByWithRelationInput
   }
 
-  export type EmployeeWhereUniqueInput = Prisma.AtLeast<{
+  export type EmployeesWhereUniqueInput = Prisma.AtLeast<{
     iEmployeeID?: number
     sEmpID?: string
     sEmail?: string
-    AND?: EmployeeWhereInput | EmployeeWhereInput[]
-    OR?: EmployeeWhereInput[]
-    NOT?: EmployeeWhereInput | EmployeeWhereInput[]
-    sFullName?: StringFilter<"Employee"> | string
-    sDepartment?: StringNullableFilter<"Employee"> | string | null
-    sRole?: StringNullableFilter<"Employee"> | string | null
-    dtHireDate?: DateTimeNullableFilter<"Employee"> | Date | string | null
-    iSafetyYet?: IntNullableFilter<"Employee"> | number | null
-    dtLastSafetyTraining?: DateTimeNullableFilter<"Employee"> | Date | string | null
-    iStatus?: IntFilter<"Employee"> | number
-    iCreateBy?: IntNullableFilter<"Employee"> | number | null
-    dtCreateAt?: DateTimeFilter<"Employee"> | Date | string
-    iModifyBy?: IntNullableFilter<"Employee"> | number | null
-    dtModifyAt?: DateTimeNullableFilter<"Employee"> | Date | string | null
-    account?: XOR<AccountNullableScalarRelationFilter, AccountWhereInput> | null
+    AND?: EmployeesWhereInput | EmployeesWhereInput[]
+    OR?: EmployeesWhereInput[]
+    NOT?: EmployeesWhereInput | EmployeesWhereInput[]
+    sFullName?: StringFilter<"Employees"> | string
+    sDepartment?: StringNullableFilter<"Employees"> | string | null
+    sRole?: StringNullableFilter<"Employees"> | string | null
+    dtHireDate?: DateTimeNullableFilter<"Employees"> | Date | string | null
+    iSafetyYet?: IntNullableFilter<"Employees"> | number | null
+    dtLastSafetyTraining?: DateTimeNullableFilter<"Employees"> | Date | string | null
+    iStatus?: IntNullableFilter<"Employees"> | number | null
+    iCreateBy?: IntNullableFilter<"Employees"> | number | null
+    dtCreateAt?: DateTimeNullableFilter<"Employees"> | Date | string | null
+    iModifyBy?: IntNullableFilter<"Employees"> | number | null
+    dtModifyAt?: DateTimeNullableFilter<"Employees"> | Date | string | null
+    Accounts?: XOR<AccountsNullableScalarRelationFilter, AccountsWhereInput> | null
   }, "iEmployeeID" | "sEmpID" | "sEmail">
 
-  export type EmployeeOrderByWithAggregationInput = {
+  export type EmployeesOrderByWithAggregationInput = {
     iEmployeeID?: SortOrder
     sEmpID?: SortOrder
     sFullName?: SortOrder
@@ -4816,181 +4886,181 @@ export namespace Prisma {
     dtHireDate?: SortOrderInput | SortOrder
     iSafetyYet?: SortOrderInput | SortOrder
     dtLastSafetyTraining?: SortOrderInput | SortOrder
-    iStatus?: SortOrder
+    iStatus?: SortOrderInput | SortOrder
     iCreateBy?: SortOrderInput | SortOrder
-    dtCreateAt?: SortOrder
+    dtCreateAt?: SortOrderInput | SortOrder
     iModifyBy?: SortOrderInput | SortOrder
     dtModifyAt?: SortOrderInput | SortOrder
-    _count?: EmployeeCountOrderByAggregateInput
-    _avg?: EmployeeAvgOrderByAggregateInput
-    _max?: EmployeeMaxOrderByAggregateInput
-    _min?: EmployeeMinOrderByAggregateInput
-    _sum?: EmployeeSumOrderByAggregateInput
+    _count?: EmployeesCountOrderByAggregateInput
+    _avg?: EmployeesAvgOrderByAggregateInput
+    _max?: EmployeesMaxOrderByAggregateInput
+    _min?: EmployeesMinOrderByAggregateInput
+    _sum?: EmployeesSumOrderByAggregateInput
   }
 
-  export type EmployeeScalarWhereWithAggregatesInput = {
-    AND?: EmployeeScalarWhereWithAggregatesInput | EmployeeScalarWhereWithAggregatesInput[]
-    OR?: EmployeeScalarWhereWithAggregatesInput[]
-    NOT?: EmployeeScalarWhereWithAggregatesInput | EmployeeScalarWhereWithAggregatesInput[]
-    iEmployeeID?: IntWithAggregatesFilter<"Employee"> | number
-    sEmpID?: StringWithAggregatesFilter<"Employee"> | string
-    sFullName?: StringWithAggregatesFilter<"Employee"> | string
-    sEmail?: StringNullableWithAggregatesFilter<"Employee"> | string | null
-    sDepartment?: StringNullableWithAggregatesFilter<"Employee"> | string | null
-    sRole?: StringNullableWithAggregatesFilter<"Employee"> | string | null
-    dtHireDate?: DateTimeNullableWithAggregatesFilter<"Employee"> | Date | string | null
-    iSafetyYet?: IntNullableWithAggregatesFilter<"Employee"> | number | null
-    dtLastSafetyTraining?: DateTimeNullableWithAggregatesFilter<"Employee"> | Date | string | null
-    iStatus?: IntWithAggregatesFilter<"Employee"> | number
-    iCreateBy?: IntNullableWithAggregatesFilter<"Employee"> | number | null
-    dtCreateAt?: DateTimeWithAggregatesFilter<"Employee"> | Date | string
-    iModifyBy?: IntNullableWithAggregatesFilter<"Employee"> | number | null
-    dtModifyAt?: DateTimeNullableWithAggregatesFilter<"Employee"> | Date | string | null
+  export type EmployeesScalarWhereWithAggregatesInput = {
+    AND?: EmployeesScalarWhereWithAggregatesInput | EmployeesScalarWhereWithAggregatesInput[]
+    OR?: EmployeesScalarWhereWithAggregatesInput[]
+    NOT?: EmployeesScalarWhereWithAggregatesInput | EmployeesScalarWhereWithAggregatesInput[]
+    iEmployeeID?: IntWithAggregatesFilter<"Employees"> | number
+    sEmpID?: StringWithAggregatesFilter<"Employees"> | string
+    sFullName?: StringWithAggregatesFilter<"Employees"> | string
+    sEmail?: StringNullableWithAggregatesFilter<"Employees"> | string | null
+    sDepartment?: StringNullableWithAggregatesFilter<"Employees"> | string | null
+    sRole?: StringNullableWithAggregatesFilter<"Employees"> | string | null
+    dtHireDate?: DateTimeNullableWithAggregatesFilter<"Employees"> | Date | string | null
+    iSafetyYet?: IntNullableWithAggregatesFilter<"Employees"> | number | null
+    dtLastSafetyTraining?: DateTimeNullableWithAggregatesFilter<"Employees"> | Date | string | null
+    iStatus?: IntNullableWithAggregatesFilter<"Employees"> | number | null
+    iCreateBy?: IntNullableWithAggregatesFilter<"Employees"> | number | null
+    dtCreateAt?: DateTimeNullableWithAggregatesFilter<"Employees"> | Date | string | null
+    iModifyBy?: IntNullableWithAggregatesFilter<"Employees"> | number | null
+    dtModifyAt?: DateTimeNullableWithAggregatesFilter<"Employees"> | Date | string | null
   }
 
-  export type AccountWhereInput = {
-    AND?: AccountWhereInput | AccountWhereInput[]
-    OR?: AccountWhereInput[]
-    NOT?: AccountWhereInput | AccountWhereInput[]
-    iAccountID?: IntFilter<"Account"> | number
-    iEmployeeID?: IntFilter<"Account"> | number
-    iStatus?: IntFilter<"Account"> | number
-    iCreateBy?: IntNullableFilter<"Account"> | number | null
-    dtCreateAt?: DateTimeFilter<"Account"> | Date | string
-    iModifyBy?: IntNullableFilter<"Account"> | number | null
-    dtModifyAt?: DateTimeNullableFilter<"Account"> | Date | string | null
-    employee?: XOR<EmployeeScalarRelationFilter, EmployeeWhereInput>
-    password?: XOR<PasswordNullableScalarRelationFilter, PasswordWhereInput> | null
+  export type PasswordsWhereInput = {
+    AND?: PasswordsWhereInput | PasswordsWhereInput[]
+    OR?: PasswordsWhereInput[]
+    NOT?: PasswordsWhereInput | PasswordsWhereInput[]
+    iPasswordID?: IntFilter<"Passwords"> | number
+    iAccountID?: IntFilter<"Passwords"> | number
+    sPassword?: StringFilter<"Passwords"> | string
+    iStatus?: IntNullableFilter<"Passwords"> | number | null
+    iCreateBy?: IntNullableFilter<"Passwords"> | number | null
+    dtCreateAt?: DateTimeNullableFilter<"Passwords"> | Date | string | null
+    iModifyBy?: IntNullableFilter<"Passwords"> | number | null
+    dtModifyAt?: DateTimeNullableFilter<"Passwords"> | Date | string | null
+    Accounts?: XOR<AccountsScalarRelationFilter, AccountsWhereInput>
   }
 
-  export type AccountOrderByWithRelationInput = {
-    iAccountID?: SortOrder
-    iEmployeeID?: SortOrder
-    iStatus?: SortOrder
-    iCreateBy?: SortOrderInput | SortOrder
-    dtCreateAt?: SortOrder
-    iModifyBy?: SortOrderInput | SortOrder
-    dtModifyAt?: SortOrderInput | SortOrder
-    employee?: EmployeeOrderByWithRelationInput
-    password?: PasswordOrderByWithRelationInput
-  }
-
-  export type AccountWhereUniqueInput = Prisma.AtLeast<{
-    iAccountID?: number
-    iEmployeeID?: number
-    AND?: AccountWhereInput | AccountWhereInput[]
-    OR?: AccountWhereInput[]
-    NOT?: AccountWhereInput | AccountWhereInput[]
-    iStatus?: IntFilter<"Account"> | number
-    iCreateBy?: IntNullableFilter<"Account"> | number | null
-    dtCreateAt?: DateTimeFilter<"Account"> | Date | string
-    iModifyBy?: IntNullableFilter<"Account"> | number | null
-    dtModifyAt?: DateTimeNullableFilter<"Account"> | Date | string | null
-    employee?: XOR<EmployeeScalarRelationFilter, EmployeeWhereInput>
-    password?: XOR<PasswordNullableScalarRelationFilter, PasswordWhereInput> | null
-  }, "iAccountID" | "iEmployeeID">
-
-  export type AccountOrderByWithAggregationInput = {
-    iAccountID?: SortOrder
-    iEmployeeID?: SortOrder
-    iStatus?: SortOrder
-    iCreateBy?: SortOrderInput | SortOrder
-    dtCreateAt?: SortOrder
-    iModifyBy?: SortOrderInput | SortOrder
-    dtModifyAt?: SortOrderInput | SortOrder
-    _count?: AccountCountOrderByAggregateInput
-    _avg?: AccountAvgOrderByAggregateInput
-    _max?: AccountMaxOrderByAggregateInput
-    _min?: AccountMinOrderByAggregateInput
-    _sum?: AccountSumOrderByAggregateInput
-  }
-
-  export type AccountScalarWhereWithAggregatesInput = {
-    AND?: AccountScalarWhereWithAggregatesInput | AccountScalarWhereWithAggregatesInput[]
-    OR?: AccountScalarWhereWithAggregatesInput[]
-    NOT?: AccountScalarWhereWithAggregatesInput | AccountScalarWhereWithAggregatesInput[]
-    iAccountID?: IntWithAggregatesFilter<"Account"> | number
-    iEmployeeID?: IntWithAggregatesFilter<"Account"> | number
-    iStatus?: IntWithAggregatesFilter<"Account"> | number
-    iCreateBy?: IntNullableWithAggregatesFilter<"Account"> | number | null
-    dtCreateAt?: DateTimeWithAggregatesFilter<"Account"> | Date | string
-    iModifyBy?: IntNullableWithAggregatesFilter<"Account"> | number | null
-    dtModifyAt?: DateTimeNullableWithAggregatesFilter<"Account"> | Date | string | null
-  }
-
-  export type PasswordWhereInput = {
-    AND?: PasswordWhereInput | PasswordWhereInput[]
-    OR?: PasswordWhereInput[]
-    NOT?: PasswordWhereInput | PasswordWhereInput[]
-    iPasswordID?: IntFilter<"Password"> | number
-    iAccountID?: IntFilter<"Password"> | number
-    sPassword?: StringFilter<"Password"> | string
-    iStatus?: IntFilter<"Password"> | number
-    iCreateBy?: IntNullableFilter<"Password"> | number | null
-    dtCreateAt?: DateTimeFilter<"Password"> | Date | string
-    iModifyBy?: IntNullableFilter<"Password"> | number | null
-    dtModifyAt?: DateTimeNullableFilter<"Password"> | Date | string | null
-    account?: XOR<AccountScalarRelationFilter, AccountWhereInput>
-  }
-
-  export type PasswordOrderByWithRelationInput = {
+  export type PasswordsOrderByWithRelationInput = {
     iPasswordID?: SortOrder
     iAccountID?: SortOrder
     sPassword?: SortOrder
-    iStatus?: SortOrder
+    iStatus?: SortOrderInput | SortOrder
     iCreateBy?: SortOrderInput | SortOrder
-    dtCreateAt?: SortOrder
+    dtCreateAt?: SortOrderInput | SortOrder
     iModifyBy?: SortOrderInput | SortOrder
     dtModifyAt?: SortOrderInput | SortOrder
-    account?: AccountOrderByWithRelationInput
+    Accounts?: AccountsOrderByWithRelationInput
   }
 
-  export type PasswordWhereUniqueInput = Prisma.AtLeast<{
+  export type PasswordsWhereUniqueInput = Prisma.AtLeast<{
     iPasswordID?: number
     iAccountID?: number
-    AND?: PasswordWhereInput | PasswordWhereInput[]
-    OR?: PasswordWhereInput[]
-    NOT?: PasswordWhereInput | PasswordWhereInput[]
-    sPassword?: StringFilter<"Password"> | string
-    iStatus?: IntFilter<"Password"> | number
-    iCreateBy?: IntNullableFilter<"Password"> | number | null
-    dtCreateAt?: DateTimeFilter<"Password"> | Date | string
-    iModifyBy?: IntNullableFilter<"Password"> | number | null
-    dtModifyAt?: DateTimeNullableFilter<"Password"> | Date | string | null
-    account?: XOR<AccountScalarRelationFilter, AccountWhereInput>
+    AND?: PasswordsWhereInput | PasswordsWhereInput[]
+    OR?: PasswordsWhereInput[]
+    NOT?: PasswordsWhereInput | PasswordsWhereInput[]
+    sPassword?: StringFilter<"Passwords"> | string
+    iStatus?: IntNullableFilter<"Passwords"> | number | null
+    iCreateBy?: IntNullableFilter<"Passwords"> | number | null
+    dtCreateAt?: DateTimeNullableFilter<"Passwords"> | Date | string | null
+    iModifyBy?: IntNullableFilter<"Passwords"> | number | null
+    dtModifyAt?: DateTimeNullableFilter<"Passwords"> | Date | string | null
+    Accounts?: XOR<AccountsScalarRelationFilter, AccountsWhereInput>
   }, "iPasswordID" | "iAccountID">
 
-  export type PasswordOrderByWithAggregationInput = {
+  export type PasswordsOrderByWithAggregationInput = {
     iPasswordID?: SortOrder
     iAccountID?: SortOrder
     sPassword?: SortOrder
-    iStatus?: SortOrder
+    iStatus?: SortOrderInput | SortOrder
     iCreateBy?: SortOrderInput | SortOrder
-    dtCreateAt?: SortOrder
+    dtCreateAt?: SortOrderInput | SortOrder
     iModifyBy?: SortOrderInput | SortOrder
     dtModifyAt?: SortOrderInput | SortOrder
-    _count?: PasswordCountOrderByAggregateInput
-    _avg?: PasswordAvgOrderByAggregateInput
-    _max?: PasswordMaxOrderByAggregateInput
-    _min?: PasswordMinOrderByAggregateInput
-    _sum?: PasswordSumOrderByAggregateInput
+    _count?: PasswordsCountOrderByAggregateInput
+    _avg?: PasswordsAvgOrderByAggregateInput
+    _max?: PasswordsMaxOrderByAggregateInput
+    _min?: PasswordsMinOrderByAggregateInput
+    _sum?: PasswordsSumOrderByAggregateInput
   }
 
-  export type PasswordScalarWhereWithAggregatesInput = {
-    AND?: PasswordScalarWhereWithAggregatesInput | PasswordScalarWhereWithAggregatesInput[]
-    OR?: PasswordScalarWhereWithAggregatesInput[]
-    NOT?: PasswordScalarWhereWithAggregatesInput | PasswordScalarWhereWithAggregatesInput[]
-    iPasswordID?: IntWithAggregatesFilter<"Password"> | number
-    iAccountID?: IntWithAggregatesFilter<"Password"> | number
-    sPassword?: StringWithAggregatesFilter<"Password"> | string
-    iStatus?: IntWithAggregatesFilter<"Password"> | number
-    iCreateBy?: IntNullableWithAggregatesFilter<"Password"> | number | null
-    dtCreateAt?: DateTimeWithAggregatesFilter<"Password"> | Date | string
-    iModifyBy?: IntNullableWithAggregatesFilter<"Password"> | number | null
-    dtModifyAt?: DateTimeNullableWithAggregatesFilter<"Password"> | Date | string | null
+  export type PasswordsScalarWhereWithAggregatesInput = {
+    AND?: PasswordsScalarWhereWithAggregatesInput | PasswordsScalarWhereWithAggregatesInput[]
+    OR?: PasswordsScalarWhereWithAggregatesInput[]
+    NOT?: PasswordsScalarWhereWithAggregatesInput | PasswordsScalarWhereWithAggregatesInput[]
+    iPasswordID?: IntWithAggregatesFilter<"Passwords"> | number
+    iAccountID?: IntWithAggregatesFilter<"Passwords"> | number
+    sPassword?: StringWithAggregatesFilter<"Passwords"> | string
+    iStatus?: IntNullableWithAggregatesFilter<"Passwords"> | number | null
+    iCreateBy?: IntNullableWithAggregatesFilter<"Passwords"> | number | null
+    dtCreateAt?: DateTimeNullableWithAggregatesFilter<"Passwords"> | Date | string | null
+    iModifyBy?: IntNullableWithAggregatesFilter<"Passwords"> | number | null
+    dtModifyAt?: DateTimeNullableWithAggregatesFilter<"Passwords"> | Date | string | null
   }
 
-  export type EmployeeCreateInput = {
+  export type AccountsCreateInput = {
+    iStatus?: number | null
+    iCreateBy?: number | null
+    dtCreateAt?: Date | string | null
+    iModifyBy?: number | null
+    dtModifyAt?: Date | string | null
+    Employees: EmployeesCreateNestedOneWithoutAccountsInput
+    Passwords?: PasswordsCreateNestedOneWithoutAccountsInput
+  }
+
+  export type AccountsUncheckedCreateInput = {
+    iAccountID?: number
+    iEmployeeID: number
+    iStatus?: number | null
+    iCreateBy?: number | null
+    dtCreateAt?: Date | string | null
+    iModifyBy?: number | null
+    dtModifyAt?: Date | string | null
+    Passwords?: PasswordsUncheckedCreateNestedOneWithoutAccountsInput
+  }
+
+  export type AccountsUpdateInput = {
+    iStatus?: NullableIntFieldUpdateOperationsInput | number | null
+    iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
+    dtCreateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
+    dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Employees?: EmployeesUpdateOneRequiredWithoutAccountsNestedInput
+    Passwords?: PasswordsUpdateOneWithoutAccountsNestedInput
+  }
+
+  export type AccountsUncheckedUpdateInput = {
+    iAccountID?: IntFieldUpdateOperationsInput | number
+    iEmployeeID?: IntFieldUpdateOperationsInput | number
+    iStatus?: NullableIntFieldUpdateOperationsInput | number | null
+    iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
+    dtCreateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
+    dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Passwords?: PasswordsUncheckedUpdateOneWithoutAccountsNestedInput
+  }
+
+  export type AccountsCreateManyInput = {
+    iAccountID?: number
+    iEmployeeID: number
+    iStatus?: number | null
+    iCreateBy?: number | null
+    dtCreateAt?: Date | string | null
+    iModifyBy?: number | null
+    dtModifyAt?: Date | string | null
+  }
+
+  export type AccountsUpdateManyMutationInput = {
+    iStatus?: NullableIntFieldUpdateOperationsInput | number | null
+    iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
+    dtCreateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
+    dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type AccountsUncheckedUpdateManyInput = {
+    iAccountID?: IntFieldUpdateOperationsInput | number
+    iEmployeeID?: IntFieldUpdateOperationsInput | number
+    iStatus?: NullableIntFieldUpdateOperationsInput | number | null
+    iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
+    dtCreateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
+    dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type EmployeesCreateInput = {
     sEmpID: string
     sFullName: string
     sEmail?: string | null
@@ -4999,15 +5069,15 @@ export namespace Prisma {
     dtHireDate?: Date | string | null
     iSafetyYet?: number | null
     dtLastSafetyTraining?: Date | string | null
-    iStatus?: number
+    iStatus?: number | null
     iCreateBy?: number | null
-    dtCreateAt?: Date | string
+    dtCreateAt?: Date | string | null
     iModifyBy?: number | null
     dtModifyAt?: Date | string | null
-    account?: AccountCreateNestedOneWithoutEmployeeInput
+    Accounts?: AccountsCreateNestedOneWithoutEmployeesInput
   }
 
-  export type EmployeeUncheckedCreateInput = {
+  export type EmployeesUncheckedCreateInput = {
     iEmployeeID?: number
     sEmpID: string
     sFullName: string
@@ -5017,15 +5087,15 @@ export namespace Prisma {
     dtHireDate?: Date | string | null
     iSafetyYet?: number | null
     dtLastSafetyTraining?: Date | string | null
-    iStatus?: number
+    iStatus?: number | null
     iCreateBy?: number | null
-    dtCreateAt?: Date | string
+    dtCreateAt?: Date | string | null
     iModifyBy?: number | null
     dtModifyAt?: Date | string | null
-    account?: AccountUncheckedCreateNestedOneWithoutEmployeeInput
+    Accounts?: AccountsUncheckedCreateNestedOneWithoutEmployeesInput
   }
 
-  export type EmployeeUpdateInput = {
+  export type EmployeesUpdateInput = {
     sEmpID?: StringFieldUpdateOperationsInput | string
     sFullName?: StringFieldUpdateOperationsInput | string
     sEmail?: NullableStringFieldUpdateOperationsInput | string | null
@@ -5034,15 +5104,15 @@ export namespace Prisma {
     dtHireDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     iSafetyYet?: NullableIntFieldUpdateOperationsInput | number | null
     dtLastSafetyTraining?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    iStatus?: IntFieldUpdateOperationsInput | number
+    iStatus?: NullableIntFieldUpdateOperationsInput | number | null
     iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtCreateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    dtCreateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
     dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    account?: AccountUpdateOneWithoutEmployeeNestedInput
+    Accounts?: AccountsUpdateOneWithoutEmployeesNestedInput
   }
 
-  export type EmployeeUncheckedUpdateInput = {
+  export type EmployeesUncheckedUpdateInput = {
     iEmployeeID?: IntFieldUpdateOperationsInput | number
     sEmpID?: StringFieldUpdateOperationsInput | string
     sFullName?: StringFieldUpdateOperationsInput | string
@@ -5052,15 +5122,15 @@ export namespace Prisma {
     dtHireDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     iSafetyYet?: NullableIntFieldUpdateOperationsInput | number | null
     dtLastSafetyTraining?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    iStatus?: IntFieldUpdateOperationsInput | number
+    iStatus?: NullableIntFieldUpdateOperationsInput | number | null
     iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtCreateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    dtCreateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
     dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    account?: AccountUncheckedUpdateOneWithoutEmployeeNestedInput
+    Accounts?: AccountsUncheckedUpdateOneWithoutEmployeesNestedInput
   }
 
-  export type EmployeeCreateManyInput = {
+  export type EmployeesCreateManyInput = {
     iEmployeeID?: number
     sEmpID: string
     sFullName: string
@@ -5070,14 +5140,14 @@ export namespace Prisma {
     dtHireDate?: Date | string | null
     iSafetyYet?: number | null
     dtLastSafetyTraining?: Date | string | null
-    iStatus?: number
+    iStatus?: number | null
     iCreateBy?: number | null
-    dtCreateAt?: Date | string
+    dtCreateAt?: Date | string | null
     iModifyBy?: number | null
     dtModifyAt?: Date | string | null
   }
 
-  export type EmployeeUpdateManyMutationInput = {
+  export type EmployeesUpdateManyMutationInput = {
     sEmpID?: StringFieldUpdateOperationsInput | string
     sFullName?: StringFieldUpdateOperationsInput | string
     sEmail?: NullableStringFieldUpdateOperationsInput | string | null
@@ -5086,14 +5156,14 @@ export namespace Prisma {
     dtHireDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     iSafetyYet?: NullableIntFieldUpdateOperationsInput | number | null
     dtLastSafetyTraining?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    iStatus?: IntFieldUpdateOperationsInput | number
+    iStatus?: NullableIntFieldUpdateOperationsInput | number | null
     iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtCreateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    dtCreateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
     dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type EmployeeUncheckedUpdateManyInput = {
+  export type EmployeesUncheckedUpdateManyInput = {
     iEmployeeID?: IntFieldUpdateOperationsInput | number
     sEmpID?: StringFieldUpdateOperationsInput | string
     sFullName?: StringFieldUpdateOperationsInput | string
@@ -5103,152 +5173,82 @@ export namespace Prisma {
     dtHireDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     iSafetyYet?: NullableIntFieldUpdateOperationsInput | number | null
     dtLastSafetyTraining?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    iStatus?: IntFieldUpdateOperationsInput | number
+    iStatus?: NullableIntFieldUpdateOperationsInput | number | null
     iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtCreateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    dtCreateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
     dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type AccountCreateInput = {
-    iStatus?: number
-    iCreateBy?: number | null
-    dtCreateAt?: Date | string
-    iModifyBy?: number | null
-    dtModifyAt?: Date | string | null
-    employee: EmployeeCreateNestedOneWithoutAccountInput
-    password?: PasswordCreateNestedOneWithoutAccountInput
-  }
-
-  export type AccountUncheckedCreateInput = {
-    iAccountID?: number
-    iEmployeeID: number
-    iStatus?: number
-    iCreateBy?: number | null
-    dtCreateAt?: Date | string
-    iModifyBy?: number | null
-    dtModifyAt?: Date | string | null
-    password?: PasswordUncheckedCreateNestedOneWithoutAccountInput
-  }
-
-  export type AccountUpdateInput = {
-    iStatus?: IntFieldUpdateOperationsInput | number
-    iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtCreateAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    employee?: EmployeeUpdateOneRequiredWithoutAccountNestedInput
-    password?: PasswordUpdateOneWithoutAccountNestedInput
-  }
-
-  export type AccountUncheckedUpdateInput = {
-    iAccountID?: IntFieldUpdateOperationsInput | number
-    iEmployeeID?: IntFieldUpdateOperationsInput | number
-    iStatus?: IntFieldUpdateOperationsInput | number
-    iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtCreateAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    password?: PasswordUncheckedUpdateOneWithoutAccountNestedInput
-  }
-
-  export type AccountCreateManyInput = {
-    iAccountID?: number
-    iEmployeeID: number
-    iStatus?: number
-    iCreateBy?: number | null
-    dtCreateAt?: Date | string
-    iModifyBy?: number | null
-    dtModifyAt?: Date | string | null
-  }
-
-  export type AccountUpdateManyMutationInput = {
-    iStatus?: IntFieldUpdateOperationsInput | number
-    iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtCreateAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type AccountUncheckedUpdateManyInput = {
-    iAccountID?: IntFieldUpdateOperationsInput | number
-    iEmployeeID?: IntFieldUpdateOperationsInput | number
-    iStatus?: IntFieldUpdateOperationsInput | number
-    iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtCreateAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type PasswordCreateInput = {
+  export type PasswordsCreateInput = {
     sPassword: string
-    iStatus?: number
+    iStatus?: number | null
     iCreateBy?: number | null
-    dtCreateAt?: Date | string
+    dtCreateAt?: Date | string | null
     iModifyBy?: number | null
     dtModifyAt?: Date | string | null
-    account: AccountCreateNestedOneWithoutPasswordInput
+    Accounts: AccountsCreateNestedOneWithoutPasswordsInput
   }
 
-  export type PasswordUncheckedCreateInput = {
+  export type PasswordsUncheckedCreateInput = {
     iPasswordID?: number
     iAccountID: number
     sPassword: string
-    iStatus?: number
+    iStatus?: number | null
     iCreateBy?: number | null
-    dtCreateAt?: Date | string
+    dtCreateAt?: Date | string | null
     iModifyBy?: number | null
     dtModifyAt?: Date | string | null
   }
 
-  export type PasswordUpdateInput = {
+  export type PasswordsUpdateInput = {
     sPassword?: StringFieldUpdateOperationsInput | string
-    iStatus?: IntFieldUpdateOperationsInput | number
+    iStatus?: NullableIntFieldUpdateOperationsInput | number | null
     iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtCreateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    dtCreateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
     dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    account?: AccountUpdateOneRequiredWithoutPasswordNestedInput
+    Accounts?: AccountsUpdateOneRequiredWithoutPasswordsNestedInput
   }
 
-  export type PasswordUncheckedUpdateInput = {
+  export type PasswordsUncheckedUpdateInput = {
     iPasswordID?: IntFieldUpdateOperationsInput | number
     iAccountID?: IntFieldUpdateOperationsInput | number
     sPassword?: StringFieldUpdateOperationsInput | string
-    iStatus?: IntFieldUpdateOperationsInput | number
+    iStatus?: NullableIntFieldUpdateOperationsInput | number | null
     iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtCreateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    dtCreateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
     dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type PasswordCreateManyInput = {
+  export type PasswordsCreateManyInput = {
     iPasswordID?: number
     iAccountID: number
     sPassword: string
-    iStatus?: number
+    iStatus?: number | null
     iCreateBy?: number | null
-    dtCreateAt?: Date | string
+    dtCreateAt?: Date | string | null
     iModifyBy?: number | null
     dtModifyAt?: Date | string | null
   }
 
-  export type PasswordUpdateManyMutationInput = {
+  export type PasswordsUpdateManyMutationInput = {
     sPassword?: StringFieldUpdateOperationsInput | string
-    iStatus?: IntFieldUpdateOperationsInput | number
+    iStatus?: NullableIntFieldUpdateOperationsInput | number | null
     iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtCreateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    dtCreateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
     dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type PasswordUncheckedUpdateManyInput = {
+  export type PasswordsUncheckedUpdateManyInput = {
     iPasswordID?: IntFieldUpdateOperationsInput | number
     iAccountID?: IntFieldUpdateOperationsInput | number
     sPassword?: StringFieldUpdateOperationsInput | string
-    iStatus?: IntFieldUpdateOperationsInput | number
+    iStatus?: NullableIntFieldUpdateOperationsInput | number | null
     iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtCreateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    dtCreateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
     dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -5262,6 +5262,135 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type EmployeesScalarRelationFilter = {
+    is?: EmployeesWhereInput
+    isNot?: EmployeesWhereInput
+  }
+
+  export type PasswordsNullableScalarRelationFilter = {
+    is?: PasswordsWhereInput | null
+    isNot?: PasswordsWhereInput | null
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
+  export type AccountsCountOrderByAggregateInput = {
+    iAccountID?: SortOrder
+    iEmployeeID?: SortOrder
+    iStatus?: SortOrder
+    iCreateBy?: SortOrder
+    dtCreateAt?: SortOrder
+    iModifyBy?: SortOrder
+    dtModifyAt?: SortOrder
+  }
+
+  export type AccountsAvgOrderByAggregateInput = {
+    iAccountID?: SortOrder
+    iEmployeeID?: SortOrder
+    iStatus?: SortOrder
+    iCreateBy?: SortOrder
+    iModifyBy?: SortOrder
+  }
+
+  export type AccountsMaxOrderByAggregateInput = {
+    iAccountID?: SortOrder
+    iEmployeeID?: SortOrder
+    iStatus?: SortOrder
+    iCreateBy?: SortOrder
+    dtCreateAt?: SortOrder
+    iModifyBy?: SortOrder
+    dtModifyAt?: SortOrder
+  }
+
+  export type AccountsMinOrderByAggregateInput = {
+    iAccountID?: SortOrder
+    iEmployeeID?: SortOrder
+    iStatus?: SortOrder
+    iCreateBy?: SortOrder
+    dtCreateAt?: SortOrder
+    iModifyBy?: SortOrder
+    dtModifyAt?: SortOrder
+  }
+
+  export type AccountsSumOrderByAggregateInput = {
+    iAccountID?: SortOrder
+    iEmployeeID?: SortOrder
+    iStatus?: SortOrder
+    iCreateBy?: SortOrder
+    iModifyBy?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -5294,50 +5423,12 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type DateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  export type AccountsNullableScalarRelationFilter = {
+    is?: AccountsWhereInput | null
+    isNot?: AccountsWhereInput | null
   }
 
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type DateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
-  export type AccountNullableScalarRelationFilter = {
-    is?: AccountWhereInput | null
-    isNot?: AccountWhereInput | null
-  }
-
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
-  }
-
-  export type EmployeeCountOrderByAggregateInput = {
+  export type EmployeesCountOrderByAggregateInput = {
     iEmployeeID?: SortOrder
     sEmpID?: SortOrder
     sFullName?: SortOrder
@@ -5354,7 +5445,7 @@ export namespace Prisma {
     dtModifyAt?: SortOrder
   }
 
-  export type EmployeeAvgOrderByAggregateInput = {
+  export type EmployeesAvgOrderByAggregateInput = {
     iEmployeeID?: SortOrder
     iSafetyYet?: SortOrder
     iStatus?: SortOrder
@@ -5362,24 +5453,7 @@ export namespace Prisma {
     iModifyBy?: SortOrder
   }
 
-  export type EmployeeMaxOrderByAggregateInput = {
-    iEmployeeID?: SortOrder
-    sEmpID?: SortOrder
-    sFullName?: SortOrder
-    sEmail?: SortOrder
-    sDepartment?: SortOrder
-    sRole?: SortOrder
-    dtHireDate?: SortOrder
-    iSafetyYet?: SortOrder
-    dtLastSafetyTraining?: SortOrder
-    iStatus?: SortOrder
-    iCreateBy?: SortOrder
-    dtCreateAt?: SortOrder
-    iModifyBy?: SortOrder
-    dtModifyAt?: SortOrder
-  }
-
-  export type EmployeeMinOrderByAggregateInput = {
+  export type EmployeesMaxOrderByAggregateInput = {
     iEmployeeID?: SortOrder
     sEmpID?: SortOrder
     sFullName?: SortOrder
@@ -5396,28 +5470,29 @@ export namespace Prisma {
     dtModifyAt?: SortOrder
   }
 
-  export type EmployeeSumOrderByAggregateInput = {
+  export type EmployeesMinOrderByAggregateInput = {
+    iEmployeeID?: SortOrder
+    sEmpID?: SortOrder
+    sFullName?: SortOrder
+    sEmail?: SortOrder
+    sDepartment?: SortOrder
+    sRole?: SortOrder
+    dtHireDate?: SortOrder
+    iSafetyYet?: SortOrder
+    dtLastSafetyTraining?: SortOrder
+    iStatus?: SortOrder
+    iCreateBy?: SortOrder
+    dtCreateAt?: SortOrder
+    iModifyBy?: SortOrder
+    dtModifyAt?: SortOrder
+  }
+
+  export type EmployeesSumOrderByAggregateInput = {
     iEmployeeID?: SortOrder
     iSafetyYet?: SortOrder
     iStatus?: SortOrder
     iCreateBy?: SortOrder
     iModifyBy?: SortOrder
-  }
-
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -5456,7 +5531,203 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+  export type AccountsScalarRelationFilter = {
+    is?: AccountsWhereInput
+    isNot?: AccountsWhereInput
+  }
+
+  export type PasswordsCountOrderByAggregateInput = {
+    iPasswordID?: SortOrder
+    iAccountID?: SortOrder
+    sPassword?: SortOrder
+    iStatus?: SortOrder
+    iCreateBy?: SortOrder
+    dtCreateAt?: SortOrder
+    iModifyBy?: SortOrder
+    dtModifyAt?: SortOrder
+  }
+
+  export type PasswordsAvgOrderByAggregateInput = {
+    iPasswordID?: SortOrder
+    iAccountID?: SortOrder
+    iStatus?: SortOrder
+    iCreateBy?: SortOrder
+    iModifyBy?: SortOrder
+  }
+
+  export type PasswordsMaxOrderByAggregateInput = {
+    iPasswordID?: SortOrder
+    iAccountID?: SortOrder
+    sPassword?: SortOrder
+    iStatus?: SortOrder
+    iCreateBy?: SortOrder
+    dtCreateAt?: SortOrder
+    iModifyBy?: SortOrder
+    dtModifyAt?: SortOrder
+  }
+
+  export type PasswordsMinOrderByAggregateInput = {
+    iPasswordID?: SortOrder
+    iAccountID?: SortOrder
+    sPassword?: SortOrder
+    iStatus?: SortOrder
+    iCreateBy?: SortOrder
+    dtCreateAt?: SortOrder
+    iModifyBy?: SortOrder
+    dtModifyAt?: SortOrder
+  }
+
+  export type PasswordsSumOrderByAggregateInput = {
+    iPasswordID?: SortOrder
+    iAccountID?: SortOrder
+    iStatus?: SortOrder
+    iCreateBy?: SortOrder
+    iModifyBy?: SortOrder
+  }
+
+  export type EmployeesCreateNestedOneWithoutAccountsInput = {
+    create?: XOR<EmployeesCreateWithoutAccountsInput, EmployeesUncheckedCreateWithoutAccountsInput>
+    connectOrCreate?: EmployeesCreateOrConnectWithoutAccountsInput
+    connect?: EmployeesWhereUniqueInput
+  }
+
+  export type PasswordsCreateNestedOneWithoutAccountsInput = {
+    create?: XOR<PasswordsCreateWithoutAccountsInput, PasswordsUncheckedCreateWithoutAccountsInput>
+    connectOrCreate?: PasswordsCreateOrConnectWithoutAccountsInput
+    connect?: PasswordsWhereUniqueInput
+  }
+
+  export type PasswordsUncheckedCreateNestedOneWithoutAccountsInput = {
+    create?: XOR<PasswordsCreateWithoutAccountsInput, PasswordsUncheckedCreateWithoutAccountsInput>
+    connectOrCreate?: PasswordsCreateOrConnectWithoutAccountsInput
+    connect?: PasswordsWhereUniqueInput
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
+  export type EmployeesUpdateOneRequiredWithoutAccountsNestedInput = {
+    create?: XOR<EmployeesCreateWithoutAccountsInput, EmployeesUncheckedCreateWithoutAccountsInput>
+    connectOrCreate?: EmployeesCreateOrConnectWithoutAccountsInput
+    upsert?: EmployeesUpsertWithoutAccountsInput
+    connect?: EmployeesWhereUniqueInput
+    update?: XOR<XOR<EmployeesUpdateToOneWithWhereWithoutAccountsInput, EmployeesUpdateWithoutAccountsInput>, EmployeesUncheckedUpdateWithoutAccountsInput>
+  }
+
+  export type PasswordsUpdateOneWithoutAccountsNestedInput = {
+    create?: XOR<PasswordsCreateWithoutAccountsInput, PasswordsUncheckedCreateWithoutAccountsInput>
+    connectOrCreate?: PasswordsCreateOrConnectWithoutAccountsInput
+    upsert?: PasswordsUpsertWithoutAccountsInput
+    disconnect?: PasswordsWhereInput | boolean
+    delete?: PasswordsWhereInput | boolean
+    connect?: PasswordsWhereUniqueInput
+    update?: XOR<XOR<PasswordsUpdateToOneWithWhereWithoutAccountsInput, PasswordsUpdateWithoutAccountsInput>, PasswordsUncheckedUpdateWithoutAccountsInput>
+  }
+
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type PasswordsUncheckedUpdateOneWithoutAccountsNestedInput = {
+    create?: XOR<PasswordsCreateWithoutAccountsInput, PasswordsUncheckedCreateWithoutAccountsInput>
+    connectOrCreate?: PasswordsCreateOrConnectWithoutAccountsInput
+    upsert?: PasswordsUpsertWithoutAccountsInput
+    disconnect?: PasswordsWhereInput | boolean
+    delete?: PasswordsWhereInput | boolean
+    connect?: PasswordsWhereUniqueInput
+    update?: XOR<XOR<PasswordsUpdateToOneWithWhereWithoutAccountsInput, PasswordsUpdateWithoutAccountsInput>, PasswordsUncheckedUpdateWithoutAccountsInput>
+  }
+
+  export type AccountsCreateNestedOneWithoutEmployeesInput = {
+    create?: XOR<AccountsCreateWithoutEmployeesInput, AccountsUncheckedCreateWithoutEmployeesInput>
+    connectOrCreate?: AccountsCreateOrConnectWithoutEmployeesInput
+    connect?: AccountsWhereUniqueInput
+  }
+
+  export type AccountsUncheckedCreateNestedOneWithoutEmployeesInput = {
+    create?: XOR<AccountsCreateWithoutEmployeesInput, AccountsUncheckedCreateWithoutEmployeesInput>
+    connectOrCreate?: AccountsCreateOrConnectWithoutEmployeesInput
+    connect?: AccountsWhereUniqueInput
+  }
+
+  export type StringFieldUpdateOperationsInput = {
+    set?: string
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
+  export type AccountsUpdateOneWithoutEmployeesNestedInput = {
+    create?: XOR<AccountsCreateWithoutEmployeesInput, AccountsUncheckedCreateWithoutEmployeesInput>
+    connectOrCreate?: AccountsCreateOrConnectWithoutEmployeesInput
+    upsert?: AccountsUpsertWithoutEmployeesInput
+    disconnect?: AccountsWhereInput | boolean
+    delete?: AccountsWhereInput | boolean
+    connect?: AccountsWhereUniqueInput
+    update?: XOR<XOR<AccountsUpdateToOneWithWhereWithoutEmployeesInput, AccountsUpdateWithoutEmployeesInput>, AccountsUncheckedUpdateWithoutEmployeesInput>
+  }
+
+  export type AccountsUncheckedUpdateOneWithoutEmployeesNestedInput = {
+    create?: XOR<AccountsCreateWithoutEmployeesInput, AccountsUncheckedCreateWithoutEmployeesInput>
+    connectOrCreate?: AccountsCreateOrConnectWithoutEmployeesInput
+    upsert?: AccountsUpsertWithoutEmployeesInput
+    disconnect?: AccountsWhereInput | boolean
+    delete?: AccountsWhereInput | boolean
+    connect?: AccountsWhereUniqueInput
+    update?: XOR<XOR<AccountsUpdateToOneWithWhereWithoutEmployeesInput, AccountsUpdateWithoutEmployeesInput>, AccountsUncheckedUpdateWithoutEmployeesInput>
+  }
+
+  export type AccountsCreateNestedOneWithoutPasswordsInput = {
+    create?: XOR<AccountsCreateWithoutPasswordsInput, AccountsUncheckedCreateWithoutPasswordsInput>
+    connectOrCreate?: AccountsCreateOrConnectWithoutPasswordsInput
+    connect?: AccountsWhereUniqueInput
+  }
+
+  export type AccountsUpdateOneRequiredWithoutPasswordsNestedInput = {
+    create?: XOR<AccountsCreateWithoutPasswordsInput, AccountsUncheckedCreateWithoutPasswordsInput>
+    connectOrCreate?: AccountsCreateOrConnectWithoutPasswordsInput
+    upsert?: AccountsUpsertWithoutPasswordsInput
+    connect?: AccountsWhereUniqueInput
+    update?: XOR<XOR<AccountsUpdateToOneWithWhereWithoutPasswordsInput, AccountsUpdateWithoutPasswordsInput>, AccountsUncheckedUpdateWithoutPasswordsInput>
+  }
+
+  export type NestedIntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
     notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -5464,13 +5735,37 @@ export namespace Prisma {
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
     notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -5486,263 +5781,29 @@ export namespace Prisma {
     _max?: NestedIntNullableFilter<$PrismaModel>
   }
 
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
-  export type EmployeeScalarRelationFilter = {
-    is?: EmployeeWhereInput
-    isNot?: EmployeeWhereInput
-  }
-
-  export type PasswordNullableScalarRelationFilter = {
-    is?: PasswordWhereInput | null
-    isNot?: PasswordWhereInput | null
-  }
-
-  export type AccountCountOrderByAggregateInput = {
-    iAccountID?: SortOrder
-    iEmployeeID?: SortOrder
-    iStatus?: SortOrder
-    iCreateBy?: SortOrder
-    dtCreateAt?: SortOrder
-    iModifyBy?: SortOrder
-    dtModifyAt?: SortOrder
-  }
-
-  export type AccountAvgOrderByAggregateInput = {
-    iAccountID?: SortOrder
-    iEmployeeID?: SortOrder
-    iStatus?: SortOrder
-    iCreateBy?: SortOrder
-    iModifyBy?: SortOrder
-  }
-
-  export type AccountMaxOrderByAggregateInput = {
-    iAccountID?: SortOrder
-    iEmployeeID?: SortOrder
-    iStatus?: SortOrder
-    iCreateBy?: SortOrder
-    dtCreateAt?: SortOrder
-    iModifyBy?: SortOrder
-    dtModifyAt?: SortOrder
-  }
-
-  export type AccountMinOrderByAggregateInput = {
-    iAccountID?: SortOrder
-    iEmployeeID?: SortOrder
-    iStatus?: SortOrder
-    iCreateBy?: SortOrder
-    dtCreateAt?: SortOrder
-    iModifyBy?: SortOrder
-    dtModifyAt?: SortOrder
-  }
-
-  export type AccountSumOrderByAggregateInput = {
-    iAccountID?: SortOrder
-    iEmployeeID?: SortOrder
-    iStatus?: SortOrder
-    iCreateBy?: SortOrder
-    iModifyBy?: SortOrder
-  }
-
-  export type AccountScalarRelationFilter = {
-    is?: AccountWhereInput
-    isNot?: AccountWhereInput
-  }
-
-  export type PasswordCountOrderByAggregateInput = {
-    iPasswordID?: SortOrder
-    iAccountID?: SortOrder
-    sPassword?: SortOrder
-    iStatus?: SortOrder
-    iCreateBy?: SortOrder
-    dtCreateAt?: SortOrder
-    iModifyBy?: SortOrder
-    dtModifyAt?: SortOrder
-  }
-
-  export type PasswordAvgOrderByAggregateInput = {
-    iPasswordID?: SortOrder
-    iAccountID?: SortOrder
-    iStatus?: SortOrder
-    iCreateBy?: SortOrder
-    iModifyBy?: SortOrder
-  }
-
-  export type PasswordMaxOrderByAggregateInput = {
-    iPasswordID?: SortOrder
-    iAccountID?: SortOrder
-    sPassword?: SortOrder
-    iStatus?: SortOrder
-    iCreateBy?: SortOrder
-    dtCreateAt?: SortOrder
-    iModifyBy?: SortOrder
-    dtModifyAt?: SortOrder
-  }
-
-  export type PasswordMinOrderByAggregateInput = {
-    iPasswordID?: SortOrder
-    iAccountID?: SortOrder
-    sPassword?: SortOrder
-    iStatus?: SortOrder
-    iCreateBy?: SortOrder
-    dtCreateAt?: SortOrder
-    iModifyBy?: SortOrder
-    dtModifyAt?: SortOrder
-  }
-
-  export type PasswordSumOrderByAggregateInput = {
-    iPasswordID?: SortOrder
-    iAccountID?: SortOrder
-    iStatus?: SortOrder
-    iCreateBy?: SortOrder
-    iModifyBy?: SortOrder
-  }
-
-  export type AccountCreateNestedOneWithoutEmployeeInput = {
-    create?: XOR<AccountCreateWithoutEmployeeInput, AccountUncheckedCreateWithoutEmployeeInput>
-    connectOrCreate?: AccountCreateOrConnectWithoutEmployeeInput
-    connect?: AccountWhereUniqueInput
-  }
-
-  export type AccountUncheckedCreateNestedOneWithoutEmployeeInput = {
-    create?: XOR<AccountCreateWithoutEmployeeInput, AccountUncheckedCreateWithoutEmployeeInput>
-    connectOrCreate?: AccountCreateOrConnectWithoutEmployeeInput
-    connect?: AccountWhereUniqueInput
-  }
-
-  export type StringFieldUpdateOperationsInput = {
-    set?: string
-  }
-
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
-  }
-
-  export type NullableDateTimeFieldUpdateOperationsInput = {
-    set?: Date | string | null
-  }
-
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
-  }
-
-  export type AccountUpdateOneWithoutEmployeeNestedInput = {
-    create?: XOR<AccountCreateWithoutEmployeeInput, AccountUncheckedCreateWithoutEmployeeInput>
-    connectOrCreate?: AccountCreateOrConnectWithoutEmployeeInput
-    upsert?: AccountUpsertWithoutEmployeeInput
-    disconnect?: AccountWhereInput | boolean
-    delete?: AccountWhereInput | boolean
-    connect?: AccountWhereUniqueInput
-    update?: XOR<XOR<AccountUpdateToOneWithWhereWithoutEmployeeInput, AccountUpdateWithoutEmployeeInput>, AccountUncheckedUpdateWithoutEmployeeInput>
-  }
-
-  export type AccountUncheckedUpdateOneWithoutEmployeeNestedInput = {
-    create?: XOR<AccountCreateWithoutEmployeeInput, AccountUncheckedCreateWithoutEmployeeInput>
-    connectOrCreate?: AccountCreateOrConnectWithoutEmployeeInput
-    upsert?: AccountUpsertWithoutEmployeeInput
-    disconnect?: AccountWhereInput | boolean
-    delete?: AccountWhereInput | boolean
-    connect?: AccountWhereUniqueInput
-    update?: XOR<XOR<AccountUpdateToOneWithWhereWithoutEmployeeInput, AccountUpdateWithoutEmployeeInput>, AccountUncheckedUpdateWithoutEmployeeInput>
-  }
-
-  export type EmployeeCreateNestedOneWithoutAccountInput = {
-    create?: XOR<EmployeeCreateWithoutAccountInput, EmployeeUncheckedCreateWithoutAccountInput>
-    connectOrCreate?: EmployeeCreateOrConnectWithoutAccountInput
-    connect?: EmployeeWhereUniqueInput
-  }
-
-  export type PasswordCreateNestedOneWithoutAccountInput = {
-    create?: XOR<PasswordCreateWithoutAccountInput, PasswordUncheckedCreateWithoutAccountInput>
-    connectOrCreate?: PasswordCreateOrConnectWithoutAccountInput
-    connect?: PasswordWhereUniqueInput
-  }
-
-  export type PasswordUncheckedCreateNestedOneWithoutAccountInput = {
-    create?: XOR<PasswordCreateWithoutAccountInput, PasswordUncheckedCreateWithoutAccountInput>
-    connectOrCreate?: PasswordCreateOrConnectWithoutAccountInput
-    connect?: PasswordWhereUniqueInput
-  }
-
-  export type EmployeeUpdateOneRequiredWithoutAccountNestedInput = {
-    create?: XOR<EmployeeCreateWithoutAccountInput, EmployeeUncheckedCreateWithoutAccountInput>
-    connectOrCreate?: EmployeeCreateOrConnectWithoutAccountInput
-    upsert?: EmployeeUpsertWithoutAccountInput
-    connect?: EmployeeWhereUniqueInput
-    update?: XOR<XOR<EmployeeUpdateToOneWithWhereWithoutAccountInput, EmployeeUpdateWithoutAccountInput>, EmployeeUncheckedUpdateWithoutAccountInput>
-  }
-
-  export type PasswordUpdateOneWithoutAccountNestedInput = {
-    create?: XOR<PasswordCreateWithoutAccountInput, PasswordUncheckedCreateWithoutAccountInput>
-    connectOrCreate?: PasswordCreateOrConnectWithoutAccountInput
-    upsert?: PasswordUpsertWithoutAccountInput
-    disconnect?: PasswordWhereInput | boolean
-    delete?: PasswordWhereInput | boolean
-    connect?: PasswordWhereUniqueInput
-    update?: XOR<XOR<PasswordUpdateToOneWithWhereWithoutAccountInput, PasswordUpdateWithoutAccountInput>, PasswordUncheckedUpdateWithoutAccountInput>
-  }
-
-  export type PasswordUncheckedUpdateOneWithoutAccountNestedInput = {
-    create?: XOR<PasswordCreateWithoutAccountInput, PasswordUncheckedCreateWithoutAccountInput>
-    connectOrCreate?: PasswordCreateOrConnectWithoutAccountInput
-    upsert?: PasswordUpsertWithoutAccountInput
-    disconnect?: PasswordWhereInput | boolean
-    delete?: PasswordWhereInput | boolean
-    connect?: PasswordWhereUniqueInput
-    update?: XOR<XOR<PasswordUpdateToOneWithWhereWithoutAccountInput, PasswordUpdateWithoutAccountInput>, PasswordUncheckedUpdateWithoutAccountInput>
-  }
-
-  export type AccountCreateNestedOneWithoutPasswordInput = {
-    create?: XOR<AccountCreateWithoutPasswordInput, AccountUncheckedCreateWithoutPasswordInput>
-    connectOrCreate?: AccountCreateOrConnectWithoutPasswordInput
-    connect?: AccountWhereUniqueInput
-  }
-
-  export type AccountUpdateOneRequiredWithoutPasswordNestedInput = {
-    create?: XOR<AccountCreateWithoutPasswordInput, AccountUncheckedCreateWithoutPasswordInput>
-    connectOrCreate?: AccountCreateOrConnectWithoutPasswordInput
-    upsert?: AccountUpsertWithoutPasswordInput
-    connect?: AccountWhereUniqueInput
-    update?: XOR<XOR<AccountUpdateToOneWithWhereWithoutPasswordInput, AccountUpdateWithoutPasswordInput>, AccountUncheckedUpdateWithoutPasswordInput>
-  }
-
-  export type NestedIntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -5771,66 +5832,6 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
-  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
-
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type NestedDateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
-  }
-
-  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
-  export type NestedFloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel>
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
   }
 
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
@@ -5867,116 +5868,7 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
-  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
-  }
-
-  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
-  export type NestedFloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
-  export type AccountCreateWithoutEmployeeInput = {
-    iStatus?: number
-    iCreateBy?: number | null
-    dtCreateAt?: Date | string
-    iModifyBy?: number | null
-    dtModifyAt?: Date | string | null
-    password?: PasswordCreateNestedOneWithoutAccountInput
-  }
-
-  export type AccountUncheckedCreateWithoutEmployeeInput = {
-    iAccountID?: number
-    iStatus?: number
-    iCreateBy?: number | null
-    dtCreateAt?: Date | string
-    iModifyBy?: number | null
-    dtModifyAt?: Date | string | null
-    password?: PasswordUncheckedCreateNestedOneWithoutAccountInput
-  }
-
-  export type AccountCreateOrConnectWithoutEmployeeInput = {
-    where: AccountWhereUniqueInput
-    create: XOR<AccountCreateWithoutEmployeeInput, AccountUncheckedCreateWithoutEmployeeInput>
-  }
-
-  export type AccountUpsertWithoutEmployeeInput = {
-    update: XOR<AccountUpdateWithoutEmployeeInput, AccountUncheckedUpdateWithoutEmployeeInput>
-    create: XOR<AccountCreateWithoutEmployeeInput, AccountUncheckedCreateWithoutEmployeeInput>
-    where?: AccountWhereInput
-  }
-
-  export type AccountUpdateToOneWithWhereWithoutEmployeeInput = {
-    where?: AccountWhereInput
-    data: XOR<AccountUpdateWithoutEmployeeInput, AccountUncheckedUpdateWithoutEmployeeInput>
-  }
-
-  export type AccountUpdateWithoutEmployeeInput = {
-    iStatus?: IntFieldUpdateOperationsInput | number
-    iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtCreateAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    password?: PasswordUpdateOneWithoutAccountNestedInput
-  }
-
-  export type AccountUncheckedUpdateWithoutEmployeeInput = {
-    iAccountID?: IntFieldUpdateOperationsInput | number
-    iStatus?: IntFieldUpdateOperationsInput | number
-    iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtCreateAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    password?: PasswordUncheckedUpdateOneWithoutAccountNestedInput
-  }
-
-  export type EmployeeCreateWithoutAccountInput = {
+  export type EmployeesCreateWithoutAccountsInput = {
     sEmpID: string
     sFullName: string
     sEmail?: string | null
@@ -5985,14 +5877,14 @@ export namespace Prisma {
     dtHireDate?: Date | string | null
     iSafetyYet?: number | null
     dtLastSafetyTraining?: Date | string | null
-    iStatus?: number
+    iStatus?: number | null
     iCreateBy?: number | null
-    dtCreateAt?: Date | string
+    dtCreateAt?: Date | string | null
     iModifyBy?: number | null
     dtModifyAt?: Date | string | null
   }
 
-  export type EmployeeUncheckedCreateWithoutAccountInput = {
+  export type EmployeesUncheckedCreateWithoutAccountsInput = {
     iEmployeeID?: number
     sEmpID: string
     sFullName: string
@@ -6002,54 +5894,54 @@ export namespace Prisma {
     dtHireDate?: Date | string | null
     iSafetyYet?: number | null
     dtLastSafetyTraining?: Date | string | null
-    iStatus?: number
+    iStatus?: number | null
     iCreateBy?: number | null
-    dtCreateAt?: Date | string
+    dtCreateAt?: Date | string | null
     iModifyBy?: number | null
     dtModifyAt?: Date | string | null
   }
 
-  export type EmployeeCreateOrConnectWithoutAccountInput = {
-    where: EmployeeWhereUniqueInput
-    create: XOR<EmployeeCreateWithoutAccountInput, EmployeeUncheckedCreateWithoutAccountInput>
+  export type EmployeesCreateOrConnectWithoutAccountsInput = {
+    where: EmployeesWhereUniqueInput
+    create: XOR<EmployeesCreateWithoutAccountsInput, EmployeesUncheckedCreateWithoutAccountsInput>
   }
 
-  export type PasswordCreateWithoutAccountInput = {
+  export type PasswordsCreateWithoutAccountsInput = {
     sPassword: string
-    iStatus?: number
+    iStatus?: number | null
     iCreateBy?: number | null
-    dtCreateAt?: Date | string
+    dtCreateAt?: Date | string | null
     iModifyBy?: number | null
     dtModifyAt?: Date | string | null
   }
 
-  export type PasswordUncheckedCreateWithoutAccountInput = {
+  export type PasswordsUncheckedCreateWithoutAccountsInput = {
     iPasswordID?: number
     sPassword: string
-    iStatus?: number
+    iStatus?: number | null
     iCreateBy?: number | null
-    dtCreateAt?: Date | string
+    dtCreateAt?: Date | string | null
     iModifyBy?: number | null
     dtModifyAt?: Date | string | null
   }
 
-  export type PasswordCreateOrConnectWithoutAccountInput = {
-    where: PasswordWhereUniqueInput
-    create: XOR<PasswordCreateWithoutAccountInput, PasswordUncheckedCreateWithoutAccountInput>
+  export type PasswordsCreateOrConnectWithoutAccountsInput = {
+    where: PasswordsWhereUniqueInput
+    create: XOR<PasswordsCreateWithoutAccountsInput, PasswordsUncheckedCreateWithoutAccountsInput>
   }
 
-  export type EmployeeUpsertWithoutAccountInput = {
-    update: XOR<EmployeeUpdateWithoutAccountInput, EmployeeUncheckedUpdateWithoutAccountInput>
-    create: XOR<EmployeeCreateWithoutAccountInput, EmployeeUncheckedCreateWithoutAccountInput>
-    where?: EmployeeWhereInput
+  export type EmployeesUpsertWithoutAccountsInput = {
+    update: XOR<EmployeesUpdateWithoutAccountsInput, EmployeesUncheckedUpdateWithoutAccountsInput>
+    create: XOR<EmployeesCreateWithoutAccountsInput, EmployeesUncheckedCreateWithoutAccountsInput>
+    where?: EmployeesWhereInput
   }
 
-  export type EmployeeUpdateToOneWithWhereWithoutAccountInput = {
-    where?: EmployeeWhereInput
-    data: XOR<EmployeeUpdateWithoutAccountInput, EmployeeUncheckedUpdateWithoutAccountInput>
+  export type EmployeesUpdateToOneWithWhereWithoutAccountsInput = {
+    where?: EmployeesWhereInput
+    data: XOR<EmployeesUpdateWithoutAccountsInput, EmployeesUncheckedUpdateWithoutAccountsInput>
   }
 
-  export type EmployeeUpdateWithoutAccountInput = {
+  export type EmployeesUpdateWithoutAccountsInput = {
     sEmpID?: StringFieldUpdateOperationsInput | string
     sFullName?: StringFieldUpdateOperationsInput | string
     sEmail?: NullableStringFieldUpdateOperationsInput | string | null
@@ -6058,14 +5950,14 @@ export namespace Prisma {
     dtHireDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     iSafetyYet?: NullableIntFieldUpdateOperationsInput | number | null
     dtLastSafetyTraining?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    iStatus?: IntFieldUpdateOperationsInput | number
+    iStatus?: NullableIntFieldUpdateOperationsInput | number | null
     iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtCreateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    dtCreateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
     dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type EmployeeUncheckedUpdateWithoutAccountInput = {
+  export type EmployeesUncheckedUpdateWithoutAccountsInput = {
     iEmployeeID?: IntFieldUpdateOperationsInput | number
     sEmpID?: StringFieldUpdateOperationsInput | string
     sFullName?: StringFieldUpdateOperationsInput | string
@@ -6075,93 +5967,147 @@ export namespace Prisma {
     dtHireDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     iSafetyYet?: NullableIntFieldUpdateOperationsInput | number | null
     dtLastSafetyTraining?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    iStatus?: IntFieldUpdateOperationsInput | number
+    iStatus?: NullableIntFieldUpdateOperationsInput | number | null
     iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtCreateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    dtCreateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
     dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type PasswordUpsertWithoutAccountInput = {
-    update: XOR<PasswordUpdateWithoutAccountInput, PasswordUncheckedUpdateWithoutAccountInput>
-    create: XOR<PasswordCreateWithoutAccountInput, PasswordUncheckedCreateWithoutAccountInput>
-    where?: PasswordWhereInput
+  export type PasswordsUpsertWithoutAccountsInput = {
+    update: XOR<PasswordsUpdateWithoutAccountsInput, PasswordsUncheckedUpdateWithoutAccountsInput>
+    create: XOR<PasswordsCreateWithoutAccountsInput, PasswordsUncheckedCreateWithoutAccountsInput>
+    where?: PasswordsWhereInput
   }
 
-  export type PasswordUpdateToOneWithWhereWithoutAccountInput = {
-    where?: PasswordWhereInput
-    data: XOR<PasswordUpdateWithoutAccountInput, PasswordUncheckedUpdateWithoutAccountInput>
+  export type PasswordsUpdateToOneWithWhereWithoutAccountsInput = {
+    where?: PasswordsWhereInput
+    data: XOR<PasswordsUpdateWithoutAccountsInput, PasswordsUncheckedUpdateWithoutAccountsInput>
   }
 
-  export type PasswordUpdateWithoutAccountInput = {
+  export type PasswordsUpdateWithoutAccountsInput = {
     sPassword?: StringFieldUpdateOperationsInput | string
-    iStatus?: IntFieldUpdateOperationsInput | number
+    iStatus?: NullableIntFieldUpdateOperationsInput | number | null
     iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtCreateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    dtCreateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
     dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type PasswordUncheckedUpdateWithoutAccountInput = {
+  export type PasswordsUncheckedUpdateWithoutAccountsInput = {
     iPasswordID?: IntFieldUpdateOperationsInput | number
     sPassword?: StringFieldUpdateOperationsInput | string
-    iStatus?: IntFieldUpdateOperationsInput | number
+    iStatus?: NullableIntFieldUpdateOperationsInput | number | null
     iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtCreateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    dtCreateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
     dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type AccountCreateWithoutPasswordInput = {
-    iStatus?: number
+  export type AccountsCreateWithoutEmployeesInput = {
+    iStatus?: number | null
     iCreateBy?: number | null
-    dtCreateAt?: Date | string
+    dtCreateAt?: Date | string | null
     iModifyBy?: number | null
     dtModifyAt?: Date | string | null
-    employee: EmployeeCreateNestedOneWithoutAccountInput
+    Passwords?: PasswordsCreateNestedOneWithoutAccountsInput
   }
 
-  export type AccountUncheckedCreateWithoutPasswordInput = {
+  export type AccountsUncheckedCreateWithoutEmployeesInput = {
+    iAccountID?: number
+    iStatus?: number | null
+    iCreateBy?: number | null
+    dtCreateAt?: Date | string | null
+    iModifyBy?: number | null
+    dtModifyAt?: Date | string | null
+    Passwords?: PasswordsUncheckedCreateNestedOneWithoutAccountsInput
+  }
+
+  export type AccountsCreateOrConnectWithoutEmployeesInput = {
+    where: AccountsWhereUniqueInput
+    create: XOR<AccountsCreateWithoutEmployeesInput, AccountsUncheckedCreateWithoutEmployeesInput>
+  }
+
+  export type AccountsUpsertWithoutEmployeesInput = {
+    update: XOR<AccountsUpdateWithoutEmployeesInput, AccountsUncheckedUpdateWithoutEmployeesInput>
+    create: XOR<AccountsCreateWithoutEmployeesInput, AccountsUncheckedCreateWithoutEmployeesInput>
+    where?: AccountsWhereInput
+  }
+
+  export type AccountsUpdateToOneWithWhereWithoutEmployeesInput = {
+    where?: AccountsWhereInput
+    data: XOR<AccountsUpdateWithoutEmployeesInput, AccountsUncheckedUpdateWithoutEmployeesInput>
+  }
+
+  export type AccountsUpdateWithoutEmployeesInput = {
+    iStatus?: NullableIntFieldUpdateOperationsInput | number | null
+    iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
+    dtCreateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
+    dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Passwords?: PasswordsUpdateOneWithoutAccountsNestedInput
+  }
+
+  export type AccountsUncheckedUpdateWithoutEmployeesInput = {
+    iAccountID?: IntFieldUpdateOperationsInput | number
+    iStatus?: NullableIntFieldUpdateOperationsInput | number | null
+    iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
+    dtCreateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
+    dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Passwords?: PasswordsUncheckedUpdateOneWithoutAccountsNestedInput
+  }
+
+  export type AccountsCreateWithoutPasswordsInput = {
+    iStatus?: number | null
+    iCreateBy?: number | null
+    dtCreateAt?: Date | string | null
+    iModifyBy?: number | null
+    dtModifyAt?: Date | string | null
+    Employees: EmployeesCreateNestedOneWithoutAccountsInput
+  }
+
+  export type AccountsUncheckedCreateWithoutPasswordsInput = {
     iAccountID?: number
     iEmployeeID: number
-    iStatus?: number
+    iStatus?: number | null
     iCreateBy?: number | null
-    dtCreateAt?: Date | string
+    dtCreateAt?: Date | string | null
     iModifyBy?: number | null
     dtModifyAt?: Date | string | null
   }
 
-  export type AccountCreateOrConnectWithoutPasswordInput = {
-    where: AccountWhereUniqueInput
-    create: XOR<AccountCreateWithoutPasswordInput, AccountUncheckedCreateWithoutPasswordInput>
+  export type AccountsCreateOrConnectWithoutPasswordsInput = {
+    where: AccountsWhereUniqueInput
+    create: XOR<AccountsCreateWithoutPasswordsInput, AccountsUncheckedCreateWithoutPasswordsInput>
   }
 
-  export type AccountUpsertWithoutPasswordInput = {
-    update: XOR<AccountUpdateWithoutPasswordInput, AccountUncheckedUpdateWithoutPasswordInput>
-    create: XOR<AccountCreateWithoutPasswordInput, AccountUncheckedCreateWithoutPasswordInput>
-    where?: AccountWhereInput
+  export type AccountsUpsertWithoutPasswordsInput = {
+    update: XOR<AccountsUpdateWithoutPasswordsInput, AccountsUncheckedUpdateWithoutPasswordsInput>
+    create: XOR<AccountsCreateWithoutPasswordsInput, AccountsUncheckedCreateWithoutPasswordsInput>
+    where?: AccountsWhereInput
   }
 
-  export type AccountUpdateToOneWithWhereWithoutPasswordInput = {
-    where?: AccountWhereInput
-    data: XOR<AccountUpdateWithoutPasswordInput, AccountUncheckedUpdateWithoutPasswordInput>
+  export type AccountsUpdateToOneWithWhereWithoutPasswordsInput = {
+    where?: AccountsWhereInput
+    data: XOR<AccountsUpdateWithoutPasswordsInput, AccountsUncheckedUpdateWithoutPasswordsInput>
   }
 
-  export type AccountUpdateWithoutPasswordInput = {
-    iStatus?: IntFieldUpdateOperationsInput | number
+  export type AccountsUpdateWithoutPasswordsInput = {
+    iStatus?: NullableIntFieldUpdateOperationsInput | number | null
     iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtCreateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    dtCreateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
     dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    employee?: EmployeeUpdateOneRequiredWithoutAccountNestedInput
+    Employees?: EmployeesUpdateOneRequiredWithoutAccountsNestedInput
   }
 
-  export type AccountUncheckedUpdateWithoutPasswordInput = {
+  export type AccountsUncheckedUpdateWithoutPasswordsInput = {
     iAccountID?: IntFieldUpdateOperationsInput | number
     iEmployeeID?: IntFieldUpdateOperationsInput | number
-    iStatus?: IntFieldUpdateOperationsInput | number
+    iStatus?: NullableIntFieldUpdateOperationsInput | number | null
     iCreateBy?: NullableIntFieldUpdateOperationsInput | number | null
-    dtCreateAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    dtCreateAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     iModifyBy?: NullableIntFieldUpdateOperationsInput | number | null
     dtModifyAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }

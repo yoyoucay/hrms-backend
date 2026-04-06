@@ -8,60 +8,44 @@ datasource db {
   provider = "postgresql"
 }
 
-model Employee {
-  iEmployeeID Int       @id @default(autoincrement())
-  sEmpID      String    @unique @db.VarChar(20)
-  sFullName   String    @db.VarChar(100)
-  sEmail      String?   @unique @db.VarChar(255)
-  sDepartment String?   @db.VarChar(50)
-  sRole       String?   @db.VarChar(50)
-  dtHireDate  DateTime? @default(now()) @db.Date
+model Accounts {
+  iAccountID  Int        @id @default(autoincrement())
+  iEmployeeID Int        @unique
+  iStatus     Int?       @default(1)
+  iCreateBy   Int?
+  dtCreateAt  DateTime?  @default(now()) @db.Timestamptz(6)
+  iModifyBy   Int?
+  dtModifyAt  DateTime?  @db.Timestamptz(6)
+  Employees   Employees  @relation(fields: [iEmployeeID], references: [iEmployeeID], onDelete: Cascade, onUpdate: NoAction)
+  Passwords   Passwords?
+}
 
-  // Safety Data
+model Employees {
+  iEmployeeID          Int       @id @default(autoincrement())
+  sEmpID               String    @unique @db.VarChar(20)
+  sFullName            String    @db.VarChar(100)
+  sEmail               String?   @unique @db.VarChar(255)
+  sDepartment          String?   @db.VarChar(50)
+  sRole                String?   @db.VarChar(50)
+  dtHireDate           DateTime? @default(dbgenerated("CURRENT_DATE")) @db.Date
   iSafetyYet           Int?      @default(0)
   dtLastSafetyTraining DateTime? @db.Date
-
-  // Tracking & Audit
-  iStatus    Int       @default(1)
-  iCreateBy  Int?
-  dtCreateAt DateTime  @default(now()) @db.Timestamptz
-  iModifyBy  Int?
-  dtModifyAt DateTime? @db.Timestamptz
-
-  account Account?
-
-  @@map("Employees")
+  iStatus              Int?      @default(1)
+  iCreateBy            Int?
+  dtCreateAt           DateTime? @default(now()) @db.Timestamptz(6)
+  iModifyBy            Int?
+  dtModifyAt           DateTime? @db.Timestamptz(6)
+  Accounts             Accounts?
 }
 
-model Account {
-  iAccountID  Int      @id @default(autoincrement())
-  iEmployeeID Int      @unique
-  employee    Employee @relation(fields: [iEmployeeID], references: [iEmployeeID], onDelete: Cascade)
-
-  // Tracking & Audit
-  iStatus    Int       @default(1)
-  iCreateBy  Int?
-  dtCreateAt DateTime  @default(now()) @db.Timestamptz
-  iModifyBy  Int?
-  dtModifyAt DateTime? @db.Timestamptz
-
-  password Password?
-
-  @@map("Accounts")
-}
-
-model Password {
-  iPasswordID Int     @id @default(autoincrement())
-  iAccountID  Int     @unique
-  account     Account @relation(fields: [iAccountID], references: [iAccountID], onDelete: Cascade)
+model Passwords {
+  iPasswordID Int       @id @default(autoincrement())
+  iAccountID  Int       @unique
   sPassword   String
-
-  // Tracking & Audit
-  iStatus    Int       @default(1)
-  iCreateBy  Int?
-  dtCreateAt DateTime  @default(now()) @db.Timestamptz
-  iModifyBy  Int?
-  dtModifyAt DateTime? @db.Timestamptz
-
-  @@map("Passwords")
+  iStatus     Int?      @default(1)
+  iCreateBy   Int?
+  dtCreateAt  DateTime? @default(now()) @db.Timestamptz(6)
+  iModifyBy   Int?
+  dtModifyAt  DateTime? @db.Timestamptz(6)
+  Accounts    Accounts  @relation(fields: [iAccountID], references: [iAccountID], onDelete: Cascade, onUpdate: NoAction)
 }
