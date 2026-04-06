@@ -1,43 +1,43 @@
--- Drop existing tables (order matters due to foreign keys)
-DROP TABLE IF EXISTS "Passwords";
-DROP TABLE IF EXISTS "Accounts";
-DROP TABLE IF EXISTS "Employees";
+📌 DATABASE STRUCTURE
+Tables are created with quoted identifiers to preserve casing in PostgreSQL.
 
--- Recreate with quoted identifiers to preserve casing
+## table "Employees"
 CREATE TABLE "Employees" (
-    "iEmployeeID" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "sEmpID" VARCHAR(20) UNIQUE NOT NULL,
-    "sFullName" VARCHAR(100) NOT NULL,
-    "sEmail" VARCHAR(255) UNIQUE,
-    "sDepartment" VARCHAR(50),
-    "sRole" VARCHAR(50),
-    "dtHireDate" DATE DEFAULT CURRENT_DATE,
-    "iSafetyYet" INTEGER DEFAULT 0,
-    "dtLastSafetyTraining" DATE,
-    "iStatus" INTEGER DEFAULT 1,
-    "iCreateBy" INTEGER,
-    "dtCreateAt" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    "iModifyBy" INTEGER,
-    "dtModifyAt" TIMESTAMP WITH TIME ZONE
+"iEmployeeID" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+"sEmpID" VARCHAR(20) UNIQUE NOT NULL,
+"sFullName" VARCHAR(100) NOT NULL,
+"sEmail" VARCHAR(255) UNIQUE,
+"sDepartment" VARCHAR(50),
+"sRole" VARCHAR(50),
+"dtHireDate" DATE DEFAULT CURRENT_DATE,
+"iSafetyYet" INTEGER DEFAULT 0,
+"dtLastSafetyTraining" DATE,
+"iStatus" INTEGER DEFAULT 1,
+"iCreateBy" INTEGER,
+"dtCreateAt" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+"iModifyBy" INTEGER,
+"dtModifyAt" TIMESTAMP WITH TIME ZONE
 );
 
+## table "Accounts"
 CREATE TABLE "Accounts" (
-    "iAccountID" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "iEmployeeID" INTEGER UNIQUE NOT NULL REFERENCES "Employees"("iEmployeeID") ON DELETE CASCADE,
-    "iStatus" INTEGER DEFAULT 1,
-    "iCreateBy" INTEGER,
-    "dtCreateAt" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    "iModifyBy" INTEGER,
-    "dtModifyAt" TIMESTAMP WITH TIME ZONE
+  "iAccountID" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  "iEmployeeID" INTEGER UNIQUE NOT NULL REFERENCES "Employees"("iEmployeeID") ON DELETE CASCADE,
+  "iStatus" INTEGER DEFAULT 1,
+  "iCreateBy" INTEGER,
+  "dtCreateAt" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+  "iModifyBy" INTEGER,
+  "dtModifyAt" TIMESTAMP WITH TIME ZONE
 );
 
+## table "Passwords"
 CREATE TABLE "Passwords" (
-    "iPasswordID" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    "iAccountID" INTEGER UNIQUE NOT NULL REFERENCES "Accounts"("iAccountID") ON DELETE CASCADE,
-    "sPassword" TEXT NOT NULL,
-    "iStatus" INTEGER DEFAULT 1,
-    "iCreateBy" INTEGER,
-    "dtCreateAt" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    "iModifyBy" INTEGER,
-    "dtModifyAt" TIMESTAMP WITH TIME ZONE
+  "iPasswordID" INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  "iAccountID" INTEGER UNIQUE NOT NULL REFERENCES "Accounts"("iAccountID") ON DELETE CASCADE,
+  "sPassword" TEXT NOT NULL,
+  "iStatus" INTEGER DEFAULT 1,
+  "iCreateBy" INTEGER,
+  "dtCreateAt" TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+  "iModifyBy" INTEGER,
+  "dtModifyAt" TIMESTAMP WITH TIME ZONE
 );
