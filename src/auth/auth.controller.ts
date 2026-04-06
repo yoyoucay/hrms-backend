@@ -41,7 +41,7 @@ export class AuthController {
 
   @Get('me')
   @UseGuards(JwtAuthGuard)
-  @ApiBearerAuth()
+  @ApiBearerAuth('access-token')
   @ApiOperation({ summary: 'Get current authenticated employee profile' })
   @ApiResponse({ status: 200, description: 'Profile returned successfully' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })

@@ -23,7 +23,7 @@ async function bootstrap() {
     .setTitle('HRMS API')
     .setDescription('Human Resource Management System — REST API')
     .setVersion('1.0')
-    .addBearerAuth() // Enables 🔒 lock icon in Swagger UI
+    .addBearerAuth() 
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

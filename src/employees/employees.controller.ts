@@ -1,3 +1,4 @@
+import { ApiBearerAuth, ApiOperation, ApiTags, ApiBody } from '@nestjs/swagger';
 import { Controller, Get, Post, Body, Param, Delete, UseGuards, ParseIntPipe } from '@nestjs/common';
 import { EmployeesService } from './employees.service';
 import { CreateEmployeeDto } from './dto/create-employee.dto';
@@ -23,8 +24,12 @@ export class EmployeesController {
     return this.employeesService.findOne(id);
   }
 
-  @Post()
+ @Post()
   @Roles('Admin', 'HR')
+  @ApiOperation({ summary: 'Create a new employee' })
+  // Swagger will automatically pick up CreateEmployeeDto, 
+  // but you can be explicit if you want a custom example:
+  @ApiBody({ type: CreateEmployeeDto }) 
   async create(
     @Body() createEmployeeDto: CreateEmployeeDto,
     @CurrentUser() user: JwtPayload,
