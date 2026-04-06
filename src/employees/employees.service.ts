@@ -1,7 +1,12 @@
-import { Injectable, ConflictException, NotFoundException } from '@nestjs/common';
+import {
+  Injectable,
+  ConflictException,
+  NotFoundException,
+} from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateEmployeeDto } from './dto/create-employee.dto';
 import type { Employees } from '../generated/prisma';
+import { UpdateEmployeeDto } from './dto/update-employee.dto';
 
 @Injectable()
 export class EmployeesService {
@@ -43,14 +48,38 @@ export class EmployeesService {
     });
   }
 
+  async update(
+    id: number,
+    data: UpdateEmployeeDto,
+    modifierId: number,
+  ): Promise<Employees> {
+    // Check if employee exists first to throw a clean 404
+    const employee = await this.prisma.employees.findUnique({
+      where: { iEmployeeID: id },
+    });
+
+    if (!employee) {
+      throw new NotFoundException(`Employee with ID ${id} not found`);
+    }
+
+    return this.prisma.employees.update({
+      where: { iEmployeeID: id },
+      data: {
+        ...data,
+        iModifyBy: modifierId,
+        dtModifyAt: new Date(), // Standard HRMS audit trail
+      },
+    });
+  }
+
   async remove(id: number, modifierId: number): Promise<void> {
     // Soft delete approach preferred in HRMS
     await this.prisma.employees.update({
       where: { iEmployeeID: id },
-      data: { 
+      data: {
         iStatus: 0,
         iModifyBy: modifierId,
-        dtModifyAt: new Date()
+        dtModifyAt: new Date(),
       },
     });
   }
@@ -66,7 +95,7 @@ export class EmployeesService {
 
     await this.prisma.employees.update({
       where: { iEmployeeID: id },
-      data: { 
+      data: {
         iStatus: 0,
         iModifyBy: modifierId,
         dtModifyAt: new Date(),
