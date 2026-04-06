@@ -1,0 +1,51 @@
+generator client {
+  provider        = "prisma-client-js"
+  output          = "../src/generated/prisma"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model accounts {
+  iaccountid  Int        @id @default(autoincrement())
+  iemployeeid Int        @unique
+  istatus     Int?       @default(1)
+  icreateby   Int?
+  dtcreateat  DateTime?  @default(now()) @db.Timestamptz(6)
+  imodifyby   Int?
+  dtmodifyat  DateTime?  @db.Timestamptz(6)
+  employees   employees  @relation(fields: [iemployeeid], references: [iemployeeid], onDelete: Cascade, onUpdate: NoAction)
+  passwords   passwords?
+}
+
+model employees {
+  iemployeeid          Int       @id @default(autoincrement())
+  sempid               String    @unique @db.VarChar(20)
+  sfullname            String    @db.VarChar(100)
+  semail               String?   @unique @db.VarChar(255)
+  sdepartment          String?   @db.VarChar(50)
+  srole                String?   @db.VarChar(50)
+  dthiredate           DateTime? @default(dbgenerated("CURRENT_DATE")) @db.Date
+  isafetyyet           Int?      @default(0)
+  dtlastsafetytraining DateTime? @db.Date
+  istatus              Int?      @default(1)
+  icreateby            Int?
+  dtcreateat           DateTime? @default(now()) @db.Timestamptz(6)
+  imodifyby            Int?
+  dtmodifyat           DateTime? @db.Timestamptz(6)
+  accounts             accounts?
+}
+
+model passwords {
+  ipasswordid Int       @id @default(autoincrement())
+  iaccountid  Int       @unique
+  spassword   String
+  istatus     Int?      @default(1)
+  icreateby   Int?
+  dtcreateat  DateTime? @default(now()) @db.Timestamptz(6)
+  imodifyby   Int?
+  dtmodifyat  DateTime? @db.Timestamptz(6)
+  accounts    accounts  @relation(fields: [iaccountid], references: [iaccountid], onDelete: Cascade, onUpdate: NoAction)
+}
